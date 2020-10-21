@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://media/demoVideo.webm" type="VideoStream" id=1]
+[ext_resource path="res://src/GameBeginning.gd" type="Script" id=2]
+
+[node name="GameBeginning" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 1 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+[connection signal="finished" from="CanvasLayer/VideoPlayer" to="." method="_on_VideoPlayer_finished"]

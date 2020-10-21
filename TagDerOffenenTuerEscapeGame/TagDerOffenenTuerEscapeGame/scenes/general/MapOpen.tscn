@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://graphics/MAP.png" type="Texture" id=1]
+[ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=2]
+[ext_resource path="res://src/Map.gd" type="Script" id=3]
+
+[node name="MapOpen" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="RoomSelect_TH_AULA" type="TouchScreenButton" parent="Sprite"]
+position = Vector2( -163.169, -211.195 )
+scale = Vector2( 0.115896, 0.118802 )
+normal = ExtResource( 2 )
+
+[node name="RoomSelect_TH_CLASS" type="TouchScreenButton" parent="Sprite"]
+position = Vector2( 18.3848, -168.291 )
+scale = Vector2( 0.151077, 0.154258 )
+normal = ExtResource( 2 )
+
+[node name="RoomSelect_TH_NAWI" type="TouchScreenButton" parent="Sprite"]
+position = Vector2( 42.4264, 103.238 )
+scale = Vector2( 0.133794, 0.153829 )
+normal = ExtResource( 2 )
+
+[node name="RoomSelect_TH_ADMIN" type="TouchScreenButton" parent="Sprite"]
+position = Vector2( -131.522, -16.9706 )
+scale = Vector2( 0.160311, 0.127902 )
+normal = ExtResource( 2 )
+
+[node name="RoomSelect_TH_GYM" type="TouchScreenButton" parent="Sprite"]
+position = Vector2( -175.362, 182.434 )
+scale = Vector2( 0.197434, 0.142044 )
+normal = ExtResource( 2 )
+
+[node name="RoomSelect_LB_MZW" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_LB_COM-LAB" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_LB_LAB" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_WS_ME" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_WS_WI" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_WS_FS" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_WS_MB" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_WS_GT" type="TouchScreenButton" parent="Sprite"]
+
+[node name="RoomSelect_WS_WM" type="TouchScreenButton" parent="Sprite"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 55.0
+margin_top = 262.0
+margin_right = 115.0
+margin_bottom = 285.0
+rect_scale = Vector2( 2, 2 )
+text = "05169"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Sprite/RoomSelect_TH_AULA" to="." method="_on_RoomSelect_TH_AULA_pressed"]
+[connection signal="pressed" from="Sprite/RoomSelect_TH_CLASS" to="." method="_on_RoomSelect_TH_CLASS_pressed"]
+[connection signal="pressed" from="Sprite/RoomSelect_TH_NAWI" to="." method="_on_RoomSelect_TH_NAWI_pressed"]
+[connection signal="pressed" from="Sprite/RoomSelect_TH_ADMIN" to="." method="_on_RoomSelect_TH_ADMIN_pressed"]
+[connection signal="pressed" from="Sprite/RoomSelect_TH_GYM" to="." method="_on_RoomSelect_TH_GYM_pressed"]
