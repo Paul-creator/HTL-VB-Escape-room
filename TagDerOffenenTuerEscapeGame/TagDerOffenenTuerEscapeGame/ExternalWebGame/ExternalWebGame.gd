@@ -4,7 +4,7 @@ func _ready():
 	showWebPage('HTL Vöcklabruck', 'https://www.htlvb.at')
 	
 func showWebPage(titel: String, url: String):
-	var path = "res://ExternalWebGame/javascript.tscn"
+	var path = "res://ExternalWebGame/javascript.tscn" #mit der.js file ist es doch nicht gegangen
 	var file = File.new()
 	print('exists: '+ str(file.file_exists(path)))
 	file.open(path, File.READ)
@@ -12,4 +12,3 @@ func showWebPage(titel: String, url: String):
 	file.close()
 	JavaScript.eval(js, true)
 	JavaScript.eval("showWebsite('%s', '%s')" % [titel, url], true)
-	
