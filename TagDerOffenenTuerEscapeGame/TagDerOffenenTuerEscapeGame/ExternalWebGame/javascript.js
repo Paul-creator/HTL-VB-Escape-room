@@ -25,10 +25,14 @@ function createElemt(elemntType, parent, style, attributes) {
  * @param {string} title The of the page
  * @param {string} url The url of the page
  */
-function showWebside(title, url) {
+function showWebsite(title, url) {
     let container = createElemt('div', document.body, [
         { key: "width", val: "100vw" },
         { key: "height", val: "100vh" },
+        { key: 'position', val: "absolute" },
+        { key: "top", val: "0px" },
+        { key: "text-align", val: "left" },
+        { key: "background", val: "lightgrey" },
     ], [
         { key: "id", val: "container" },
     ])
@@ -58,8 +62,6 @@ function showWebside(title, url) {
         { key: "border", val: "none" },
         { key: "position", val: "absolute" },
         { key: "right", val: "0px" },
-        { key: "border-radius", val: "100px" },
-        { key: "backgroundColor", val: "white" },
     ], [
         { key: "src", val: "/round_cancel_black_96dp.png" },
         {
@@ -82,5 +84,3 @@ function showWebside(title, url) {
         embeddedWebside.style.height = document.body.clientHeight - tobBarHeight - tobBarMarginBottom + 'px'
     })
 }
-
-showWebside('Titel', "http://www.htlvb.at")
