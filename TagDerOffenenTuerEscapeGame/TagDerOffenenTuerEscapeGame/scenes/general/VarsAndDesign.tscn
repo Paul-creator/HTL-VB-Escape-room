@@ -21,5 +21,6 @@ __meta__ = {
 
 [node name="OpenMapButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
 scale = Vector2( 0.295418, 0.164583 )
+z_index = 5
 normal = ExtResource( 1 )
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/OpenMapButton" to="." method="_on_OpenMapButton_pressed"]

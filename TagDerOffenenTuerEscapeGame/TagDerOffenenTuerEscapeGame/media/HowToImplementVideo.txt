@@ -1,0 +1,17 @@
+**************************
+*  Getting needed files  *
+**************************
+
+1) convert .mp4 file to .webm (vp8) file using ffmpeg (cmd):
+	ffmpeg -i <inputFileName>.mp4 -c:v libvpx -b:v 1M -c:a libvorbis <outputFileName>.webm
+2) converting resulting .webm file to .ogv file using convertio.co:
+	https://convertio.co/de/webm-ogv/
+3) Extracting audio from .webm file in .ogg format because else it would be played out of sync using media.io:
+	https://www.media.io/convert/webm-to-ogg.html
+
+**************************
+*  Configuring in Godot  *
+**************************
+
+1) Adding VideoPlayer and adding .ogv file as stream and enable autoplay.
+2) Add AudioStreamPlayer2D and set the .ogg sound file as stream and enable autoplay as well.

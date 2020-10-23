@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/RoomCAD_Layout.png" type="Texture" id=2]
 [ext_resource path="res://src/rooms/Room_TH_CAD.gd" type="Script" id=3]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=4]
+[ext_resource path="res://scenes/general/CADTableRow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/general/CADLargeTableRow.tscn" type="PackedScene" id=6]
 
 [node name="RoomCAD" type="Node2D"]
 script = ExtResource( 3 )
@@ -18,1057 +20,85 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TableRow" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 114.0
-margin_right = -819.0
-margin_bottom = -421.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow2" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 221.0
-margin_right = -819.0
-margin_bottom = -314.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow3" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 327.0
-margin_right = -819.0
-margin_bottom = -208.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow4" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 434.0
-margin_right = -819.0
-margin_bottom = -101.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow5" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 818.0
-margin_top = 114.0
-margin_right = -1.0
-margin_bottom = -421.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow6" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 818.0
-margin_top = 221.0
-margin_right = -1.0
-margin_bottom = -314.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow7" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 818.0
-margin_top = 327.0
-margin_right = -1.0
-margin_bottom = -208.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow8" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 818.0
-margin_top = 434.0
-margin_right = -1.0
-margin_bottom = -101.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow9" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 302.0
-margin_top = 114.0
-margin_right = -517.0
-margin_bottom = -421.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow9"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow10" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 302.0
-margin_top = 221.0
-margin_right = -517.0
-margin_bottom = -314.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow10"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow11" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 302.0
-margin_top = 327.0
-margin_right = -517.0
-margin_bottom = -208.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow11"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow12" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 302.0
-margin_top = 434.0
-margin_right = -517.0
-margin_bottom = -101.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow12"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow13" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 507.0
-margin_top = 114.0
-margin_right = -312.0
-margin_bottom = -421.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow13"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow13"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow13"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow13"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow13"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow13"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow14" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 507.0
-margin_top = 221.0
-margin_right = -312.0
-margin_bottom = -314.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow14"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow14"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow14"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow14"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow14"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow14"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow15" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 507.0
-margin_top = 327.0
-margin_right = -312.0
-margin_bottom = -208.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow15"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow15"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow15"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow15"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow15"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow15"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="TableRow16" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 507.0
-margin_top = 434.0
-margin_right = -312.0
-margin_bottom = -101.0
-color = Color( 0.909804, 0.909804, 0.909804, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Monitor" type="ColorRect" parent="RoomLayer/TableRow16"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 13.1272
-margin_right = -134.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard" type="ColorRect" parent="RoomLayer/TableRow16"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.00904
-margin_top = 27.1272
-margin_right = -134.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse" type="ColorRect" parent="RoomLayer/TableRow16"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 75.009
-margin_top = 29.1272
-margin_right = -123.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Monitor2" type="ColorRect" parent="RoomLayer/TableRow16"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 13.1272
-margin_right = -22.991
-margin_bottom = -46.8728
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
-
-[node name="Keyboard2" type="ColorRect" parent="RoomLayer/TableRow16"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 121.009
-margin_top = 27.1272
-margin_right = -22.991
-margin_bottom = -18.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
-
-[node name="Mouse2" type="ColorRect" parent="RoomLayer/TableRow16"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 187.009
-margin_top = 29.1272
-margin_right = -11.991
-margin_bottom = -25.8728
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
+[node name="TableRow" parent="RoomLayer" instance=ExtResource( 5 )]
+margin_top = 128.0
+margin_bottom = 193.0
+
+[node name="TableRow1" parent="RoomLayer" instance=ExtResource( 5 )]
+margin_top = 222.0
+margin_bottom = 287.0
+
+[node name="TableRow2" parent="RoomLayer" instance=ExtResource( 5 )]
+margin_top = 318.0
+margin_bottom = 383.0
+
+[node name="TableRow3" parent="RoomLayer" instance=ExtResource( 5 )]
+margin_top = 412.0
+margin_bottom = 477.0
+
+[node name="TableRow4" parent="RoomLayer" instance=ExtResource( 5 )]
+anchor_left = 0.8
+anchor_right = 1.0
+margin_left = -0.200012
+margin_top = 128.0
+margin_right = 0.0
+margin_bottom = 193.0
+
+[node name="TableRow5" parent="RoomLayer" instance=ExtResource( 5 )]
+anchor_left = 0.8
+anchor_right = 1.0
+margin_left = -0.200012
+margin_top = 222.0
+margin_right = 0.0
+margin_bottom = 287.0
+
+[node name="TableRow6" parent="RoomLayer" instance=ExtResource( 5 )]
+anchor_left = 0.8
+anchor_right = 1.0
+margin_left = -0.200012
+margin_top = 318.0
+margin_right = 0.0
+margin_bottom = 383.0
+
+[node name="TableRow7" parent="RoomLayer" instance=ExtResource( 5 )]
+anchor_left = 0.8
+anchor_right = 1.0
+margin_left = -0.200012
+margin_top = 412.0
+margin_right = 0.0
+margin_bottom = 477.0
+
+[node name="TableRow8" parent="RoomLayer" instance=ExtResource( 6 )]
+anchor_left = 0.305
+anchor_right = 0.705
+margin_left = -0.320007
+margin_top = 128.0
+margin_right = -0.119995
+margin_bottom = 193.0
+
+[node name="TableRow9" parent="RoomLayer" instance=ExtResource( 6 )]
+anchor_left = 0.305
+anchor_right = 0.705
+margin_left = -0.320007
+margin_top = 222.0
+margin_right = -0.119995
+margin_bottom = 287.0
+
+[node name="TableRow10" parent="RoomLayer" instance=ExtResource( 6 )]
+anchor_left = 0.305
+anchor_right = 0.705
+margin_left = -0.320007
+margin_top = 318.0
+margin_right = -0.119995
+margin_bottom = 383.0
+
+[node name="TableRow11" parent="RoomLayer" instance=ExtResource( 6 )]
+anchor_left = 0.305
+anchor_right = 0.705
+margin_left = -0.320007
+margin_top = 412.0
+margin_right = -0.119995
+margin_bottom = 477.0
 
 [node name="Plakat" type="ColorRect" parent="RoomLayer"]
 anchor_left = 0.5
@@ -1092,11 +122,18 @@ text = "LINK"
 align = 1
 valign = 1
 
+[node name="ClickedLinkToExtern" type="TouchScreenButton" parent="RoomLayer/Plakat"]
+position = Vector2( 0.899811, 0.720543 )
+scale = Vector2( 0.170663, 0.136154 )
+normal = ExtResource( 4 )
+
 [node name="Door" type="ColorRect" parent="RoomLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 938.0
-margin_top = 517.0
+margin_left = -86.0
+margin_top = -83.0
 margin_bottom = -5.0
 color = Color( 0.533333, 0.32549, 0, 1 )
 __meta__ = {
@@ -1148,11 +185,6 @@ visible = false
 [node name="RoomSelect_MAP" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 
-[node name="ClickedLinkToExtern" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 443.4, 0.720543 )
-scale = Vector2( 0.172847, 0.13336 )
-normal = ExtResource( 4 )
-
 [node name="RoomChangeFade" type="ColorRect" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
@@ -1175,4 +207,4 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
-[connection signal="released" from="CanvasLayer/ClickedLinkToExtern" to="." method="_on_ClickedLinkToExtern_released"]
+[connection signal="released" from="RoomLayer/Plakat/ClickedLinkToExtern" to="." method="_on_ClickedLinkToExtern_released"]
