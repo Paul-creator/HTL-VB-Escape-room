@@ -20,21 +20,6 @@ onready var rooms = [roomAula, roomClass, roomAdmin, roomNawi, roomGym, roomMzw,
 
 var wasInstancedRightNow := true
 
-func _on_RoomSelect_TH_AULA_pressed() -> void:
-	changeRoom(0)
-
-func _on_RoomSelect_TH_CLASS_pressed() -> void:
-	changeRoom(1)
-
-func _on_RoomSelect_TH_ADMIN_pressed() -> void:
-	changeRoom(2)
-
-func _on_RoomSelect_TH_NAWI_pressed() -> void:
-	changeRoom(3)
-
-func _on_RoomSelect_TH_GYM_pressed() -> void:
-	changeRoom(4)
-
 func changeRoom(roomId:int) -> void:
 	get_tree().change_scene_to(rooms[roomId])
 
@@ -50,3 +35,19 @@ func _input(event):
 				if get_tree().get_root().get_children()[0].get_node("CanvasLayer/VarsAndDesign") != null:
 					get_tree().get_root().get_children()[0].get_node("CanvasLayer/VarsAndDesign").canBePressed = true
 			else: wasInstancedRightNow = false
+
+
+func _on_RoomSelect_TH_AULA_released() -> void:
+	changeRoom(0)
+
+func _on_RoomSelect_TH_CLASS_released() -> void:
+	changeRoom(1)
+
+func _on_RoomSelect_TH_ADMIN_released() -> void:
+	changeRoom(2)
+
+func _on_RoomSelect_TH_NAWI_released() -> void:
+	changeRoom(3)
+
+func _on_RoomSelect_TH_GYM_released() -> void:
+	changeRoom(4)

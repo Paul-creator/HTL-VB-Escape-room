@@ -81,8 +81,8 @@ text = "05169"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Sprite/RoomSelect_TH_AULA" to="." method="_on_RoomSelect_TH_AULA_pressed"]
-[connection signal="pressed" from="Sprite/RoomSelect_TH_CLASS" to="." method="_on_RoomSelect_TH_CLASS_pressed"]
-[connection signal="pressed" from="Sprite/RoomSelect_TH_NAWI" to="." method="_on_RoomSelect_TH_NAWI_pressed"]
-[connection signal="pressed" from="Sprite/RoomSelect_TH_ADMIN" to="." method="_on_RoomSelect_TH_ADMIN_pressed"]
-[connection signal="pressed" from="Sprite/RoomSelect_TH_GYM" to="." method="_on_RoomSelect_TH_GYM_pressed"]
+[connection signal="released" from="Sprite/RoomSelect_TH_AULA" to="." method="_on_RoomSelect_TH_AULA_released"]
+[connection signal="released" from="Sprite/RoomSelect_TH_CLASS" to="." method="_on_RoomSelect_TH_CLASS_released"]
+[connection signal="released" from="Sprite/RoomSelect_TH_NAWI" to="." method="_on_RoomSelect_TH_NAWI_released"]
+[connection signal="released" from="Sprite/RoomSelect_TH_ADMIN" to="." method="_on_RoomSelect_TH_ADMIN_released"]
+[connection signal="released" from="Sprite/RoomSelect_TH_GYM" to="." method="_on_RoomSelect_TH_GYM_released"]
