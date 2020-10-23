@@ -26,6 +26,9 @@ function createElemt(elemntType, parent, style, attributes) {
  * @param {string} url The url of the page
  */
 function showWebsite(title, url) {
+    let tobBarHeight = 30
+    let tobBarMarginBottom = 0
+
     let container = createElemt('div', document.body, [
         { key: "width", val: "100vw" },
         { key: "height", val: "100vh" },
@@ -33,12 +36,27 @@ function showWebsite(title, url) {
         { key: "top", val: "0px" },
         { key: "text-align", val: "left" },
         { key: "background", val: "lightgrey" },
+        { key: "overflow", val: "hidden" },
     ], [
         { key: "id", val: "container" },
     ])
 
-    let tobBarHeight = 30
-    let tobBarMarginBottom = 2
+    var loadingTextFontSize = Math.floor(tobBarHeight * 1.5)
+    var loadingTextTop = window.innerHeight / 2
+    if (loadingTextTop < tobBarHeight) loadingTextTop = loadingTextTop
+    let loadingText = createElemt('div', container, [
+        { key: "width", val: "100vw" },
+        { key: 'position', val: "absolute" },
+        { key: "top", val: loadingTextTop+"px" },
+        { key: "font-size", val: loadingTextFontSize - 4 + 'px' },
+        { key: "overflow", val: "hidden" },
+        { key: "text-align", val: "center"},
+        { key: "z-positon", val: "-1"},
+    ], [
+        { key: "innerText", val: "Lädt..." },
+        { key: "id", val: "loadingText" },
+    ])
+    
     let topBar = createElemt('div', container, [
         { key: "width", val: "100vw" },
         { key: "height", val: tobBarHeight + 'px' },
@@ -48,8 +66,7 @@ function showWebsite(title, url) {
     let titel = createElemt('h1', topBar, [
         { key: "border", val: "none" },
         { key: "display", val: "inline" },
-        { key: "height", val: tobBarHeight + 'px' },
-        { key: "font-size", val: tobBarHeight + 'px' },
+        { key: "font-size", val: tobBarHeight - 4 + 'px' },
         { key: "margin-left", val: '2px' },
         { key: "font-family", val: "sans-serif" },
     ], [
@@ -66,21 +83,24 @@ function showWebsite(title, url) {
         { key: "src", val: "/round_cancel_black_96dp.png" },
         {
             key: "onclick", val: () => {
-                document.body.removeChild(document.getElementById(container.id))
+                container.parentElement.removeChild(document.getElementById(container.id))
             }
         },
     ])
 
     let embeddedWebside = createElemt('iframe', container, [
         { key: "width", val: "100vw" },
-        { key: "height", val: document.body.clientHeight - tobBarHeight - tobBarMarginBottom + 'px' },
+        { key: "height", val: window.innerHeight - tobBarHeight - tobBarMarginBottom + 'px' },
         { key: "border", val: "none" },
         { key: "align-self", val: "stretch" },
     ], [
         { key: "src", val: url },
+        { key: "onload", val: () => {
+            loadingText.parentElement.removeChild(document.getElementById(loadingText.id))
+        } },
     ])
 
     window.addEventListener("resize", () => {
-        embeddedWebside.style.height = document.body.clientHeight - tobBarHeight - tobBarMarginBottom + 'px'
+        embeddedWebside.style.height = window.innerHeight - tobBarHeight - tobBarMarginBottom + 'px'
     })
 }

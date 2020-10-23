@@ -8,11 +8,16 @@ func _ready() -> void:
 	centerScreen = get_viewport().get_visible_rect().size
 
 func showWebPage(titel: String, url: String):
-	var path = "res://ExternalWebGame/javascript.js"
+	var paths = [
+		"res://ExternalWebGame/index.js",
+	]
+
 	var file = File.new()
-	file.open(path, File.READ)
-	var js = file.get_as_text()
-	file.close()
+	var js = '' 
+	for path in paths:
+		file.open(path, File.READ)
+		js += file.get_as_text() + '\n'
+		file.close()
 	JavaScript.eval(js, true)
 	JavaScript.eval("showWebsite('%s', '%s')" % [titel, url], true)
 
