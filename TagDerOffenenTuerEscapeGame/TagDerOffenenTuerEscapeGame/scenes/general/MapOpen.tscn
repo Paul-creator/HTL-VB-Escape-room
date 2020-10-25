@@ -13,6 +13,7 @@ margin_left = -213.0
 margin_top = -275.0
 margin_right = 213.0
 margin_bottom = 370.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -20,7 +21,6 @@ __meta__ = {
 [node name="MapOpen" type="Sprite" parent="."]
 position = Vector2( 213, 322 )
 texture = ExtResource( 1 )
-script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MapOpen"]
 
@@ -95,8 +95,8 @@ text = "05169"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_AULA" to="MapOpen" method="_on_RoomSelect_TH_AULA_released"]
-[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_CLASS" to="MapOpen" method="_on_RoomSelect_TH_CLASS_released"]
-[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_NAWI" to="MapOpen" method="_on_RoomSelect_TH_NAWI_released"]
-[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_ADMIN" to="MapOpen" method="_on_RoomSelect_TH_ADMIN_released"]
-[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_GYM" to="MapOpen" method="_on_RoomSelect_TH_GYM_released"]
+[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_AULA" to="." method="_on_RoomSelect_TH_AULA_released"]
+[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_CLASS" to="." method="_on_RoomSelect_TH_CLASS_released"]
+[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_NAWI" to="." method="_on_RoomSelect_TH_NAWI_released"]
+[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_ADMIN" to="." method="_on_RoomSelect_TH_ADMIN_released"]
+[connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_GYM" to="." method="_on_RoomSelect_TH_GYM_released"]

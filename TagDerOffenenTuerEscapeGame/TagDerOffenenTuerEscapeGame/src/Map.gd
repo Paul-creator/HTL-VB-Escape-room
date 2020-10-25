@@ -1,4 +1,4 @@
-extends Sprite
+extends Control
 
 onready var roomAula = preload("res://scenes/rooms/Theory/Room_TH_AULA.tscn")
 onready var roomClass = preload("res://scenes/rooms/Theory/Room_TH_CLASS.tscn")
@@ -18,24 +18,28 @@ onready var roomWsWm = preload("res://scenes/rooms/Workshop/Room_WS_WM.tscn")
 onready var rooms = [roomAula, roomClass, roomAdmin, roomNawi, roomGym, roomMzw, roomComLab, 
 					roomLab, roomWsMe, roomWsWi, roomWsFs, roomWsMb, roomWsGt, roomWsWm]
 
+export var justForFunctions := false
+
 var wasInstancedRightNow := true
 
 func changeRoom(roomId:int) -> void:
 	get_tree().change_scene_to(rooms[roomId])
+	print(str("changed to ", rooms[roomId]))
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == true:
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == true and !justForFunctions:
 		var evLocal = make_input_local(event)
-		var scale = self.get_rect().size / Vector2(2,2) * Vector2(-1,-1)
-		if !Rect2(scale,self.get_rect().size).has_point(evLocal.position):
+		if !Rect2(Vector2(0,0),$MapOpen.get_rect().size).has_point(evLocal.position):
+			print(wasInstancedRightNow)
 			if !wasInstancedRightNow:
-				if get_tree().get_root().get_children()[0].get_node("CanvasLayer/BackgoundUnfocus") != null:
+				if get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer/BackgoundUnfocus") != null:
 					get_tree().get_root().get_children()[0].get_node("CanvasLayer/BackgoundUnfocus").color = Color(0,0,0,0)
 				queue_free()
-				if get_tree().get_root().get_children()[0].get_node("CanvasLayer/VarsAndDesign") != null:
+				if get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer/VarsAndDesign") != null:
 					get_tree().get_root().get_children()[0].get_node("CanvasLayer/VarsAndDesign").canBePressed = true
 			else: wasInstancedRightNow = false
-
+		else:
+			if wasInstancedRightNow: wasInstancedRightNow = false
 
 func _on_RoomSelect_TH_AULA_released() -> void:
 	changeRoom(0)
