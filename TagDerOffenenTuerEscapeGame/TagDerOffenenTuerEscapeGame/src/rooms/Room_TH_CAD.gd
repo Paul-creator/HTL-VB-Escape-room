@@ -6,11 +6,11 @@ onready var varsAndDesign = get_node("CanvasLayer/VarsAndDesign")
 onready var map = get_node("Map")
 
 func _on_ClickedLinkToExtern_released() -> void:
-	varsAndDesign.showWebPage("HTL Vöcklabruck", "https://www.htlvb.at/")
+	varsAndDesign.showWebPage("3D Modell betrachten", "https://beta.sharecad.org/Viewer#4ecae1a6-e5fc-44b1-9525-cfcfb0b43963880")
 
 func _on_MapCollection_released() -> void:
 	collectedMap = true
-	$RoomLayer/TableRow2/CollectableMap.queue_free()
+	$RoomLayer/CollectableMap.queue_free()
 
 func _on_ExitCADRoom_released() -> void:
 	if collectedMap == true:

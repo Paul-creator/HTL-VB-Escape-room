@@ -1,15 +1,285 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://graphics/timetable_1afmbm.png" type="Texture" id=2]
+[ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=3]
+[ext_resource path="res://src/rooms/Room_TH_CLASS.gd" type="Script" id=4]
+[ext_resource path="res://graphics/WelserBildungsmesse.png" type="Texture" id=5]
+[ext_resource path="res://graphics/timetable_1ahgti.png" type="Texture" id=6]
+[ext_resource path="res://graphics/MAP_placeholder.png" type="Texture" id=7]
+[ext_resource path="res://graphics/tableTop.jpg" type="Texture" id=8]
+[ext_resource path="res://graphics/timetable_1ahwii.png" type="Texture" id=9]
+[ext_resource path="res://graphics/timetable_1ahwim.png" type="Texture" id=10]
+[ext_resource path="res://graphics/timetable_1ahmbt.png" type="Texture" id=11]
+[ext_resource path="res://graphics/timetable_1ahme.png" type="Texture" id=12]
 
 [node name="RoomCLASS" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+[node name="DialogBox" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.48 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="VarsAndDesign" parent="CanvasLayer" instance=ExtResource( 1 )]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -260.0
+margin_top = -153.0
+margin_right = 260.0
+margin_bottom = 153.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.5
+margin_top = -148.5
+margin_right = 255.5
+margin_bottom = 148.5
+color = Color( 0.866667, 0.866667, 0.866667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -246.5
+margin_top = -137.0
+margin_right = 246.5
+margin_bottom = 137.0
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/DialogBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 157.0
+margin_top = 104.0
+margin_right = 240.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/DialogBox/ColorRect3"]
+scale = Vector2( 0.104191, 0.0494545 )
+normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CanvasLayer/DialogBox/ColorRect3"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "OK"
+align = 1
+valign = 1
+
+[node name="BackgroundUnfocus" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="VarsAndDesign" parent="CanvasLayer2" instance=ExtResource( 1 )]
+
+[node name="BackButton" type="Sprite" parent="CanvasLayer2"]
+visible = false
+position = Vector2( 61, 535 )
+scale = Vector2( 0.150235, 0.102484 )
+texture = ExtResource( 7 )
+
+[node name="TouchBackButton" type="TouchScreenButton" parent="CanvasLayer2/BackButton"]
+position = Vector2( -209.765, -324.906 )
+scale = Vector2( 0.530008, 1.08703 )
+normal = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
+
+[node name="tableTop" type="Sprite" parent="."]
+position = Vector2( 512.222, 308.237 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 8 )
+
+[node name="SpecialitiesSelection" type="Sprite" parent="."]
+position = Vector2( 512.053, 300.107 )
+scale = Vector2( 1.27651, 1.05259 )
+texture = ExtResource( 5 )
+
+[node name="buttonFS" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( 187.659, -284.017 )
+scale = Vector2( 0.113623, 0.918637 )
+z_index = -5
+normal = ExtResource( 3 )
+
+[node name="buttonGT" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( -269.216, -284.68 )
+scale = Vector2( 0.113623, 0.918637 )
+normal = ExtResource( 3 )
+
+[node name="buttonMB" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( -392.881, -284.68 )
+scale = Vector2( 0.115698, 0.918637 )
+normal = ExtResource( 3 )
+
+[node name="buttonWM" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( -148.041, -284.68 )
+scale = Vector2( 0.116735, 0.918637 )
+normal = ExtResource( 3 )
+
+[node name="buttonWI" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( -29.3551, -284.68 )
+scale = Vector2( 0.112585, 0.918637 )
+normal = ExtResource( 3 )
+
+[node name="buttonME" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( 76.0508, -284.68 )
+scale = Vector2( 0.117773, 0.918637 )
+normal = ExtResource( 3 )
+
+[node name="timetable_1afmbm" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 420 )
+rotation = -0.10821
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="timetable_1afmbm"]
+position = Vector2( -156.38, -371.541 )
+scale = Vector2( 0.156757, 0.0953679 )
+normal = ExtResource( 3 )
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="timetable_1afmbm"]
+position = Vector2( 216.278, -426.542 )
+scale = Vector2( 0.155354, 0.186152 )
+normal = ExtResource( 3 )
+
+[node name="timetable_1ahgti" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 420 )
+rotation = -0.10821
+scale = Vector2( 0.89, 0.89 )
+texture = ExtResource( 6 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="timetable_1ahgti"]
+position = Vector2( -249.949, -81.8106 )
+scale = Vector2( 0.138626, 0.166273 )
+normal = ExtResource( 3 )
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="timetable_1ahgti"]
+position = Vector2( -138.446, -383.738 )
+scale = Vector2( 0.13833, 0.165921 )
+normal = ExtResource( 3 )
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="timetable_1ahgti"]
+position = Vector2( -27.3776, -283.277 )
+scale = Vector2( 0.138149, 0.082396 )
+normal = ExtResource( 3 )
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="timetable_1ahgti"]
+position = Vector2( 84.3139, -384.231 )
+scale = Vector2( 0.138505, 0.0833553 )
+normal = ExtResource( 3 )
+
+[node name="timetable_1ahmbt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 420 )
+rotation = -0.10821
+scale = Vector2( 0.89, 0.89 )
+texture = ExtResource( 11 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="timetable_1ahmbt"]
+position = Vector2( -138.838, -384.145 )
+scale = Vector2( 0.138094, 0.0831866 )
+normal = ExtResource( 3 )
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="timetable_1ahmbt"]
+position = Vector2( 83.7323, -283.005 )
+scale = Vector2( 0.138985, 0.0823004 )
+normal = ExtResource( 3 )
+
+[node name="timetable_1ahme" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 420 )
+rotation = -0.10821
+scale = Vector2( 0.89, 0.89 )
+texture = ExtResource( 12 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="timetable_1ahme"]
+position = Vector2( -28.6553, -184.152 )
+scale = Vector2( 0.141154, 0.172326 )
+normal = ExtResource( 3 )
+
+[node name="timetable_1ahwii" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 420 )
+rotation = -0.10821
+scale = Vector2( 0.89, 0.89 )
+texture = ExtResource( 9 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="timetable_1ahwii"]
+position = Vector2( -249.949, -81.8106 )
+scale = Vector2( 0.138626, 0.166273 )
+normal = ExtResource( 3 )
+
+[node name="timetable_1ahwim" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 420 )
+rotation = -0.10821
+scale = Vector2( 0.89, 0.89 )
+texture = ExtResource( 10 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="timetable_1ahwim"]
+position = Vector2( -138.446, -383.738 )
+scale = Vector2( 0.13833, 0.0819313 )
+normal = ExtResource( 3 )
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="timetable_1ahwim"]
+position = Vector2( 84.3139, -384.231 )
+scale = Vector2( 0.138505, 0.0833553 )
+normal = ExtResource( 3 )
+[connection signal="pressed" from="CanvasLayer/DialogBox/ColorRect3/TouchScreenButton" to="." method="_on_DialogClose_pressed"]
+[connection signal="released" from="CanvasLayer2/BackButton/TouchBackButton" to="." method="_on_TouchBackButton_released"]
+[connection signal="released" from="SpecialitiesSelection/buttonFS" to="." method="_on_FS_category_released"]
+[connection signal="released" from="SpecialitiesSelection/buttonGT" to="." method="_on_GT_category_released"]
+[connection signal="released" from="SpecialitiesSelection/buttonMB" to="." method="_on_MB_category_released"]
+[connection signal="released" from="SpecialitiesSelection/buttonWM" to="." method="_on_WM_category_released"]
+[connection signal="released" from="SpecialitiesSelection/buttonWI" to="." method="_on_WI_category_released"]
+[connection signal="released" from="SpecialitiesSelection/buttonME" to="." method="_on_ME_category_released"]
+[connection signal="pressed" from="timetable_1afmbm/TouchScreenButton" to="." method="_on_mbm_subj_pressed"]
+[connection signal="pressed" from="timetable_1afmbm/TouchScreenButton2" to="." method="_on_mbm_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahgti/TouchScreenButton" to="." method="_on_gti_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahgti/TouchScreenButton2" to="." method="_on_gti_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahgti/TouchScreenButton3" to="." method="_on_gti_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahgti/TouchScreenButton4" to="." method="_on_gti_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahmbt/TouchScreenButton" to="." method="_on_mbt_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahmbt/TouchScreenButton2" to="." method="_on_mbt_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahme/TouchScreenButton" to="." method="_on_me_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahwii/TouchScreenButton" to="." method="_on_wii_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahwim/TouchScreenButton" to="." method="_on_wim_subj_pressed"]
+[connection signal="pressed" from="timetable_1ahwim/TouchScreenButton2" to="." method="_on_wim_subj_pressed"]

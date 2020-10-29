@@ -25,9 +25,13 @@ func showWebPage(titel: String, url: String):
 func _on_OpenMapButton_pressed() -> void:
 	if canBePressed:
 		canBePressed = false
-		if get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer/BackgoundUnfocus") != null:
-			get_tree().get_root().get_children()[0].get_node("CanvasLayer/BackgoundUnfocus").color = Color(0,0,0,0.48)
+		if get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:
+			get_tree().get_root().get_children()[0].get_node("CanvasLayer/BackgroundUnfocus").color = Color(0,0,0,0.48)
 		var loadedMap = map.instance()
-#		loadedMap.position = get_viewport().get_visible_rect().size / Vector2(2,2)
-		loadedMap.rect_scale = Vector2(0.85, 0.85)
+		loadedMap.rect_scale = Vector2(0.65, 0.65)
+		loadedMap.anchor_left = 0.5
+		loadedMap.anchor_right = 0.5
+		loadedMap.anchor_top = 0.5
+		loadedMap.anchor_bottom = 0.5
+		loadedMap.rect_position = Vector2(-loadedMap.rect_size.x/3,-loadedMap.rect_size.y/3)
 		get_tree().get_root().get_children()[0].get_node("CanvasLayer").add_child(loadedMap)

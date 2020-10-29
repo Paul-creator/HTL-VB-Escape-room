@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Map.png-fd17ffab578358ae93f34091657a0782.stex"
+path="res://.import/timetable_1ahwim.png-f77a9a9a51744fbabace2232f1596d6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Map.png"
-dest_files=[ "res://.import/Map.png-fd17ffab578358ae93f34091657a0782.stex" ]
+source_file="res://graphics/timetable_1ahwim.png"
+dest_files=[ "res://.import/timetable_1ahwim.png-f77a9a9a51744fbabace2232f1596d6c.stex" ]
 
 [params]
 

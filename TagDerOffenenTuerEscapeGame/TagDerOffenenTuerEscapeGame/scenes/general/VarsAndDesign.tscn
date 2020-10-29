@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://graphics/MAP.png" type="Texture" id=1]
+[ext_resource path="res://graphics/Map.png" type="Texture" id=1]
 [ext_resource path="res://src/VarsAndDesign.gd" type="Script" id=2]
 
 [node name="VarsAndDesign" type="Node2D"]
+z_index = -5
 script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -21,7 +22,8 @@ __meta__ = {
 }
 
 [node name="OpenMapButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
-scale = Vector2( 0.295418, 0.164583 )
-z_index = 5
+position = Vector2( 17.9928, 17.4053 )
+scale = Vector2( 0.0995822, 0.0960554 )
+z_index = -5
 normal = ExtResource( 1 )
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/OpenMapButton" to="." method="_on_OpenMapButton_pressed"]
