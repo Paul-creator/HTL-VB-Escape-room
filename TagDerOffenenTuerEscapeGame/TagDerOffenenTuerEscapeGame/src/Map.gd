@@ -27,7 +27,7 @@ func changeRoom(roomId:int) -> void:
 	print(str("changed to ", rooms[roomId]))
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == true and !justForFunctions:
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and !justForFunctions:
 		var evLocal = make_input_local(event)
 		if !Rect2(Vector2(0,0),$MapOpen.get_rect().size).has_point(evLocal.position):
 			print(wasInstancedRightNow)

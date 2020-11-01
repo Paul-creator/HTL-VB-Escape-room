@@ -6,7 +6,7 @@
 [ext_resource path="res://src/rooms/Room_TH_CLASS.gd" type="Script" id=4]
 [ext_resource path="res://graphics/WelserBildungsmesse.png" type="Texture" id=5]
 [ext_resource path="res://graphics/timetable_1ahgti.png" type="Texture" id=6]
-[ext_resource path="res://graphics/MAP_placeholder.png" type="Texture" id=7]
+[ext_resource path="res://graphics/red_back_arrow.png" type="Texture" id=7]
 [ext_resource path="res://graphics/tableTop.jpg" type="Texture" id=8]
 [ext_resource path="res://graphics/timetable_1ahwii.png" type="Texture" id=9]
 [ext_resource path="res://graphics/timetable_1ahwim.png" type="Texture" id=10]
@@ -108,8 +108,8 @@ __meta__ = {
 
 [node name="BackButton" type="Sprite" parent="CanvasLayer2"]
 visible = false
-position = Vector2( 61, 535 )
-scale = Vector2( 0.150235, 0.102484 )
+position = Vector2( 56, 549 )
+scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 7 )
 
 [node name="TouchBackButton" type="TouchScreenButton" parent="CanvasLayer2/BackButton"]

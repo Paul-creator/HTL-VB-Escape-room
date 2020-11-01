@@ -86,17 +86,19 @@ normal = ExtResource( 2 )
 
 [node name="RoomSelect_WS_WM" type="TouchScreenButton" parent="MapOpen/Sprite"]
 
-[node name="TextEdit" type="TextEdit" parent="MapOpen"]
+[node name="TextEdit" type="LineEdit" parent="MapOpen"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -900.0
+margin_left = -899.0
 margin_top = -551.0
-margin_right = -845.0
-margin_bottom = -528.0
+margin_right = -841.0
+margin_bottom = -527.0
 rect_scale = Vector2( 2, 2 )
-text = "05169"
+align = 1
+max_length = 5
+placeholder_text = "00000"
 __meta__ = {
 "_edit_use_anchors_": false
 }

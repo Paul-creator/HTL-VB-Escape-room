@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/MessageViewer.gd" type="Script" id=2]
+[ext_resource path="res://src/Chatbot.gd" type="Script" id=3]
+[ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=4]
+[ext_resource path="res://graphics/red_back_arrow.png" type="Texture" id=5]
+[ext_resource path="res://scenes/general/ChatBubble.tscn" type="PackedScene" id=6]
+
+[node name="Chatbot" type="Node2D"]
+scale = Vector2( 0.01, 0.01 )
+script = ExtResource( 3 )
+botBubbleColor = Color( 0.211765, 0.501961, 1, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BackgroundUnfocus" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.92549, 0.92549, 0.92549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptiveText" type="RichTextLabel" parent="CanvasLayer2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -66.0
+margin_right = 664.0
+margin_bottom = 66.0
+bbcode_enabled = true
+bbcode_text = "
+[color=#a4a4a4][center]SEKRETARIAT
+CHAT-BOT v1.2
+
+Benutzen Sie das Eingabefeld unten rechts,
+um Nachrichten szu versenden
+
+Danke.[/center][/color]"
+text = "
+SEKRETARIAT
+CHAT-BOT v1.2
+
+Benutzen Sie das Eingabefeld unten rechts,
+um Nachrichten szu versenden
+
+Danke."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Messager" type="ColorRect" parent="CanvasLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 665.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEditor" type="LineEdit" parent="CanvasLayer2/Messager"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+placeholder_text = "Nachricht hier eingeben..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageViewer" type="ScrollContainer" parent="CanvasLayer2/Messager"]
+anchor_right = 1.0
+anchor_bottom = 0.946
+margin_bottom = 0.23999
+follow_focus = true
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageContainer" type="VBoxContainer" parent="CanvasLayer2/Messager/MessageViewer"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="ChatBubble2" parent="CanvasLayer2/Messager/MessageViewer/MessageContainer" instance=ExtResource( 6 )]
+anchor_left = 0.333333
+anchor_right = 0.333333
+align = 0
+bubbleColor = Color( 0.211765, 0.501961, 1, 1 )
+bubbleSize = Vector2( 250, 40 )
+bubbleMessage = "Hallo. Hast du Fragen zu den Anmeldevoraussetzungen, den Abteilungen oder den Schnuppertagen?"
+
+[node name="VarsAndDesign" parent="CanvasLayer2" instance=ExtResource( 1 )]
+showMap = false
+
+[node name="BackButton" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 56, 549 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 5 )
+
+[node name="TouchBackButton" type="TouchScreenButton" parent="CanvasLayer2/BackButton"]
+position = Vector2( -209.765, -324.906 )
+scale = Vector2( 0.530008, 1.08703 )
+normal = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+
+[node name="BotAnswerTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="text_entered" from="CanvasLayer2/Messager/TextEditor" to="." method="_on_TextEditor_text_entered"]
+[connection signal="timeout" from="BotAnswerTimer" to="." method="_on_BotAnswerTimer_timeout"]
