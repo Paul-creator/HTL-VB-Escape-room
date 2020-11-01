@@ -29,6 +29,5 @@ func _on_RoomSelect_CLASS_released() -> void:
 func _on_RoomSelect_MAP_released() -> void:
 	pass
 
-
 func _on_RoomSelect_MAP_pressed() -> void:
 	varsAndDesign._on_OpenMapButton_pressed()

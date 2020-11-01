@@ -35,3 +35,7 @@ func _on_OpenMapButton_pressed() -> void:
 		loadedMap.anchor_bottom = 0.5
 		loadedMap.rect_position = Vector2(-loadedMap.rect_size.x/3,-loadedMap.rect_size.y/3)
 		get_tree().get_root().get_children()[0].get_node("CanvasLayer").add_child(loadedMap)
+
+func ChangeMapVisibility(isVisible:bool) -> void:
+	if isVisible: $CanvasLayer/HBoxContainer.show()
+	else: $CanvasLayer/HBoxContainer.hide()

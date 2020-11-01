@@ -107,14 +107,13 @@ __meta__ = {
 [node name="VarsAndDesign" parent="CanvasLayer2" instance=ExtResource( 1 )]
 
 [node name="BackButton" type="Sprite" parent="CanvasLayer2"]
-visible = false
 position = Vector2( 56, 549 )
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 7 )
 
 [node name="TouchBackButton" type="TouchScreenButton" parent="CanvasLayer2/BackButton"]
-position = Vector2( -209.765, -324.906 )
-scale = Vector2( 0.530008, 1.08703 )
+position = Vector2( -626.482, -633.934 )
+scale = Vector2( 1.56009, 2.11712 )
 normal = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

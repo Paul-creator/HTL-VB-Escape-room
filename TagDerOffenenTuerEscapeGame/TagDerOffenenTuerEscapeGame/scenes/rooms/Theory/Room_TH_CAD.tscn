@@ -161,10 +161,13 @@ rect_scale = Vector2( 3, 3 )
 text = "LINK"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ClickedLinkToExtern" type="TouchScreenButton" parent="RoomLayer/Plakat"]
-position = Vector2( 0.899811, 0.720543 )
-scale = Vector2( 0.170663, 0.136154 )
+position = Vector2( 0.0224909, 0.0252649 )
+scale = Vector2( 0.508636, 0.464753 )
 normal = ExtResource( 7 )
 
 [node name="Door" type="ColorRect" parent="RoomLayer"]

@@ -26,6 +26,7 @@ var B_MS_MDEp_No_Yes := ["Wichtig sind die Noten der Fächer Mathematik, Deutsch
 var isWaitingForAnswers := 0
 var userAnswers := [U_basicAnswers, U_AnVoAnswers, U_Gym_MDEp, U_Gym_MDEp_Yes, U_MS_MDEp, U_MS_MDEp_Yes, U_MS_MDEp_No, U_MS_MDEp_No_Yes]
 var botAnswers := [B_basicAnswers, B_AnVoAnswers, B_Gym_MDEp, B_Gym_MDEp_Yes, B_MS_MDEp, B_MS_MDEp_Yes, B_MS_MDEp_No, B_MS_MDEp_No_Yes]
+var cntr = 0
 
 func _on_TextEditor_text_entered(new_text: String) -> void:
 	if new_text.replacen(" ", "").length() == 0: return
@@ -44,12 +45,14 @@ func SendBotMessage(text:String) -> void:
 	$CanvasLayer2/Messager/MessageViewer.gotNewMessage = true
 
 func SendUserMessage(text:String) -> void:
+	cntr = cntr + 1
 	var flag = bubble.instance()
 	flag.bubbleColor = userBubbleColor
 	flag.bubbleSize = Vector2(250, 50)
 	flag.bubbleMessage = text
 	flag.xOffset = $CanvasLayer2/Messager/MessageViewer.rect_size.x - flag.bubbleSize.x - 30
 	$CanvasLayer2/Messager/MessageViewer/MessageContainer.add_child(flag)
+	if cntr > 6: $CanvasLayer2/Messager/MessageViewer.scroll_vertical_enabled = true
 	$CanvasLayer2/Messager/MessageViewer.gotNewMessage = true
 
 func HandleUserInputMessage(text:String) -> void:
@@ -86,3 +89,7 @@ func GetPositionInAnswerArray(text:String) -> int:
 
 func _on_BotAnswerTimer_timeout() -> void:
 	HandleUserInputMessage(last_user_answer)
+
+func _on_GoBackButton_released() -> void:
+	get_tree().get_root().get_children()[0].ResetAfterBotClose()
+	queue_free()

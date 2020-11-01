@@ -99,8 +99,6 @@ margin_right = 12.0
 margin_bottom = 20.0
 
 [node name="ChatBubble2" parent="CanvasLayer2/Messager/MessageViewer/MessageContainer" instance=ExtResource( 6 )]
-anchor_left = 0.333333
-anchor_right = 0.333333
 align = 0
 bubbleColor = Color( 0.211765, 0.501961, 1, 1 )
 bubbleSize = Vector2( 250, 40 )
@@ -114,9 +112,9 @@ position = Vector2( 56, 549 )
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 5 )
 
-[node name="TouchBackButton" type="TouchScreenButton" parent="CanvasLayer2/BackButton"]
-position = Vector2( -209.765, -324.906 )
-scale = Vector2( 0.530008, 1.08703 )
+[node name="GoBackButton" type="TouchScreenButton" parent="CanvasLayer2/BackButton"]
+position = Vector2( -634.029, -638.685 )
+scale = Vector2( 1.59067, 2.13296 )
 normal = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -127,4 +125,5 @@ limit_top = 0
 [node name="BotAnswerTimer" type="Timer" parent="."]
 one_shot = true
 [connection signal="text_entered" from="CanvasLayer2/Messager/TextEditor" to="." method="_on_TextEditor_text_entered"]
+[connection signal="released" from="CanvasLayer2/BackButton/GoBackButton" to="." method="_on_GoBackButton_released"]
 [connection signal="timeout" from="BotAnswerTimer" to="." method="_on_BotAnswerTimer_timeout"]
