@@ -32,13 +32,13 @@ func _input(event):
 		if !Rect2(Vector2(0,0),$MapOpen.get_rect().size).has_point(evLocal.position):
 			print(wasInstancedRightNow)
 			if !wasInstancedRightNow:
-				if get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:
-					get_tree().get_root().get_children()[0].get_node("CanvasLayer/BackgroundUnfocus").color = Color(0,0,0,0)
+				if get_tree().get_root().get_children()[1].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:
+					get_tree().get_root().get_children()[1].get_node("CanvasLayer/BackgroundUnfocus").color = Color(0,0,0,0)
 				queue_free()
-				if get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer/VarsAndDesign") != null:
-					get_tree().get_root().get_children()[0].get_node("CanvasLayer/VarsAndDesign").canBePressed = true
-				elif get_tree().get_root().get_children()[0].get_node_or_null("CanvasLayer2/VarsAndDesign") != null:
-					get_tree().get_root().get_children()[0].get_node("CanvasLayer2/VarsAndDesign").canBePressed = true
+				if get_tree().get_root().get_children()[1].get_node_or_null("CanvasLayer/VarsAndDesign") != null:
+					get_tree().get_root().get_children()[1].get_node("CanvasLayer/VarsAndDesign").canBePressed = true
+				elif get_tree().get_root().get_children()[1].get_node_or_null("CanvasLayer2/VarsAndDesign") != null:
+					get_tree().get_root().get_children()[1].get_node("CanvasLayer2/VarsAndDesign").canBePressed = true
 			else: wasInstancedRightNow = false
 		else:
 			if wasInstancedRightNow: wasInstancedRightNow = false

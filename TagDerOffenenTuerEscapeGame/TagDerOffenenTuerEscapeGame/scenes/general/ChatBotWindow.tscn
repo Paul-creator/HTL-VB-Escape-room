@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ChatBubble.gd" type="Script" id=1]
+[ext_resource path="res://scenes/general/ChatBubble.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/MessageViewer.gd" type="Script" id=3]
+[ext_resource path="res://src/Chatbot.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Messager" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -339.0
+margin_top = -560.0
+color = Color( 0.847059, 0.847059, 0.847059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEditor" type="LineEdit" parent="Messager"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+placeholder_text = "Nachricht hier eingeben..."
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageViewer" type="ScrollContainer" parent="Messager"]
+anchor_right = 1.0
+anchor_bottom = 0.946
+margin_right = -3.05176e-05
+margin_bottom = 0.23999
+follow_focus = true
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MessageContainer" type="VBoxContainer" parent="Messager/MessageViewer"]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="ChatBubble2" type="Button" parent="Messager/MessageViewer/MessageContainer" instance=ExtResource( 2 )]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 12.0
+margin_bottom = 20.0
+mouse_filter = 2
+align = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bubbleColor = Color( 0.211765, 0.501961, 1, 1 )
+bubbleSize = Vector2( 250, 40 )
+bubbleMessage = "Hallo. Hast du Fragen zu den Anmeldevoraussetzungen, den Abteilungen oder den Schnuppertagen?"
+
+[node name="BotAnswerTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="text_entered" from="Messager/TextEditor" to="." method="_on_TextEditor_text_entered"]
+[connection signal="timeout" from="BotAnswerTimer" to="." method="_on_BotAnswerTimer_timeout"]

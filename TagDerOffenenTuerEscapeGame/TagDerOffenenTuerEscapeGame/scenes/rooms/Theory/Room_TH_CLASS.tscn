@@ -4,7 +4,7 @@
 [ext_resource path="res://graphics/timetable_1afmbm.png" type="Texture" id=2]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=3]
 [ext_resource path="res://src/rooms/Room_TH_CLASS.gd" type="Script" id=4]
-[ext_resource path="res://graphics/WelserBildungsmesse.png" type="Texture" id=5]
+[ext_resource path="res://graphics/Klasse finish.png" type="Texture" id=5]
 [ext_resource path="res://graphics/timetable_1ahgti.png" type="Texture" id=6]
 [ext_resource path="res://graphics/red_back_arrow.png" type="Texture" id=7]
 [ext_resource path="res://graphics/tableTop.jpg" type="Texture" id=8]
@@ -107,6 +107,7 @@ __meta__ = {
 [node name="VarsAndDesign" parent="CanvasLayer2" instance=ExtResource( 1 )]
 
 [node name="BackButton" type="Sprite" parent="CanvasLayer2"]
+visible = false
 position = Vector2( 56, 549 )
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 7 )
@@ -126,39 +127,39 @@ scale = Vector2( 0.55, 0.55 )
 texture = ExtResource( 8 )
 
 [node name="SpecialitiesSelection" type="Sprite" parent="."]
-position = Vector2( 512.053, 300.107 )
-scale = Vector2( 1.27651, 1.05259 )
+position = Vector2( 512.849, 300.009 )
+scale = Vector2( 0.365636, 0.301498 )
 texture = ExtResource( 5 )
 
 [node name="buttonFS" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( 187.659, -284.017 )
-scale = Vector2( 0.113623, 0.918637 )
+position = Vector2( -1346.75, -871.966 )
+scale = Vector2( 0.514493, 0.598137 )
 z_index = -5
 normal = ExtResource( 3 )
 
 [node name="buttonGT" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -269.216, -284.68 )
-scale = Vector2( 0.113623, 0.918637 )
+position = Vector2( -884.696, -869.31 )
+scale = Vector2( 0.499126, 0.606419 )
 normal = ExtResource( 3 )
 
 [node name="buttonMB" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -392.881, -284.68 )
-scale = Vector2( 0.115698, 0.918637 )
+position = Vector2( -423.113, -864.341 )
+scale = Vector2( 0.496126, 0.589854 )
 normal = ExtResource( 3 )
 
 [node name="buttonWM" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -148.041, -284.68 )
-scale = Vector2( 0.116735, 0.918637 )
+position = Vector2( 911.116, -869.311 )
+scale = Vector2( 0.504868, 0.589854 )
 normal = ExtResource( 3 )
 
 [node name="buttonWI" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -29.3551, -284.68 )
-scale = Vector2( 0.112585, 0.918637 )
+position = Vector2( 469.031, -874.28 )
+scale = Vector2( 0.505747, 0.606419 )
 normal = ExtResource( 3 )
 
 [node name="buttonME" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( 76.0508, -284.68 )
-scale = Vector2( 0.117773, 0.918637 )
+position = Vector2( 17.4621, -864.341 )
+scale = Vector2( 0.50337, 0.598136 )
 normal = ExtResource( 3 )
 
 [node name="timetable_1afmbm" type="Sprite" parent="."]

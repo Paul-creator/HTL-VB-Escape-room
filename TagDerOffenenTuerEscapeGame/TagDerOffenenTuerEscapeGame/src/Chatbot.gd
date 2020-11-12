@@ -1,7 +1,7 @@
 extends Node2D
 
 export var botBubbleColor := Color(0.21,0.5,1)
-export var userBubbleColor := Color(0.6,0.62,0.63)
+export var userBubbleColor := Color(0.34,0.83,0.45)
 onready var bubble = preload("res://scenes/general/ChatBubble.tscn")
 var last_user_answer = ""
 
@@ -31,7 +31,7 @@ var cntr = 0
 func _on_TextEditor_text_entered(new_text: String) -> void:
 	if new_text.replacen(" ", "").length() == 0: return
 	SendUserMessage(new_text)
-	$CanvasLayer2/Messager/TextEditor.text = ""
+	$Messager/TextEditor.text = ""
 	last_user_answer = new_text
 	$BotAnswerTimer.start()
 
@@ -40,9 +40,9 @@ func SendBotMessage(text:String) -> void:
 	flag.bubbleColor = botBubbleColor
 	flag.bubbleSize = Vector2(250, 50)
 	flag.bubbleMessage = text
-	$CanvasLayer2/Messager/MessageViewer/MessageContainer.add_child(flag)
-	$CanvasLayer2/Messager/MessageViewer.scroll_vertical_enabled = true
-	$CanvasLayer2/Messager/MessageViewer.gotNewMessage = true
+	$Messager/MessageViewer/MessageContainer.add_child(flag)
+	$Messager/MessageViewer.scroll_vertical_enabled = true
+	$Messager/MessageViewer.gotNewMessage = true
 
 func SendUserMessage(text:String) -> void:
 	cntr = cntr + 1
@@ -50,10 +50,10 @@ func SendUserMessage(text:String) -> void:
 	flag.bubbleColor = userBubbleColor
 	flag.bubbleSize = Vector2(250, 50)
 	flag.bubbleMessage = text
-	flag.xOffset = $CanvasLayer2/Messager/MessageViewer.rect_size.x - flag.bubbleSize.x - 30
-	$CanvasLayer2/Messager/MessageViewer/MessageContainer.add_child(flag)
-	if cntr > 6: $CanvasLayer2/Messager/MessageViewer.scroll_vertical_enabled = true
-	$CanvasLayer2/Messager/MessageViewer.gotNewMessage = true
+	flag.xOffset = $Messager/MessageViewer.rect_size.x - flag.bubbleSize.x - 30
+	$Messager/MessageViewer/MessageContainer.add_child(flag)
+	if cntr > 6: $Messager/MessageViewer.scroll_vertical_enabled = true
+	$Messager/MessageViewer.gotNewMessage = true
 
 func HandleUserInputMessage(text:String) -> void:
 	var answerPos = GetPositionInAnswerArray(text)
@@ -89,7 +89,3 @@ func GetPositionInAnswerArray(text:String) -> int:
 
 func _on_BotAnswerTimer_timeout() -> void:
 	HandleUserInputMessage(last_user_answer)
-
-func _on_GoBackButton_released() -> void:
-	get_tree().get_root().get_children()[0].ResetAfterBotClose()
-	queue_free()
