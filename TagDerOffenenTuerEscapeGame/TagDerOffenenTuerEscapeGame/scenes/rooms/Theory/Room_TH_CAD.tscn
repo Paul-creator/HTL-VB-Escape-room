@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/RoomCAD_Layout.png" type="Texture" id=2]
 [ext_resource path="res://src/rooms/Room_TH_CAD.gd" type="Script" id=3]
 [ext_resource path="res://scenes/general/MapOpen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://graphics/InkedCAD-finish_LI2.jpg" type="Texture" id=5]
+[ext_resource path="res://scenes/general/Phone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
@@ -95,7 +96,7 @@ tracks/6/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("RoomLayer/CAD/ExitCADRoom:visible")
+tracks/7/path = NodePath("CAD/ExitCADRoom:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -107,7 +108,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("RoomLayer/CAD/ClickedLinkToExtern:visible")
+tracks/8/path = NodePath("CAD/ClickedLinkToExtern:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -130,37 +131,32 @@ margin_right = 1191.0
 margin_bottom = 842.0
 justForFunctions = true
 
-[node name="RoomLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="RoomLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+light_mask = 7
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CAD" type="Sprite" parent="RoomLayer"]
+[node name="CAD" type="Sprite" parent="."]
 position = Vector2( 513.593, 292.916 )
 scale = Vector2( 0.181112, 0.169063 )
+z_index = -5
 texture = ExtResource( 5 )
 
-[node name="MapCollection" type="TouchScreenButton" parent="RoomLayer/CAD"]
+[node name="MapCollection" type="TouchScreenButton" parent="CAD"]
 position = Vector2( -1674.5, 260.014 )
 scale = Vector2( 0.370899, 0.338718 )
 normal = ExtResource( 7 )
 
-[node name="ExitCADRoom" type="TouchScreenButton" parent="RoomLayer/CAD"]
+[node name="ExitCADRoom" type="TouchScreenButton" parent="CAD"]
 position = Vector2( -1157.84, -638.214 )
 scale = Vector2( 1.77925, 4.15247 )
 normal = ExtResource( 7 )
 
-[node name="ClickedLinkToExtern" type="TouchScreenButton" parent="RoomLayer/CAD"]
+[node name="ClickedLinkToExtern" type="TouchScreenButton" parent="CAD"]
 position = Vector2( -1956.34, 1373.92 )
 scale = Vector2( 0.851865, 0.662326 )
 normal = ExtResource( 7 )
 
-[node name="EmptyCard" type="ColorRect" parent="RoomLayer/CAD"]
+[node name="EmptyCard" type="ColorRect" parent="CAD"]
 visible = false
 margin_left = -1665.0
 margin_top = 264.0
@@ -170,6 +166,24 @@ color = Color( 0.678431, 0.678431, 0.678431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RoomLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="RoomLayer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlashlightPhoneLayer" type="CanvasLayer" parent="."]
+
+[node name="Light2D" parent="FlashlightPhoneLayer" instance=ExtResource( 6 )]
+position = Vector2( 750, 230 )
+scale = Vector2( 1, 1 )
+z_index = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -330,9 +344,9 @@ limit_top = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/LeaveCAD = SubResource( 1 )
-[connection signal="released" from="RoomLayer/CAD/MapCollection" to="." method="_on_MapCollection_released"]
-[connection signal="released" from="RoomLayer/CAD/ExitCADRoom" to="." method="_on_ExitCADRoom_released"]
-[connection signal="released" from="RoomLayer/CAD/ClickedLinkToExtern" to="." method="_on_ClickedLinkToExtern_released"]
+[connection signal="released" from="CAD/MapCollection" to="." method="_on_MapCollection_released"]
+[connection signal="released" from="CAD/ExitCADRoom" to="." method="_on_ExitCADRoom_released"]
+[connection signal="released" from="CAD/ClickedLinkToExtern" to="." method="_on_ClickedLinkToExtern_released"]
 [connection signal="released" from="CanvasLayer/Control/RoomSelect_AULA/RoomSelect_AULA" to="." method="_on_RoomSelect_AULA_released"]
 [connection signal="released" from="CanvasLayer/Control/RoomSelect_CLASS/RoomSelect_CLASS" to="." method="_on_RoomSelect_CLASS_released"]
 [connection signal="pressed" from="CanvasLayer/Control/RoomSelect_MAP/RoomSelect_MAP" to="." method="_on_RoomSelect_MAP_pressed"]

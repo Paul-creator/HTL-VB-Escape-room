@@ -6,30 +6,56 @@ var subj_text_TMB = "[center][color=#ff9900]TMB\nTechnische Mechanik und Berechn
 var subj_text_AIIT = "[center][color=#ff9900]AIIT\nAngewandte Informatik und fachspezifische Informationstechnik\n\n\n[/color][color=#000000]Programmieren von [color=#0000ff]M[/color]icrocomputern in Haushaltsgeräten oder Garagentoren[/color][/center]"
 var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#0000ff]R[/color]ammiert man Computerspiel[/color][/center]"
 var subj_text_BET = "[center][color=#ff9900]BET\nBetriebstechnik\n\n\n[/color][color=#000000]Wie ist ein [color=#0000ff]U[/color]nternehmen aufgebaut und organisiert[/color][/center]"
+var offsetToReach = Vector2.ZERO
+var prev := -1
+var currentCLASS = ""
+
+func zoomToTimetable(pos:Vector2, size:Vector2, _class:String) -> void:
+	if IsMapOpen(): return
+	if $Camera2D.current_zoom != Vector2(1,1): zoomReset()
+	currentCLASS = _class
+	$Camera2D.zoom_in((pos + (size / Vector2(2,2))) - $Camera2D.get_camera_position())
+
+func zoomReset() -> void:
+	currentCLASS = ""
+	$Camera2D.zoom_out(Vector2(512,300))
 
 func _on_DialogClose_pressed() -> void:
 	$CanvasLayer/DialogBox.hide()
 
-func setTextAndShowDialog(subject:String) -> void:
+func setTextAndShowDialog(subject:String, _class:String) -> void:
 	if IsMapOpen(): return
-	if subject == "FET": $CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_FET
-	elif subject == "PLP": $CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_PLP
-	elif subject == "TMB": $CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_TMB
-	elif subject == "AIIT": $CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_AIIT
-	elif subject == "SWP": $CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_SWP
-	elif subject == "BET": $CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_BET
-	$CanvasLayer/DialogBox.show()
+	var wasSet = false
+	if subject == "FET": if currentCLASS == _class: 
+		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_FET 
+		wasSet = true
+	if subject == "PLP":  if currentCLASS == _class: 
+		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_PLP 
+		wasSet = true
+	if subject == "TMB": if currentCLASS == _class: 
+		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_TMB 
+		wasSet = true
+	if subject == "AIIT": if currentCLASS == _class: 
+		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_AIIT 
+		wasSet = true
+	if subject == "SWP": if currentCLASS == _class: 
+		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_SWP 
+		wasSet = true
+	if subject == "BET": if currentCLASS == _class: 
+		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_BET 
+		wasSet = true
+	if wasSet: $CanvasLayer/DialogBox.show()
 
-func showClassTimeTable(classShort:String) -> void:
-	if IsMapOpen(): return
-	$SpecialitiesSelection.hide()
-	if classShort == "FS": $timetable_1afmbm.show()
-	elif classShort == "GT": $timetable_1ahgti.show()
-	elif classShort == "MB": $timetable_1ahmbt.show()
-	elif classShort == "WM": $timetable_1ahwim.show()
-	elif classShort == "WI": $timetable_1ahwii.show()
-	elif classShort == "ME": $timetable_1ahme.show()
-	$CanvasLayer2/BackButton.show()
+#func showClassTimeTable(classShort:String) -> void:
+#	if IsMapOpen(): return
+#	$SpecialitiesSelection.hide()
+#	if classShort == "FS": $timetable_1afmbm.show()
+#	elif classShort == "GT": $timetable_1ahgti.show()
+#	elif classShort == "MB": $timetable_1ahmbt.show()
+#	elif classShort == "WM": $timetable_1ahwim.show()
+#	elif classShort == "WI": $timetable_1ahwii.show()
+#	elif classShort == "ME": $timetable_1ahme.show()
+#	$CanvasLayer2/BackButton.show()
 
 func _on_TouchBackButton_released() -> void:
 	$CanvasLayer2/BackButton.hide()
@@ -46,44 +72,66 @@ func _on_TouchBackButton_released() -> void:
 ##############
 
 func _on_mbm_subj_pressed() -> void:
-	setTextAndShowDialog("FET")
+	setTextAndShowDialog("FET", "FS")
 
 func _on_gti_subj_pressed() -> void:
-	setTextAndShowDialog("PLP")
+	setTextAndShowDialog("PLP", "GT")
 
 func _on_mbt_subj_pressed() -> void:
-	setTextAndShowDialog("TMB")
+	setTextAndShowDialog("TMB", "MB")
 
 func _on_me_subj_pressed() -> void:
-	setTextAndShowDialog("AIIT")
+	setTextAndShowDialog("AIIT", "ME")
 
 func _on_wii_subj_pressed() -> void:
-	setTextAndShowDialog("SWP")
+	setTextAndShowDialog("SWP", "WI")
 
 func _on_wim_subj_pressed() -> void:
-	setTextAndShowDialog("BET")
+	setTextAndShowDialog("BET", "WM")
 
 ##############
 # CATEGORIES #
 ##############
 
 func _on_FS_category_released() -> void:
-	showClassTimeTable("FS")
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonFS.get_global_transform().get_origin()
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonFS.get_global_transform().get_scale() * Vector2(800,600)
+	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "FS")
 
 func _on_GT_category_released() -> void:
-	showClassTimeTable("GT")
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonGT.get_global_transform().get_origin()
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonGT.get_global_transform().get_scale() * Vector2(800,600)
+	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "GT")
 
 func _on_MB_category_released() -> void:
-	showClassTimeTable("MB")
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonMB.get_global_transform().get_origin()
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonMB.get_global_transform().get_scale() * Vector2(800,600)
+	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "MB")
 
 func _on_WM_category_released() -> void:
-	showClassTimeTable("WM")
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonWM.get_global_transform().get_origin()
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonWM.get_global_transform().get_scale() * Vector2(800,600)
+	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "WM")
 
 func _on_WI_category_released() -> void:
-	showClassTimeTable("WI")
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonWI.get_global_transform().get_origin()
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonWI.get_global_transform().get_scale() * Vector2(800,600)
+	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "WI")
 
 func _on_ME_category_released() -> void:
-	showClassTimeTable("ME")
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonME.get_global_transform().get_origin()
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonME.get_global_transform().get_scale() * Vector2(800,600)
+	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "ME")
 
 func IsMapOpen() -> bool:
 	return get_node_or_null("CanvasLayer/Map") != null
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and $Camera2D.current_zoom == Vector2($Camera2D.zoom_factor,$Camera2D.zoom_factor):
+		var evLocal = make_input_local(event)
+		$ColorRect.get_global_rect().position
+		$ColorRect.get_rect().size
+		
+		if !Rect2($ColorRect.get_global_rect().position,$ColorRect.get_rect().size).has_point(evLocal.position):
+			zoomReset()
