@@ -6,7 +6,7 @@
 [ext_resource path="res://src/rooms/Room_TH_ADMIN.gd" type="Script" id=4]
 [ext_resource path="res://graphics/Verwaltung_Notiz_Zeugnis.png" type="Texture" id=5]
 [ext_resource path="res://graphics/Zeugnis.png" type="Texture" id=6]
-[ext_resource path="res://graphics/Verwaltung.JPG" type="Texture" id=7]
+[ext_resource path="res://graphics/Verwaltung_low.JPG" type="Texture" id=7]
 
 [node name="RoomADMIN" type="Node2D"]
 script = ExtResource( 4 )
@@ -41,7 +41,7 @@ texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer2"]
 position = Vector2( 512, 300 )
-scale = Vector2( 0.171129, 0.171129 )
+scale = Vector2( 0.682657, 0.682657 )
 texture = ExtResource( 7 )
 
 [node name="VarsAndDesign" parent="CanvasLayer2" instance=ExtResource( 1 )]
@@ -52,204 +52,6 @@ limit_top = 0
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="."]
 layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.807843, 0.807843, 0.807843, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect4" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -0.0936584
-margin_right = -619.094
-color = Color( 0.878431, 0.878431, 0.878431, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect5" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 153.865
-margin_top = 160.762
-margin_right = -672.135
-margin_bottom = -4.23779
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect7" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 154.0
-margin_top = 160.0
-margin_right = -685.0
-margin_bottom = -371.0
-rect_rotation = -17.0
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect8" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 316.0
-margin_top = 111.0
-margin_right = -679.0
-margin_bottom = -461.0
-rect_rotation = -17.0
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect9" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 315.749
-margin_top = 110.969
-margin_right = -674.251
-margin_bottom = -476.031
-rect_rotation = -17.0
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect15" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 343.629
-margin_top = 102.536
-margin_right = -674.371
-margin_bottom = -487.464
-rect_rotation = -17.0
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect16" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 343.464
-margin_top = 103.166
-margin_right = -674.536
-margin_bottom = -486.834
-rect_rotation = -17.0
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect10" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 316.0
-margin_top = 111.25
-margin_right = -672.0
-margin_bottom = -410.75
-color = Color( 0.713726, 0.858824, 0.85098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect6" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 306.0
-margin_top = 367.0
-margin_right = -672.0
-margin_bottom = -225.0
-rect_rotation = -17.2242
-color = Color( 0.596078, 0.596078, 0.596078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect11" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 345.79
-margin_top = 354.79
-margin_right = -672.21
-margin_bottom = -243.21
-rect_rotation = -17.2242
-color = Color( 0.596078, 0.596078, 0.596078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect12" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 345.93
-margin_top = 355.912
-margin_right = -672.07
-margin_bottom = -242.088
-rect_rotation = -17.2242
-color = Color( 0.596078, 0.596078, 0.596078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect13" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 345.93
-margin_top = 357.666
-margin_right = -672.07
-margin_bottom = -240.334
-rect_rotation = -17.2242
-color = Color( 0.596078, 0.596078, 0.596078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect14" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 345.719
-margin_top = 358.858
-margin_right = -672.281
-margin_bottom = -239.142
-rect_rotation = -17.2242
-color = Color( 0.596078, 0.596078, 0.596078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 407.0
-margin_top = 486.0
-margin_right = -473.0
-margin_bottom = 322.0
-rect_rotation = 73.3436
-color = Color( 0.819608, 0.607843, 0.360784, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect3" type="ColorRect" parent="CanvasLayer5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 407.0
-margin_top = 486.0
-margin_right = 38.0
-margin_bottom = 180.0
-rect_rotation = -0.591201
-color = Color( 0.819608, 0.607843, 0.360784, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AdminNote" parent="CanvasLayer5" instance=ExtResource( 2 )]
 position = Vector2( 845.345, 124.804 )

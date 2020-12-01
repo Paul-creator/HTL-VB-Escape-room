@@ -1,18 +1,27 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
-[ext_resource path="res://graphics/timetable_1afmbm.png" type="Texture" id=2]
+[ext_resource path="res://graphics/timetables/1AHWII_finish.png" type="Texture" id=2]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=3]
 [ext_resource path="res://src/rooms/Room_TH_CLASS.gd" type="Script" id=4]
-[ext_resource path="res://graphics/Klasse finish.png" type="Texture" id=5]
-[ext_resource path="res://graphics/timetable_1ahgti.png" type="Texture" id=6]
+[ext_resource path="res://graphics/Klasse finish_low.png" type="Texture" id=5]
 [ext_resource path="res://graphics/red_back_arrow.png" type="Texture" id=7]
-[ext_resource path="res://graphics/tableTop.jpg" type="Texture" id=8]
-[ext_resource path="res://graphics/timetable_1ahwii.png" type="Texture" id=9]
-[ext_resource path="res://graphics/timetable_1ahwim.png" type="Texture" id=10]
-[ext_resource path="res://graphics/timetable_1ahmbt.png" type="Texture" id=11]
-[ext_resource path="res://graphics/timetable_1ahme.png" type="Texture" id=12]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=13]
+[ext_resource path="res://control_theme.tres" type="Theme" id=14]
+[ext_resource path="res://graphics/timetables/1AHGTI_finish.png" type="Texture" id=15]
+[ext_resource path="res://graphics/timetables/1AHWIM_finish.png" type="Texture" id=16]
+[ext_resource path="res://graphics/timetables/1AHME_finish.png" type="Texture" id=17]
+[ext_resource path="res://graphics/timetables/1AHMBT_finish.png" type="Texture" id=18]
+[ext_resource path="res://graphics/timetables/1AFMBM_finish.png" type="Texture" id=19]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/GidoleFont/Gidole-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 39
+use_filter = true
+extra_spacing_space = -7
+font_data = SubResource( 1 )
 
 [node name="RoomCLASS" type="Node2D"]
 script = ExtResource( 4 )
@@ -96,6 +105,7 @@ align = 1
 valign = 1
 
 [node name="BackgroundUnfocus" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
@@ -125,143 +135,70 @@ script = ExtResource( 13 )
 
 [node name="Tween" type="Tween" parent="Camera2D"]
 
-[node name="tableTop" type="Sprite" parent="."]
-visible = false
-position = Vector2( 512.222, 308.237 )
-scale = Vector2( 0.55, 0.55 )
-texture = ExtResource( 8 )
-
 [node name="SpecialitiesSelection" type="Sprite" parent="."]
-position = Vector2( 512.849, 300.009 )
-scale = Vector2( 0.365636, 0.301498 )
+position = Vector2( 512.552, 300 )
+scale = Vector2( 1.45819, 1.2024 )
 texture = ExtResource( 5 )
 
 [node name="buttonFS" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -1346.75, -871.966 )
-scale = Vector2( 0.514493, 0.598137 )
-z_index = -5
-normal = ExtResource( 3 )
+position = Vector2( -336.224, -217.457 )
+scale = Vector2( 0.12658, 0.148018 )
+normal = ExtResource( 19 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="SpecialitiesSelection/buttonFS"]
-position = Vector2( 227.891, 108.486 )
-scale = Vector2( 0.176741, 0.0960858 )
-normal = ExtResource( 3 )
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="SpecialitiesSelection/buttonFS"]
-position = Vector2( 644.238, 55.3404 )
-scale = Vector2( 0.178682, 0.182899 )
+position = Vector2( 242.714, 170.765 )
+scale = Vector2( 0.164864, 0.101999 )
 normal = ExtResource( 3 )
 
 [node name="buttonGT" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -884.696, -869.31 )
-scale = Vector2( 0.499126, 0.606419 )
-normal = ExtResource( 3 )
+position = Vector2( -221.823, -217.968 )
+scale = Vector2( 0.125154, 0.152057 )
+normal = ExtResource( 15 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="SpecialitiesSelection/buttonGT"]
-position = Vector2( 507.504, 56.8993 )
-scale = Vector2( 0.18505, 0.099354 )
-normal = ExtResource( 3 )
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="SpecialitiesSelection/buttonGT"]
-position = Vector2( 364.131, 163.375 )
-scale = Vector2( 0.18505, 0.102971 )
-normal = ExtResource( 3 )
-
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="SpecialitiesSelection/buttonGT"]
-position = Vector2( 219.738, 60.0997 )
-scale = Vector2( 0.187102, 0.187165 )
-normal = ExtResource( 3 )
-
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="SpecialitiesSelection/buttonGT"]
-position = Vector2( 77.0583, 378.014 )
-scale = Vector2( 0.180831, 0.187572 )
+position = Vector2( 251.969, 117.337 )
+scale = Vector2( 0.161959, 0.196668 )
 normal = ExtResource( 3 )
 
 [node name="buttonMB" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( -423.113, -864.341 )
-scale = Vector2( 0.496126, 0.589854 )
-normal = ExtResource( 3 )
+position = Vector2( -107.913, -216.722 )
+scale = Vector2( 0.124402, 0.147903 )
+normal = ExtResource( 18 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="SpecialitiesSelection/buttonMB"]
-position = Vector2( 208.596, 43.8245 )
-scale = Vector2( 0.187941, 0.103141 )
-normal = ExtResource( 3 )
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="SpecialitiesSelection/buttonMB"]
-position = Vector2( 494.703, 154.007 )
-scale = Vector2( 0.18948, 0.101744 )
+position = Vector2( 248.816, 116.408 )
+scale = Vector2( 0.172472, 0.105771 )
 normal = ExtResource( 3 )
 
 [node name="buttonWM" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( 911.116, -869.311 )
-scale = Vector2( 0.504868, 0.589854 )
-normal = ExtResource( 3 )
+position = Vector2( 228.47, -217.969 )
+scale = Vector2( 0.126594, 0.147903 )
+normal = ExtResource( 16 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="SpecialitiesSelection/buttonWM"]
-position = Vector2( 507.027, 51.2733 )
-scale = Vector2( 0.184465, 0.0971613 )
-normal = ExtResource( 3 )
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="SpecialitiesSelection/buttonWM"]
-position = Vector2( 224.284, 52.925 )
-scale = Vector2( 0.178502, 0.0979316 )
+position = Vector2( 507.027, 126.029 )
+scale = Vector2( 0.168341, 0.0971614 )
 normal = ExtResource( 3 )
 
 [node name="buttonWI" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( 469.031, -874.28 )
-scale = Vector2( 0.505747, 0.606419 )
-normal = ExtResource( 3 )
+position = Vector2( 115.562, -219.215 )
+scale = Vector2( 0.126814, 0.152057 )
+normal = ExtResource( 2 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="SpecialitiesSelection/buttonWI"]
-position = Vector2( 71.7947, 372.314 )
-scale = Vector2( 0.188728, 0.188959 )
+position = Vector2( 119.973, 468.55 )
+scale = Vector2( 0.169155, 0.203171 )
 normal = ExtResource( 3 )
 
 [node name="buttonME" type="TouchScreenButton" parent="SpecialitiesSelection"]
-position = Vector2( 17.4621, -864.341 )
-scale = Vector2( 0.50337, 0.598136 )
-normal = ExtResource( 3 )
+position = Vector2( 4.38977, -216.722 )
+scale = Vector2( 0.126218, 0.14998 )
+normal = ExtResource( 17 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="SpecialitiesSelection/buttonME"]
-position = Vector2( 362.258, 257.085 )
-scale = Vector2( 0.185075, 0.188225 )
+position = Vector2( 378.925, 353.913 )
+scale = Vector2( 0.164241, 0.205671 )
 normal = ExtResource( 3 )
-
-[node name="timetable_1afmbm" type="Sprite" parent="."]
-visible = false
-position = Vector2( 536.042, 479.397 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 2 )
-
-[node name="timetable_1ahgti" type="Sprite" parent="."]
-visible = false
-position = Vector2( 994.247, 528.894 )
-scale = Vector2( 0.89, 0.89 )
-texture = ExtResource( 6 )
-
-[node name="timetable_1ahmbt" type="Sprite" parent="."]
-visible = false
-position = Vector2( -33.8864, 134.329 )
-scale = Vector2( 0.89, 0.89 )
-texture = ExtResource( 11 )
-
-[node name="timetable_1ahme" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1210.62, 521.823 )
-scale = Vector2( 0.89, 0.89 )
-texture = ExtResource( 12 )
-
-[node name="timetable_1ahwii" type="Sprite" parent="."]
-visible = false
-position = Vector2( 28.339, 585.463 )
-scale = Vector2( 0.89, 0.89 )
-texture = ExtResource( 9 )
-
-[node name="timetable_1ahwim" type="Sprite" parent="."]
-visible = false
-position = Vector2( 620.894, 584.049 )
-scale = Vector2( 0.89, 0.89 )
-texture = ExtResource( 10 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -271,22 +208,108 @@ color = Color( 1, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Code" type="Node2D" parent="."]
+
+[node name="AIIT" type="LineEdit" parent="Code"]
+margin_left = 51.8965
+margin_top = 274.641
+margin_right = 99.8965
+margin_bottom = 319.641
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 1
+placeholder_text = "A"
+placeholder_alpha = 0.385
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TMB" type="LineEdit" parent="Code"]
+margin_left = 104.953
+margin_top = 274.918
+margin_right = 152.953
+margin_bottom = 319.918
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 1
+placeholder_text = "A"
+placeholder_alpha = 0.385
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PLP" type="LineEdit" parent="Code"]
+margin_left = 158.342
+margin_top = 275.862
+margin_right = 206.342
+margin_bottom = 320.862
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 1
+placeholder_text = "A"
+placeholder_alpha = 0.385
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BET" type="LineEdit" parent="Code"]
+margin_left = 210.563
+margin_top = 275.113
+margin_right = 258.563
+margin_bottom = 320.113
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 1
+placeholder_text = "A"
+placeholder_alpha = 0.385
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SWP" type="LineEdit" parent="Code"]
+margin_left = 263.203
+margin_top = 276.0
+margin_right = 311.203
+margin_bottom = 321.0
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 1
+placeholder_text = "A"
+placeholder_alpha = 0.385
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FET" type="LineEdit" parent="Code"]
+margin_left = 315.705
+margin_top = 274.502
+margin_right = 363.705
+margin_bottom = 319.502
+theme = ExtResource( 14 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 1
+placeholder_text = "A"
+placeholder_alpha = 0.385
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="CanvasLayer/DialogBox/ColorRect3/TouchScreenButton" to="." method="_on_DialogClose_pressed"]
 [connection signal="released" from="CanvasLayer2/BackButton/TouchBackButton" to="." method="_on_TouchBackButton_released"]
 [connection signal="released" from="SpecialitiesSelection/buttonFS" to="." method="_on_FS_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonFS/TouchScreenButton" to="." method="_on_mbm_subj_pressed"]
-[connection signal="pressed" from="SpecialitiesSelection/buttonFS/TouchScreenButton2" to="." method="_on_mbm_subj_pressed"]
 [connection signal="released" from="SpecialitiesSelection/buttonGT" to="." method="_on_GT_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonGT/TouchScreenButton" to="." method="_on_gti_subj_pressed"]
-[connection signal="pressed" from="SpecialitiesSelection/buttonGT/TouchScreenButton2" to="." method="_on_gti_subj_pressed"]
-[connection signal="pressed" from="SpecialitiesSelection/buttonGT/TouchScreenButton3" to="." method="_on_gti_subj_pressed"]
-[connection signal="pressed" from="SpecialitiesSelection/buttonGT/TouchScreenButton4" to="." method="_on_gti_subj_pressed"]
 [connection signal="released" from="SpecialitiesSelection/buttonMB" to="." method="_on_MB_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonMB/TouchScreenButton" to="." method="_on_mbt_subj_pressed"]
-[connection signal="pressed" from="SpecialitiesSelection/buttonMB/TouchScreenButton2" to="." method="_on_mbt_subj_pressed"]
 [connection signal="released" from="SpecialitiesSelection/buttonWM" to="." method="_on_WM_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonWM/TouchScreenButton" to="." method="_on_wim_subj_pressed"]
-[connection signal="pressed" from="SpecialitiesSelection/buttonWM/TouchScreenButton2" to="." method="_on_wim_subj_pressed"]
 [connection signal="released" from="SpecialitiesSelection/buttonWI" to="." method="_on_WI_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonWI/TouchScreenButton" to="." method="_on_wii_subj_pressed"]
 [connection signal="released" from="SpecialitiesSelection/buttonME" to="." method="_on_ME_category_released"]

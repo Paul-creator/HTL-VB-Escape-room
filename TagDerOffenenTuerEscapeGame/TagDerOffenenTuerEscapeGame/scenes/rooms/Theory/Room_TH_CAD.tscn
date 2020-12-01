@@ -1,22 +1,368 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/RoomCAD_Layout.png" type="Texture" id=2]
 [ext_resource path="res://src/rooms/Room_TH_CAD.gd" type="Script" id=3]
 [ext_resource path="res://scenes/general/MapOpen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://graphics/InkedCAD-finish_LI2.jpg" type="Texture" id=5]
+[ext_resource path="res://graphics/CAD_Door/InkedCAD-finish_low.jpg" type="Texture" id=5]
 [ext_resource path="res://scenes/general/Phone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=7]
+[ext_resource path="res://graphics/CAD_Door/Keypad.png" type="Texture" id=8]
+[ext_resource path="res://graphics/CAD_Door/CarTopdown.png" type="Texture" id=9]
+[ext_resource path="res://graphics/CAD_Door/CarBoard.png" type="Texture" id=10]
+[ext_resource path="res://src/Keypad.gd" type="Script" id=11]
+[ext_resource path="res://src/Camera2D.gd" type="Script" id=12]
 
-[sub_resource type="Animation" id=1]
-resource_name = "LeaveCAD"
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/GidoleFont/Gidole-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+use_filter = true
+font_data = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "GoBackCAD"
 length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Control/Keypad:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/Keypad:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/RoomSelectFade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CAD/ExitCADRoom:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CAD/ClickedLinkToExtern:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Camera2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ Vector2( 512, 300 ) ],
+"method": "zoom_out"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Camera2D:current")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/Control/CarTopDown:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CanvasLayer/Control/CarBoard:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/Control/CarBoard:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/Control/CarTopDown:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/RoomSelectFade:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 0.535887, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.333333 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Control/RoomSelect_AULA:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Control/RoomSelect_AULA:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Control/RoomSelect_CLASS:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Control/RoomSelect_CLASS:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Control/RoomSelect_MAP:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/Control/RoomSelect_MAP:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CAD/ExitCADRoom:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CAD/ClickedLinkToExtern:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/Control/Keypad:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/Control/Keypad:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Camera2D:current")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/Control/CarTopDown:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 1.8, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer/Control/CarBoard:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1.8, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer/Control/CarBoard:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CanvasLayer/Control/CarTopDown:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "LeaveKeypadToExit"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/RoomSelectFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 1 ),
 "transitions": PoolRealArray( 1, 0.535887, 1 ),
@@ -119,6 +465,78 @@ tracks/8/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/Control/Keypad:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/Control/Keypad:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer/Control/CarTopDown:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/Control/CarTopDown:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer/Control/CarBoard:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer/Control/CarBoard:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="RoomCAD" type="Node2D"]
 script = ExtResource( 3 )
@@ -136,32 +554,32 @@ light_mask = 7
 color = Color( 0, 0, 0, 1 )
 
 [node name="CAD" type="Sprite" parent="."]
-position = Vector2( 513.593, 292.916 )
-scale = Vector2( 0.181112, 0.169063 )
+position = Vector2( 522.883, 290.929 )
+scale = Vector2( 0.750778, 0.70083 )
 z_index = -5
 texture = ExtResource( 5 )
 
 [node name="MapCollection" type="TouchScreenButton" parent="CAD"]
-position = Vector2( -1674.5, 260.014 )
-scale = Vector2( 0.370899, 0.338718 )
+position = Vector2( -416.317, 65.5591 )
+scale = Vector2( 0.0894729, 0.0817098 )
 normal = ExtResource( 7 )
 
 [node name="ExitCADRoom" type="TouchScreenButton" parent="CAD"]
-position = Vector2( -1157.84, -638.214 )
-scale = Vector2( 1.77925, 4.15247 )
+position = Vector2( -291.682, -161.909 )
+scale = Vector2( 0.462776, 1.01969 )
 normal = ExtResource( 7 )
 
 [node name="ClickedLinkToExtern" type="TouchScreenButton" parent="CAD"]
-position = Vector2( -1956.34, 1373.92 )
-scale = Vector2( 0.851865, 0.662326 )
+position = Vector2( -484.306, 334.27 )
+scale = Vector2( 0.205498, 0.159775 )
 normal = ExtResource( 7 )
 
 [node name="EmptyCard" type="ColorRect" parent="CAD"]
 visible = false
-margin_left = -1665.0
-margin_top = 264.0
-margin_right = -1381.0
-margin_bottom = 455.0
+margin_left = -416.0
+margin_top = 66.0
+margin_right = -345.0
+margin_bottom = 113.0
 color = Color( 0.678431, 0.678431, 0.678431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -213,7 +631,6 @@ __meta__ = {
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -316,6 +733,115 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Keypad" type="Sprite" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 512, 420 )
+scale = Vector2( 0.275625, 0.275625 )
+texture = ExtResource( 8 )
+script = ExtResource( 11 )
+
+[node name="Keypad_0" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -150.132, 305.106 )
+scale = Vector2( 0.367388, 0.313915 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_1" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -525.461, -501.246 )
+scale = Vector2( 0.367388, 0.321986 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_2" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -150.132, -501.246 )
+scale = Vector2( 0.370414, 0.321986 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_3" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( 222.776, -501.246 )
+scale = Vector2( 0.373442, 0.321986 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_4" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -520.618, -234.883 )
+scale = Vector2( 0.358307, 0.317949 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_5" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -147.71, -230.041 )
+scale = Vector2( 0.364361, 0.313914 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_6" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( 225.198, -234.884 )
+scale = Vector2( 0.364361, 0.326021 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_7" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -520.618, 33.9008 )
+scale = Vector2( 0.358307, 0.326021 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_8" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -150.132, 33.9008 )
+scale = Vector2( 0.364361, 0.326021 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_9" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( 227.619, 33.9008 )
+scale = Vector2( 0.361334, 0.326021 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_C" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( 227.619, 305.107 )
+scale = Vector2( 0.361334, 0.321986 )
+normal = ExtResource( 7 )
+
+[node name="Keypad_STBY" type="TouchScreenButton" parent="CanvasLayer/Control/Keypad"]
+position = Vector2( -520.618, 305.107 )
+scale = Vector2( 0.35528, 0.309878 )
+normal = ExtResource( 7 )
+
+[node name="CodeEntered" type="Label" parent="CanvasLayer/Control/Keypad"]
+anchor_right = 1.0
+margin_left = -566.0
+margin_top = -765.0
+margin_right = -566.0
+margin_bottom = -575.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CarTopDown" type="TouchScreenButton" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 239.766, 38.1637 )
+scale = Vector2( 0.120826, 0.120826 )
+normal = ExtResource( 9 )
+
+[node name="CarBoard" type="TouchScreenButton" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 599.766, 38.1637 )
+scale = Vector2( 0.120826, 0.120826 )
+normal = ExtResource( 10 )
+
+[node name="CarBoardImage" type="Sprite" parent="CanvasLayer/Control"]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 0.405995, 0.405995 )
+z_index = 15
+texture = ExtResource( 10 )
+
+[node name="CarTopDownImage" type="Sprite" parent="CanvasLayer/Control"]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 0.405995, 0.405995 )
+z_index = 15
+texture = ExtResource( 9 )
+
 [node name="RoomChangeFade" type="ColorRect" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
@@ -339,14 +865,34 @@ __meta__ = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
+offset = Vector2( 512, 300 )
+script = ExtResource( 12 )
+
+[node name="Tween" type="Tween" parent="Camera2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/LeaveCAD = SubResource( 1 )
+anims/GoBackCAD = SubResource( 3 )
+anims/LeaveCAD = SubResource( 4 )
+anims/LeaveKeypadToExit = SubResource( 5 )
 [connection signal="released" from="CAD/MapCollection" to="." method="_on_MapCollection_released"]
 [connection signal="released" from="CAD/ExitCADRoom" to="." method="_on_ExitCADRoom_released"]
 [connection signal="released" from="CAD/ClickedLinkToExtern" to="." method="_on_ClickedLinkToExtern_released"]
 [connection signal="released" from="CanvasLayer/Control/RoomSelect_AULA/RoomSelect_AULA" to="." method="_on_RoomSelect_AULA_released"]
 [connection signal="released" from="CanvasLayer/Control/RoomSelect_CLASS/RoomSelect_CLASS" to="." method="_on_RoomSelect_CLASS_released"]
 [connection signal="pressed" from="CanvasLayer/Control/RoomSelect_MAP/RoomSelect_MAP" to="." method="_on_RoomSelect_MAP_pressed"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_0" to="CanvasLayer/Control/Keypad" method="_on_Keypad_0_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_1" to="CanvasLayer/Control/Keypad" method="_on_Keypad_1_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_2" to="CanvasLayer/Control/Keypad" method="_on_Keypad_2_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_3" to="CanvasLayer/Control/Keypad" method="_on_Keypad_3_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_4" to="CanvasLayer/Control/Keypad" method="_on_Keypad_4_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_5" to="CanvasLayer/Control/Keypad" method="_on_Keypad_5_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_6" to="CanvasLayer/Control/Keypad" method="_on_Keypad_6_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_7" to="CanvasLayer/Control/Keypad" method="_on_Keypad_7_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_8" to="CanvasLayer/Control/Keypad" method="_on_Keypad_8_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_9" to="CanvasLayer/Control/Keypad" method="_on_Keypad_9_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_C" to="CanvasLayer/Control/Keypad" method="_on_Keypad_C_released"]
+[connection signal="released" from="CanvasLayer/Control/Keypad/Keypad_STBY" to="CanvasLayer/Control/Keypad" method="_on_Keypad_STBY_released"]
+[connection signal="pressed" from="CanvasLayer/Control/CarTopDown" to="." method="_on_CarTopDown_pressed"]
+[connection signal="released" from="CanvasLayer/Control/CarTopDown" to="." method="_on_CarTopDown_released"]
+[connection signal="pressed" from="CanvasLayer/Control/CarBoard" to="." method="_on_CarBoard_pressed"]
+[connection signal="released" from="CanvasLayer/Control/CarBoard" to="." method="_on_CarBoard_released"]

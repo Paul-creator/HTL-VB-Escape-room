@@ -3,7 +3,7 @@ extends Camera2D
 var current_zoom := Vector2(1,1)
 var min_zoom
 var max_zoom
-var zoom_factor = 0.2 # < 1 = zoom_in; > 1 = zoom_out
+var zoom_factor = 0.25 # < 1 = zoom_in; > 1 = zoom_out
 var transition_time = 0.75
 
 func _ready():

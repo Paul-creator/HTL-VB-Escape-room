@@ -10,6 +10,10 @@ var offsetToReach = Vector2.ZERO
 var prev := -1
 var currentCLASS = ""
 
+func _process(delta: float) -> void:
+	if $CanvasLayer/BackgroundUnfocus.color == Color(0,0,0,0):
+		$CanvasLayer/BackgroundUnfocus.hide()
+
 func zoomToTimetable(pos:Vector2, size:Vector2, _class:String) -> void:
 	if IsMapOpen(): return
 	if $Camera2D.current_zoom != Vector2(1,1): zoomReset()
@@ -94,33 +98,33 @@ func _on_wim_subj_pressed() -> void:
 ##############
 
 func _on_FS_category_released() -> void:
-	$ColorRect.rect_position = $SpecialitiesSelection/buttonFS.get_global_transform().get_origin()
-	$ColorRect.rect_size = $SpecialitiesSelection/buttonFS.get_global_transform().get_scale() * Vector2(800,600)
+	$ColorRect.rect_position = $SpecialitiesSelection/buttonFS.get_global_transform().get_origin()# + Vector2(0,50)
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonFS.get_global_transform().get_scale() * Vector2(823,730)
 	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "FS")
 
 func _on_GT_category_released() -> void:
 	$ColorRect.rect_position = $SpecialitiesSelection/buttonGT.get_global_transform().get_origin()
-	$ColorRect.rect_size = $SpecialitiesSelection/buttonGT.get_global_transform().get_scale() * Vector2(800,600)
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonGT.get_global_transform().get_scale() * Vector2(823,730)
 	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "GT")
 
 func _on_MB_category_released() -> void:
 	$ColorRect.rect_position = $SpecialitiesSelection/buttonMB.get_global_transform().get_origin()
-	$ColorRect.rect_size = $SpecialitiesSelection/buttonMB.get_global_transform().get_scale() * Vector2(800,600)
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonMB.get_global_transform().get_scale() * Vector2(823,730)
 	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "MB")
 
 func _on_WM_category_released() -> void:
 	$ColorRect.rect_position = $SpecialitiesSelection/buttonWM.get_global_transform().get_origin()
-	$ColorRect.rect_size = $SpecialitiesSelection/buttonWM.get_global_transform().get_scale() * Vector2(800,600)
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonWM.get_global_transform().get_scale() * Vector2(823,730)
 	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "WM")
 
 func _on_WI_category_released() -> void:
 	$ColorRect.rect_position = $SpecialitiesSelection/buttonWI.get_global_transform().get_origin()
-	$ColorRect.rect_size = $SpecialitiesSelection/buttonWI.get_global_transform().get_scale() * Vector2(800,600)
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonWI.get_global_transform().get_scale() * Vector2(823,730)
 	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "WI")
 
 func _on_ME_category_released() -> void:
 	$ColorRect.rect_position = $SpecialitiesSelection/buttonME.get_global_transform().get_origin()
-	$ColorRect.rect_size = $SpecialitiesSelection/buttonME.get_global_transform().get_scale() * Vector2(800,600)
+	$ColorRect.rect_size = $SpecialitiesSelection/buttonME.get_global_transform().get_scale() * Vector2(823,730)
 	zoomToTimetable($ColorRect.rect_position, $ColorRect.rect_size, "ME")
 
 func IsMapOpen() -> bool:

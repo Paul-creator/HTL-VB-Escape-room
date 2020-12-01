@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
-[ext_resource path="res://graphics/NAWI-finish.png" type="Texture" id=2]
+[ext_resource path="res://graphics/NAWI-finish_low.png" type="Texture" id=2]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=3]
 [ext_resource path="res://src/rooms/Room_TH_NAWI.gd" type="Script" id=4]
 
@@ -9,6 +9,7 @@
 script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
 
 [node name="BackgroundUnfocus" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -31,18 +32,18 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer2"]
-position = Vector2( 513.089, 300.595 )
-scale = Vector2( 0.155254, 0.155254 )
+position = Vector2( 512.185, 300 )
+scale = Vector2( 0.623053, 0.623053 )
 texture = ExtResource( 2 )
 
 [node name="instagramButton" type="TouchScreenButton" parent="CanvasLayer2/Sprite"]
-position = Vector2( -559.23, -1608.37 )
-scale = Vector2( 0.830526, 0.231999 )
+position = Vector2( -138.067, -401.684 )
+scale = Vector2( 0.201364, 0.0619552 )
 normal = ExtResource( 3 )
 
 [node name="youtubeButton" type="TouchScreenButton" parent="CanvasLayer2/Sprite"]
-position = Vector2( -540.538, -1312.3 )
-scale = Vector2( 0.65386, 0.212686 )
+position = Vector2( -134.133, -328.171 )
+scale = Vector2( 0.154356, 0.0575211 )
 normal = ExtResource( 3 )
 
 [node name="VarsAndDesign" parent="CanvasLayer2" instance=ExtResource( 1 )]

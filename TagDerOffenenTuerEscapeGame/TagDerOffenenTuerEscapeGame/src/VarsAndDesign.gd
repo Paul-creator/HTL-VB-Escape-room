@@ -26,6 +26,8 @@ func _on_OpenMapButton_pressed() -> void:
 	if canBePressed:
 		canBePressed = false
 		if get_tree().get_root().get_children()[1].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:
+			get_tree().get_root().get_children()[1].get_node("CanvasLayer/BackgroundUnfocus").show()
+		if get_tree().get_root().get_children()[1].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:
 			get_tree().get_root().get_children()[1].get_node("CanvasLayer/BackgroundUnfocus").color = Color(0,0,0,0.48)
 		var loadedMap = map.instance()
 		loadedMap.rect_scale = Vector2(0.65, 0.65)
