@@ -7,20 +7,30 @@ var canBePressed := true
 func _ready() -> void:
 	if !showMap:
 		$CanvasLayer/HBoxContainer.hide()
-
+		
+var didInitJs = false
+func initJs(): 
+	if (!didInitJs):
+		didInitJs = true
+		var paths = [
+			"res://ExternalWebGame/index.js",
+		]
+	
+		var file = File.new()
+		var js = '' 
+		for path in paths:
+			file.open(path, File.READ)
+			js += file.get_as_text() + '\n'
+			file.close()
+		JavaScript.eval(js, true)
+	
 func showWebPage(titel: String, url: String):
-	var paths = [
-		"res://ExternalWebGame/index.js",
-	]
-
-	var file = File.new()
-	var js = '' 
-	for path in paths:
-		file.open(path, File.READ)
-		js += file.get_as_text() + '\n'
-		file.close()
-	JavaScript.eval(js, true)
+	initJs()
 	JavaScript.eval("showWebsite('%s', '%s')" % [titel, url], true)
+	
+func showWebPageInNewTap(url: String, alertText: String):
+	initJs()
+	JavaScript.eval("openInNewTab('%s', '%s')" % [url, alertText], true)
 
 func _on_OpenMapButton_pressed() -> void:
 	if canBePressed:

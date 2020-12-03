@@ -7,8 +7,8 @@ onready var varsAndDesign = get_node("CanvasLayer/VarsAndDesign")
 onready var map = get_node("Map")
 
 func _on_ClickedLinkToExtern_released() -> void:
-	OS.shell_open("https://cad.onshape.com/documents/115c334e11e4434e7c78d535/w/61bbf9db6d3ca697989d8cda/e/38cdb5f30221e9f4018e5316")
-#	varsAndDesign.showWebPage("3D Modell betrachten", "https://cad.onshape.com/documents/115c334e11e4434e7c78d535/w/61bbf9db6d3ca697989d8cda/e/38cdb5f30221e9f4018e5316")
+	#OS.shell_open("https://cad.onshape.com/documents/115c334e11e4434e7c78d535/w/61bbf9db6d3ca697989d8cda/e/38cdb5f30221e9f4018e5316")
+	varsAndDesign.showWebPageInNewTap("https://cad.onshape.com/documents/115c334e11e4434e7c78d535/w/61bbf9db6d3ca697989d8cda/e/38cdb5f30221e9f4018e5316","Das 3D Modell Wird in einem neuen Tab geöffnet")
 
 func _on_MapCollection_released() -> void:
 	if CanPress():
