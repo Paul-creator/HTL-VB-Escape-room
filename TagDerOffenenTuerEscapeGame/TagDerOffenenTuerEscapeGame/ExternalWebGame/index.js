@@ -21,6 +21,97 @@ function createElemt(elemntType, parent, style, attributes) {
 }
 
 /**
+ * Opens an embedded video
+ * @param {string} videoUrl The videoPath of the page
+ * @param {int} vidPosX The x position of the video
+ * @param {int} vidPosY The y position of the video
+ * @param {int} vidSizeX The width of the video
+ * @param {int} vidSizeY The height of the video
+ * @param {int} gameWidth The width of the game
+ * @param {int} gameHeight The height of the game
+ * @param {string} enableControls Sets if xontrols should be shown
+ * @param {string} enableAutoplay Sets if the video should play automatically
+ * @param {string} videoPlayerID Sets the id for the videoplayer element
+ */
+function showVideo(videoUrl, vidPosX, vidPosY, vidSizeX, vidSizeY, gameWidth, gameHeight, enableControls, enableAutoplay, videoPlayerID) {
+	let aspectDivision = gameWidth / gameHeight
+	let posXPercentage = vidPosX / gameWidth
+	let posYPercentage = vidPosY / gameHeight
+	let widthPercentage = vidSizeX / gameWidth
+	let heightPercentage = vidSizeY / gameHeight
+    let tobBarHeight = 0
+    let tobBarMarginBottom = 0
+	let ratio = window.innerWidth / window.innerHeight
+    let posY = -(window.innerHeight-(window.innerHeight*posYPercentage))
+	if (ratio < aspectDivision)
+		posY = -((window.innerWidth/aspectDivision) - ((window.innerWidth/aspectDivision)*posYPercentage))-((window.innerHeight-(window.innerWidth/aspectDivision))/2)
+    let posX = window.innerWidth * posXPercentage
+	if (ratio > aspectDivision)
+		posX = (aspectDivision * window.innerHeight * posXPercentage) + ((window.innerWidth-(aspectDivision*window.innerHeight))/2)
+	
+	let wd = widthPercentage * window.innerWidth
+	if(ratio > aspectDivision)
+		wd = aspectDivision * window.innerHeight * widthPercentage
+	let hg = heightPercentage * window.innerHeight
+	if(ratio < aspectDivision)
+		hg = window.innerWidth / aspectDivision * heightPercentage
+
+	let enableAP = ""
+	let enableCtrls = ""
+	if (enableControls === "true")
+		enableCtrls = " "
+	if (enableAutoplay === "true")
+		enableAP = " "
+
+    let vidContainer = createElemt('video', document.body, [
+        { key: 'width', val: wd + 'px' },
+        { key: 'height', val: hg + 'px' },
+        { key: 'z-index', val: "3" },
+        { key: 'position', val: "relative" },
+        { key: 'float', val: "left" },
+        { key: 'margin-top', val: posY + 'px' },
+        { key: 'margin-left', val: posX + 'px' },
+    ], [
+		{ key: "id", val: videoPlayerID },
+		{ key: "controls", val: enableCtrls },
+		{ key: "autoplay", val: enableAP },
+	])
+	
+	let sourceVid = createElemt('source', vidContainer, [
+    ], [
+        { key: "id", val: "sourceVid" },
+        { key: 'src', val: videoUrl },
+        { key: 'type', val: "video/mp4" },
+    ])
+	
+	vidContainer.addEventListener("ended", () => {
+		document.body.removeChild(vidContainer)
+	})
+
+    window.addEventListener("resize", () => {
+		let ratio = window.innerWidth / window.innerHeight
+		let posY = -(window.innerHeight-(window.innerHeight*posYPercentage))
+		if (ratio < aspectDivision)
+			posY = -((window.innerWidth/aspectDivision) - ((window.innerWidth/aspectDivision)*posYPercentage))-((window.innerHeight-(window.innerWidth/aspectDivision))/2)
+		let posX = window.innerWidth * posXPercentage
+		if (ratio > aspectDivision)
+			posX = (aspectDivision * window.innerHeight * posXPercentage) + ((window.innerWidth-(aspectDivision*window.innerHeight))/2)
+		
+		
+		let wd = widthPercentage * window.innerWidth
+		if(ratio > aspectDivision)
+			wd = aspectDivision * window.innerHeight * widthPercentage
+		let hg = heightPercentage * window.innerHeight
+		if(ratio < aspectDivision)
+			hg = window.innerWidth / aspectDivision * heightPercentage
+        vidContainer.style.marginTop = posY + 'px'
+        vidContainer.style.marginLeft = posX + 'px'
+        vidContainer.style.width = wd + 'px'
+        vidContainer.style.height = hg + 'px'
+    })
+}
+
+/**
  * Opens a closeable embedded HTML-page
  * @param {string} title The of the page
  * @param {string} url The url of the page
@@ -194,7 +285,7 @@ function showWebsite(title, url) {
         },
     ], [{
             key: "src",
-            val: "/round_cancel_black_96dp.png"
+            val: "/close.png"
         },
         {
             key: "onclick",

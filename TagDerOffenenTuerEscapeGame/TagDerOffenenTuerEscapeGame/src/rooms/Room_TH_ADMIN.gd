@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _on_ZoomAdminNote_released() -> void:
 	justPressed = true
+	isChatBot = false
 	isNote = true
 	anythingOpen = true
 	$CanvasLayer/BackgroundUnfocus.color = Color(0,0,0,0.48)
@@ -91,6 +92,7 @@ func _on_GetToAdminBot_released() -> void:
 	flag.position = Vector2(1024,600)
 	flag.scale = Vector2(0.9, 0.9)
 	isChatBot = true
+	isNote = false
 	justPressed = true
 	anythingOpen = true
 	$TotallyTopLayer.add_child(flag)

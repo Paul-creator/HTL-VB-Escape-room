@@ -1,11 +1,11 @@
 extends Node2D
 
-var subj_text_FET = "[center][color=#ff9900]FET\nFertigungstechnik\n\n\n[/color][color=#000000]Welche Werkstoffe werden in F[color=#0000ff]A[/color]hrzeugen verwendet und wie kann man diese Werkstoffe bearbeiten[/color][/center]"
-var subj_text_PLP = "[center][color=#ff9900]PLP\nPlanung und Projektierung\n\n\n[/color][color=#000000]En[color=#0000ff]T[/color]wurf einer Heizung-, Kältetechnik-, Lüftung- und Sanitäranlage [/color][/center]"
-var subj_text_TMB = "[center][color=#ff9900]TMB\nTechnische Mechanik und Berechnung\n\n\n[/color][color=#000000]St[color=#0000ff]A[/color]tik einer Eisenbahnbrücke berechnen[/color][/center]"
-var subj_text_AIIT = "[center][color=#ff9900]AIIT\nAngewandte Informatik und fachspezifische Informationstechnik\n\n\n[/color][color=#000000]Programmieren von [color=#0000ff]M[/color]icrocomputern in Haushaltsgeräten oder Garagentoren[/color][/center]"
-var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#0000ff]R[/color]ammiert man Computerspiel[/color][/center]"
-var subj_text_BET = "[center][color=#ff9900]BET\nBetriebstechnik\n\n\n[/color][color=#000000]Wie ist ein [color=#0000ff]U[/color]nternehmen aufgebaut und organisiert[/color][/center]"
+var subj_text_FET = "[center][color=#ff9900]FET\nFertigungstechnik\n\n\n[/color][color=#000000]Welche Werkstoffe werden in F[color=#4fd128]A[/color]hrzeugen verwendet und wie kann man diese Werkstoffe bearbeiten[/color][/center]"
+var subj_text_PLP = "[center][color=#ff9900]PLP\nPlanung und Projektierung\n\n\n[/color][color=#000000]En[color=#4fd128]T[/color]wurf einer Heizung-, Kältetechnik-, Lüftung- und Sanitäranlage [/color][/center]"
+var subj_text_TMB = "[center][color=#ff9900]TMB\nTechnische Mechanik und Berechnung\n\n\n[/color][color=#000000]St[color=#4fd128]A[/color]tik einer Eisenbahnbrücke berechnen[/color][/center]"
+var subj_text_AIIT = "[center][color=#ff9900]AIIT\nAngewandte Informatik und fachspezifische Informationstechnik\n\n\n[/color][color=#000000]Programmieren von [color=#4fd128]M[/color]icrocomputern in Haushaltsgeräten oder Garagentoren[/color][/center]"
+var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#4fd128]R[/color]ammiert man Computerspiel[/color][/center]"
+var subj_text_BET = "[center][color=#ff9900]BET\nBetriebstechnik\n\n\n[/color][color=#000000]Wie ist ein [color=#4fd128]U[/color]nternehmen aufgebaut und organisiert[/color][/center]"
 var offsetToReach = Vector2.ZERO
 var prev := -1
 var currentCLASS = ""
@@ -13,6 +13,11 @@ var currentCLASS = ""
 func _process(delta: float) -> void:
 	if $CanvasLayer/BackgroundUnfocus.color == Color(0,0,0,0):
 		$CanvasLayer/BackgroundUnfocus.hide()
+	if $Code/AIIT.text.to_lower() == "m" and $Code/TMB.text.to_lower() == "a" and $Code/PLP.text.to_lower() == "t" and $Code/BET.text.to_lower() == "u" and $Code/SWP.text.to_lower() == "r" and $Code/FET.text.to_lower() == "a":
+		set_process(false)
+		var codeNum = get_tree().get_root().get_node("Globals").CODE_CLASS
+		$CanvasLayer/Label.text = str(codeNum)
+		$AnimationPlayer.play("showUpNumber")
 
 func zoomToTimetable(pos:Vector2, size:Vector2, _class:String) -> void:
 	if IsMapOpen(): return
@@ -49,17 +54,6 @@ func setTextAndShowDialog(subject:String, _class:String) -> void:
 		$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = subj_text_BET 
 		wasSet = true
 	if wasSet: $CanvasLayer/DialogBox.show()
-
-#func showClassTimeTable(classShort:String) -> void:
-#	if IsMapOpen(): return
-#	$SpecialitiesSelection.hide()
-#	if classShort == "FS": $timetable_1afmbm.show()
-#	elif classShort == "GT": $timetable_1ahgti.show()
-#	elif classShort == "MB": $timetable_1ahmbt.show()
-#	elif classShort == "WM": $timetable_1ahwim.show()
-#	elif classShort == "WI": $timetable_1ahwii.show()
-#	elif classShort == "ME": $timetable_1ahme.show()
-#	$CanvasLayer2/BackButton.show()
 
 func _on_TouchBackButton_released() -> void:
 	$CanvasLayer2/BackButton.hide()
@@ -130,7 +124,6 @@ func _on_ME_category_released() -> void:
 func IsMapOpen() -> bool:
 	return get_node_or_null("CanvasLayer/Map") != null
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and $Camera2D.current_zoom == Vector2($Camera2D.zoom_factor,$Camera2D.zoom_factor):
 		var evLocal = make_input_local(event)
@@ -139,3 +132,6 @@ func _input(event: InputEvent) -> void:
 		
 		if !Rect2($ColorRect.get_global_rect().position,$ColorRect.get_rect().size).has_point(evLocal.position):
 			zoomReset()
+
+func playAnim() -> void:
+	$AnimationPlayer.play("numberAnim")

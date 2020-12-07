@@ -76,7 +76,7 @@ func HandleUserInputMessage(text:String) -> void:
 		elif isWaitingForAnswers == 6 and answerPos == 1: isWaitingForAnswers = 0
 		elif isWaitingForAnswers == 7: isWaitingForAnswers = 0
 	else: 
-		SendBotMessage("Sorry, dabei kann dir leider nicht weiterhelfen. Hast du Fragen zum  Anmeldeverfahren, zu den Abteilungen oder den Schnuppertagen?")
+		SendBotMessage("Sorry, dabei kann dir leider nicht weiterhelfen. Hast du Fragen zum  Anmeldevoraussetzungen, zu den Abteilungen oder den Schnuppertagen?")
 		isWaitingForAnswers = 0
 
 func GetPositionInAnswerArray(text:String) -> int:

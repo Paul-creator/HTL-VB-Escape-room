@@ -26,4 +26,6 @@ position = Vector2( 17.9928, 17.4053 )
 scale = Vector2( 0.0995822, 0.0960554 )
 z_index = -5
 normal = ExtResource( 1 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/OpenMapButton" to="." method="_on_OpenMapButton_pressed"]

@@ -30,8 +30,8 @@ __meta__ = {
 }
 
 [node name="ToggleFlashlight" type="TouchScreenButton" parent="."]
-position = Vector2( 57.8112, 177.112 )
-scale = Vector2( 0.0304992, 0.0399154 )
+position = Vector2( 41.0881, 164.105 )
+scale = Vector2( 0.0737006, 0.0820329 )
 normal = ExtResource( 4 )
 
 [node name="FlashlightRect" type="ColorRect" parent="."]

@@ -22,5 +22,6 @@ func _on_TouchScreenButton_released() -> void:
 	isMovingPhone = false
 
 func _on_ToggleFlashlight_pressed() -> void:
-	isFlashlightOn = !isFlashlightOn
-	enabled = isFlashlightOn
+	if !isFlashlightOn:
+		isFlashlightOn = !isFlashlightOn
+		enabled = isFlashlightOn

@@ -3,8 +3,11 @@ extends Node2D
 var isDragging := false
 var startPos := 0.0
 var startDiff := 0.0
+var startedVideo := false
+var globals
 
 func _ready() -> void:
+	globals = get_tree().get_root().get_node("Globals")
 	startPos = $CanvasLayer2/ScreenContent.position.x
 
 func _on_TouchScreenButton1_released() -> void:
@@ -19,6 +22,11 @@ func _process(delta: float) -> void:
 		var posX = get_global_mouse_position().x
 		if (posX - startDiff) < startPos:
 			$CanvasLayer2/ScreenContent.position.x = posX - startDiff
+	if startedVideo && !globals.idExists("GymHTLWarriorVideo"):
+		startedVideo = false
+		$CanvasLayer2/ScreenContent.position.x = startPos
+		$CanvasLayer2/ScreenContent.show()
+		$CanvasLayer2/ScreenDrag.show()
 
 func _on_ScreenDrag_pressed() -> void:
 	startDiff = get_global_mouse_position().x - startPos
@@ -29,8 +37,7 @@ func _on_ScreenDrag_released() -> void:
 	if $CanvasLayer2/ScreenContent.position.x - startPos > -360:
 		$CanvasLayer2/ScreenContent.position.x = startPos
 	else:
+		get_tree().get_root().get_node("Globals").showVideo("HTLWarrior.webm", 212, 135, 687, 339, "true", "true", "GymHTLWarriorVideo")
+		startedVideo = true
 		$CanvasLayer2/ScreenContent.hide()
 		$CanvasLayer2/ScreenDrag.hide()
-		$AudioForVideo.play()
-		$CanvasLayer2/VideoOnPhone.show()
-		$CanvasLayer2/VideoOnPhone.play()

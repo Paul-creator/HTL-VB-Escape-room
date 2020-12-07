@@ -57,3 +57,9 @@ func _on_RoomSelect_TH_NAWI_released() -> void:
 
 func _on_RoomSelect_TH_GYM_released() -> void:
 	changeRoom(4)
+
+func _on_CodeOK_released() -> void:
+	var parts = get_tree().get_root().get_node("Globals").code
+	var code = str(parts[0], parts[1], parts[2], parts[3], parts[4])
+	if $MapOpen/TextEdit.text == code:
+		get_tree().change_scene("res://scenes/rooms/Laboratory/Building_Laboratory.tscn")

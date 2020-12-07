@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/gym/IMG_9475_low.JPG" type="Texture" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://src/rooms/Room_TH_GYM.gd" type="Script" id=4]
 [ext_resource path="res://graphics/gym/Bildschirm_hole_low.png" type="Texture" id=5]
 [ext_resource path="res://graphics/gym/ScreenContent_low.JPG" type="Texture" id=6]
-[ext_resource path="res://media/HTLWarriorAudio.ogg" type="AudioStream" id=7]
-[ext_resource path="res://media/FullSizeRenderNew_COMPR_3.ogv" type="VideoStream" id=8]
 
 [node name="RoomGYM" type="Node2D"]
 script = ExtResource( 4 )
@@ -90,20 +88,6 @@ rotation = 0.919789
 scale = Vector2( 0.069749, 0.0906634 )
 normal = ExtResource( 3 )
 
-[node name="VideoOnPhone" type="VideoPlayer" parent="CanvasLayer2"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 212.0
-margin_top = 135.0
-margin_right = -125.0
-margin_bottom = -126.0
-stream = ExtResource( 8 )
-volume_db = -80.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="LeftSideBlack" type="ColorRect" parent="CanvasLayer2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -112,11 +96,6 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioForVideo" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 512, 300 )
-stream = ExtResource( 7 )
-volume_db = -10.058
 [connection signal="pressed" from="CanvasLayer2/ScreenDrag" to="." method="_on_ScreenDrag_pressed"]
 [connection signal="released" from="CanvasLayer2/ScreenDrag" to="." method="_on_ScreenDrag_released"]
 [connection signal="released" from="CanvasLayer2/PhoneTouches/TouchScreenButton1" to="." method="_on_TouchScreenButton1_released"]

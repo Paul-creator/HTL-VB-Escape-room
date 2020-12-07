@@ -1,11 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/timetables/1AHWII_finish.png" type="Texture" id=2]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=3]
 [ext_resource path="res://src/rooms/Room_TH_CLASS.gd" type="Script" id=4]
 [ext_resource path="res://graphics/Klasse finish_low.png" type="Texture" id=5]
+[ext_resource path="res://font/GidoleFont/Gidole-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://graphics/red_back_arrow.png" type="Texture" id=7]
+[ext_resource path="res://graphics/YellowBubble.png" type="Texture" id=8]
+[ext_resource path="res://graphics/general/Note2.png" type="Texture" id=9]
+[ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=10]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=13]
 [ext_resource path="res://control_theme.tres" type="Theme" id=14]
 [ext_resource path="res://graphics/timetables/1AHGTI_finish.png" type="Texture" id=15]
@@ -14,14 +18,180 @@
 [ext_resource path="res://graphics/timetables/1AHMBT_finish.png" type="Texture" id=18]
 [ext_resource path="res://graphics/timetables/1AFMBM_finish.png" type="Texture" id=19]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://font/GidoleFont/Gidole-Regular.ttf"
+[sub_resource type="DynamicFont" id=1]
+size = 123
+use_filter = true
+font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 39
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.195, 0.53, 1 )
+colors = PoolColorArray( 0.827148, 0.355063, 0.193863, 0.266667, 1, 0.40567, 0.199219, 0.768627, 0.847059, 0.466667, 0.258824, 0.92549 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 266
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://font/besley/Besley-Fatface.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 31
 use_filter = true
 extra_spacing_space = -7
-font_data = SubResource( 1 )
+font_data = SubResource( 4 )
+
+[sub_resource type="Animation" id=6]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Label:custom_constants/shadow_offset_x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Label:custom_constants/shadow_offset_y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Label:custom_colors/font_color_shadow")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.466667, 0, 0.34902 ), Color( 0.952941, 0.768627, 0.337255, 0.741176 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Label:custom_fonts/font:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 256, 275 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.623529 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/CPUParticles2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/CPUParticles2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Label:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "playAnim"
+} ]
+}
 
 [node name="RoomCLASS" type="Node2D"]
 script = ExtResource( 4 )
@@ -33,33 +203,42 @@ layer = 3
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.48 )
+color = Color( 0, 0, 0, 0.745098 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Note2" type="Sprite" parent="CanvasLayer/DialogBox"]
+position = Vector2( 543.976, 335 )
+scale = Vector2( 0.570324, 0.570325 )
+texture = ExtResource( 9 )
+
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer/DialogBox"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -260.0
-margin_top = -153.0
-margin_right = 260.0
-margin_bottom = 153.0
+margin_left = -332.0
+margin_top = -185.0
+margin_right = 188.0
+margin_bottom = 121.0
+rect_scale = Vector2( 1.3, 1.3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/DialogBox"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -255.5
-margin_top = -148.5
-margin_right = 255.5
-margin_bottom = 148.5
+margin_left = -327.0
+margin_top = -180.0
+margin_right = 184.0
+margin_bottom = 117.0
+rect_scale = Vector2( 1.3, 1.3 )
 color = Color( 0.866667, 0.866667, 0.866667, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,31 +249,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -246.5
-margin_top = -137.0
-margin_right = 246.5
-margin_bottom = 137.0
+margin_left = -287.0
+margin_top = -177.0
+margin_right = 1974.0
+margin_bottom = 1134.0
+rect_scale = Vector2( 0.26, 0.26 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
+meta_underlined = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/DialogBox"]
+position = Vector2( 717.083, 407.572 )
+scale = Vector2( 0.136728, 0.167365 )
+normal = ExtResource( 3 )
+
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer/DialogBox"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 157.0
-margin_top = 104.0
-margin_right = 240.0
-margin_bottom = 134.0
+margin_left = 205.083
+margin_top = 167.64
+margin_right = 288.083
+margin_bottom = 197.64
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/DialogBox/ColorRect3"]
-scale = Vector2( 0.104191, 0.0494545 )
-normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="CanvasLayer/DialogBox/ColorRect3"]
 modulate = Color( 0, 0, 0, 1 )
@@ -103,6 +288,55 @@ anchor_bottom = 1.0
 text = "OK"
 align = 1
 valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 512, 300 )
+amount = 50
+lifetime = 6.0
+preprocess = 5.0
+speed_scale = 0.4
+texture = ExtResource( 8 )
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2( 0, 5 )
+orbit_velocity = 0.02
+orbit_velocity_random = 0.62
+radial_accel = 32.48
+tangential_accel = 2.86
+angle = 221.5
+angle_random = 0.76
+scale_amount = 0.05
+scale_amount_random = 0.72
+color_ramp = SubResource( 2 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.854902, 0.294118, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.466667, 0, 0.34902 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "7"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BackgroundUnfocus" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -212,12 +446,12 @@ __meta__ = {
 [node name="Code" type="Node2D" parent="."]
 
 [node name="AIIT" type="LineEdit" parent="Code"]
-margin_left = 51.8965
-margin_top = 274.641
-margin_right = 99.8965
-margin_bottom = 319.641
+margin_left = 52.5196
+margin_top = 276.538
+margin_right = 96.5196
+margin_bottom = 321.538
 theme = ExtResource( 14 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 max_length = 1
 placeholder_text = "A"
@@ -227,12 +461,12 @@ __meta__ = {
 }
 
 [node name="TMB" type="LineEdit" parent="Code"]
-margin_left = 104.953
-margin_top = 274.918
-margin_right = 152.953
-margin_bottom = 319.918
+margin_left = 105.473
+margin_top = 276.456
+margin_right = 153.473
+margin_bottom = 321.456
 theme = ExtResource( 14 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 max_length = 1
 placeholder_text = "A"
@@ -242,12 +476,12 @@ __meta__ = {
 }
 
 [node name="PLP" type="LineEdit" parent="Code"]
-margin_left = 158.342
-margin_top = 275.862
-margin_right = 206.342
-margin_bottom = 320.862
+margin_left = 158.862
+margin_top = 277.4
+margin_right = 206.862
+margin_bottom = 322.4
 theme = ExtResource( 14 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 max_length = 1
 placeholder_text = "A"
@@ -257,12 +491,12 @@ __meta__ = {
 }
 
 [node name="BET" type="LineEdit" parent="Code"]
-margin_left = 210.563
-margin_top = 275.113
-margin_right = 258.563
-margin_bottom = 320.113
+margin_left = 211.083
+margin_top = 276.651
+margin_right = 259.083
+margin_bottom = 321.651
 theme = ExtResource( 14 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 max_length = 1
 placeholder_text = "A"
@@ -272,12 +506,12 @@ __meta__ = {
 }
 
 [node name="SWP" type="LineEdit" parent="Code"]
-margin_left = 263.203
-margin_top = 276.0
-margin_right = 311.203
-margin_bottom = 321.0
+margin_left = 262.041
+margin_top = 278.378
+margin_right = 310.041
+margin_bottom = 323.378
 theme = ExtResource( 14 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 max_length = 1
 placeholder_text = "A"
@@ -287,12 +521,12 @@ __meta__ = {
 }
 
 [node name="FET" type="LineEdit" parent="Code"]
-margin_left = 315.705
-margin_top = 274.502
-margin_right = 363.705
-margin_bottom = 319.502
+margin_left = 314.543
+margin_top = 278.562
+margin_right = 362.543
+margin_bottom = 323.562
 theme = ExtResource( 14 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 max_length = 1
 placeholder_text = "A"
@@ -300,7 +534,11 @@ placeholder_alpha = 0.385
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CanvasLayer/DialogBox/ColorRect3/TouchScreenButton" to="." method="_on_DialogClose_pressed"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/numberAnim = SubResource( 6 )
+anims/showUpNumber = SubResource( 7 )
+[connection signal="pressed" from="CanvasLayer/DialogBox/TouchScreenButton" to="." method="_on_DialogClose_pressed"]
 [connection signal="released" from="CanvasLayer2/BackButton/TouchBackButton" to="." method="_on_TouchBackButton_released"]
 [connection signal="released" from="SpecialitiesSelection/buttonFS" to="." method="_on_FS_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonFS/TouchScreenButton" to="." method="_on_mbm_subj_pressed"]

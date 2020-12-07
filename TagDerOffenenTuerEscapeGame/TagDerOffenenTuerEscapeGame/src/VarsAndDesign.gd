@@ -3,8 +3,10 @@ extends Node2D
 export var showMap := true
 var map = load("res://scenes/general/MapOpen.tscn")
 var canBePressed := true
+var _globals
 
 func _ready() -> void:
+	_globals = get_tree().get_root().get_node("Globals")
 	if !showMap:
 		$CanvasLayer/HBoxContainer.hide()
 		
@@ -32,7 +34,25 @@ func showWebPageInNewTap(url: String, alertText: String):
 	initJs()
 	JavaScript.eval("openInNewTab('%s', '%s')" % [url, alertText], true)
 
+func showVideo(url: String, posX: int, posY: int, width: int, height: int):
+	var paths = [
+		"res://ExternalWebGame/index.js",
+	]
+
+	var file = File.new()
+	var js = '' 
+	for path in paths:
+		file.open(path, File.READ)
+		js += file.get_as_text() + '\n'
+		file.close()
+	JavaScript.eval(js, true)
+	var windowWidth = ProjectSettings.get_setting("display/window/size/width")
+	var windowHeight = ProjectSettings.get_setting("display/window/size/height")
+	JavaScript.eval("showVideo('%s', '%s', '%s', '%s', '%s', '%s', '%s')" % [url, posX, posY, width, height, windowWidth, windowHeight], true)
+
 func _on_OpenMapButton_pressed() -> void:
+	if _globals.idExists("GymHTLWarriorVideo"):
+		_globals.removeElement("GymHTLWarriorVideo")
 	if canBePressed:
 		canBePressed = false
 		if get_tree().get_root().get_children()[1].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:

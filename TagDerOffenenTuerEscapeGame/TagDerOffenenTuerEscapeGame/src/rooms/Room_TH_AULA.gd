@@ -1,10 +1,15 @@
 extends Node2D
 
+var _globals
+
 func _on_Monitor_released() -> void:
+	_globals = get_tree().get_root().get_node("Globals")
 	$AnimationPlayer.play("GetInScreen")
+	OS.shell_open("https://learningapps.org/watch?v=p3rfhwhi220")
 
 func showPage() -> void:
-	$CanvasLayer2/VarsAndDesign.showWebPage("AULA", "https://learningapps.org/watch?v=p3rfhwhi220")
+	pass # if it opens in new tab here, it gets recognized as Pop-up.... Has to be embedded
+#	_globals.showWebPage("", "https://learningapps.org/watch?v=p3rfhwhi220")
 
 func zoomToMonitor() -> void:
 	var pos = $CanvasLayer2/Monitor.get_global_transform().get_origin()
