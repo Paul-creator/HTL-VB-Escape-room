@@ -17,7 +17,6 @@ var takenLabDivNum
 
 func _ready() -> void:
 	rnd.randomize()
-	# rnd_num = rnd.randi_range(0,9) # für klasse ? anstatt von 5
 	code = [7, rnd.randi_range(0,9), 6, 7, 2]
 	CODE_ADMIN = code[4]
 	CODE_AULA = code[3]
@@ -26,7 +25,7 @@ func _ready() -> void:
 	CODE_NAWI = code[2]
 	
 	takenLabDivNum = labDivNums[rnd.randi_range(0,labDivNums.size() - 1)]
-	codeLAB = [0, 144 / takenLabDivNum, rnd.randi_range(1,9)]
+	codeLAB = [rnd.randi_range(1,9), 144 / takenLabDivNum, rnd.randi_range(1,9)]
 	CODE_MZW = codeLAB[0]
 	CODE_LABS = codeLAB[1]
 	CODE_COMLAB = codeLAB[2]

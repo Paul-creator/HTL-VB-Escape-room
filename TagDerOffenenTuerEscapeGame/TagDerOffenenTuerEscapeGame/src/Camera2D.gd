@@ -10,6 +10,9 @@ func _ready():
 	max_zoom = zoom.x
 	min_zoom = max_zoom * zoom_factor
 
+func reload() -> void:
+	min_zoom = max_zoom * zoom_factor
+
 func zoom_in(new_offset):
 	transition_camera(Vector2(min_zoom, min_zoom), new_offset)
 
