@@ -10,7 +10,7 @@ var offsetToReach = Vector2.ZERO
 var prev := -1
 var currentCLASS = ""
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $CanvasLayer/BackgroundUnfocus.color == Color(0,0,0,0):
 		$CanvasLayer/BackgroundUnfocus.hide()
 	if $Code/AIIT.text.to_lower() == "m" and $Code/TMB.text.to_lower() == "a" and $Code/PLP.text.to_lower() == "t" and $Code/BET.text.to_lower() == "u" and $Code/SWP.text.to_lower() == "r" and $Code/FET.text.to_lower() == "a":
@@ -127,8 +127,6 @@ func IsMapOpen() -> bool:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and $Camera2D.current_zoom == Vector2($Camera2D.zoom_factor,$Camera2D.zoom_factor):
 		var evLocal = make_input_local(event)
-		$ColorRect.get_global_rect().position
-		$ColorRect.get_rect().size
 		
 		if !Rect2($ColorRect.get_global_rect().position,$ColorRect.get_rect().size).has_point(evLocal.position):
 			zoomReset()

@@ -15,8 +15,6 @@ func _on_BackButton_released() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and $Camera2D.current_zoom == Vector2($Camera2D.zoom_factor,$Camera2D.zoom_factor):
 		var evLocal = make_input_local(event)
-		$ColorRect.get_global_rect().position
-		$ColorRect.get_rect().size
 		
 		if !$ColorRect.get_rect().has_point(evLocal.position):
 			zoomReset()

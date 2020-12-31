@@ -24,7 +24,7 @@ func _ready() -> void:
 	$Slideshow/DragInfo/SlidePreviousArrow2.hide()
 	$CanvasLayer/Number.text = str(_globals.CODE_MZW)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mod = getSlideModulate(300)
 	$Slideshow/DragInfo.modulate.a = mod
 
@@ -200,22 +200,22 @@ func DisableAllButtons() -> void:
 	$SlideInfoRect/SkipTutorial.hide()
 	showingNum = true
 
-func _on__4_fname_text_changed(new_text: String) -> void: isDone()
-func _on__4_lname_text_changed(new_text: String) -> void:  isDone()
-func _on__4_country_text_changed(new_text: String) -> void: isDone()
-func _on__1_fname_text_changed(new_text: String) -> void: isDone()
-func _on__1_lname_text_changed(new_text: String) -> void: isDone()
-func _on__1_country_text_changed(new_text: String) -> void: isDone()
-func _on__2_fname_text_changed(new_text: String) -> void: isDone()
-func _on_2_lname_text_changed(new_text: String) -> void: isDone()
-func _on_2_country_text_changed(new_text: String) -> void: isDone()
-func _on_3_fname_text_changed(new_text: String) -> void: isDone()
-func _on_3_lname_text_changed(new_text: String) -> void: isDone()
-func _on_3_country_text_changed(new_text: String) -> void: isDone()
-func _on_fill1_text_changed(new_text: String) -> void: isDone()
-func _on_fill2_text_changed(new_text: String) -> void: isDone()
-func _on_fill3_text_changed(new_text: String) -> void: isDone()
-func _on_fill4_text_changed(new_text: String) -> void: isDone()
+func _on__4_fname_text_changed(_new_text: String) -> void: isDone()
+func _on__4_lname_text_changed(_new_text: String) -> void:  isDone()
+func _on__4_country_text_changed(_new_text: String) -> void: isDone()
+func _on__1_fname_text_changed(_new_text: String) -> void: isDone()
+func _on__1_lname_text_changed(_new_text: String) -> void: isDone()
+func _on__1_country_text_changed(_new_text: String) -> void: isDone()
+func _on__2_fname_text_changed(_new_text: String) -> void: isDone()
+func _on_2_lname_text_changed(_new_text: String) -> void: isDone()
+func _on_2_country_text_changed(_new_text: String) -> void: isDone()
+func _on_3_fname_text_changed(_new_text: String) -> void: isDone()
+func _on_3_lname_text_changed(_new_text: String) -> void: isDone()
+func _on_3_country_text_changed(_new_text: String) -> void: isDone()
+func _on_fill1_text_changed(_new_text: String) -> void: isDone()
+func _on_fill2_text_changed(_new_text: String) -> void: isDone()
+func _on_fill3_text_changed(_new_text: String) -> void: isDone()
+func _on_fill4_text_changed(_new_text: String) -> void: isDone()
 
 func _on_BackButton_released() -> void:
 	get_tree().change_scene("res://scenes/rooms/Laboratory/Building_Laboratory.tscn")

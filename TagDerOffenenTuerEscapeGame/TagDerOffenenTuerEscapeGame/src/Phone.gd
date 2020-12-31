@@ -5,7 +5,7 @@ var isMovingPhone := false
 var xDiff := 0.0
 var yDiff := 0.0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if isMovingPhone:
 		var pos = get_viewport().get_mouse_position()
 		position.x = pos.x - xDiff

@@ -32,8 +32,9 @@ function createElemt(elemntType, parent, style, attributes) {
  * @param {string} enableControls Sets if xontrols should be shown
  * @param {string} enableAutoplay Sets if the video should play automatically
  * @param {string} videoPlayerID Sets the id for the videoplayer element
+ * @param {string} videoFormatType Defines the type of the video (for example mp4 or webm)
  */
-function showVideo(videoUrl, vidPosX, vidPosY, vidSizeX, vidSizeY, gameWidth, gameHeight, enableControls, enableAutoplay, videoPlayerID) {
+function showVideo(videoUrl, vidPosX, vidPosY, vidSizeX, vidSizeY, gameWidth, gameHeight, enableControls, enableAutoplay, videoPlayerID, videoFormatType) {
 	let aspectDivision = gameWidth / gameHeight
 	let posXPercentage = vidPosX / gameWidth
 	let posYPercentage = vidPosY / gameHeight
@@ -81,7 +82,7 @@ function showVideo(videoUrl, vidPosX, vidPosY, vidSizeX, vidSizeY, gameWidth, ga
     ], [
         { key: "id", val: "sourceVid" },
         { key: 'src', val: videoUrl },
-        { key: 'type', val: "video/mp4" },
+        { key: 'type', val: 'video/' + videoFormatType },
     ])
 	
 	vidContainer.addEventListener("ended", () => {

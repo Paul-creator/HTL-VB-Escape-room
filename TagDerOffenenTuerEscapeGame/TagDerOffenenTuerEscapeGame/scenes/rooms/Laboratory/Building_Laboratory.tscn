@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://graphics/lab/6.jpg" type="Texture" id=1]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/rooms/Building_Laboratory.gd" type="Script" id=5]
 [ext_resource path="res://src/KeypadLab.gd" type="Script" id=6]
 [ext_resource path="res://font/GidoleFont/Gidole-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://graphics/lab/backArrow.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -108,6 +109,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BackButton" type="TouchScreenButton" parent="BackLayer/Pad"]
+position = Vector2( -1116.47, 671.26 )
+rotation = 3.14159
+scale = Vector2( 0.452, 0.356 )
+normal = ExtResource( 8 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
 scale = Vector2( 0.754666, 0.754666 )
@@ -186,7 +193,9 @@ normal = ExtResource( 3 )
 [connection signal="released" from="BackLayer/Pad/9" to="BackLayer/Pad" method="_on_9_released"]
 [connection signal="released" from="BackLayer/Pad/0" to="BackLayer/Pad" method="_on_0_released"]
 [connection signal="released" from="BackLayer/Pad/Star" to="BackLayer/Pad" method="_on_Star_released"]
-[connection signal="released" from="BackLayer/Pad/HashKey" to="BackLayer/Pad" method="_on_HashKey_released"]
+[connection signal="released" from="BackLayer/Pad/BackButton" to="BackLayer/Pad" method="_on_BackButton_released"]
+[connection signal="released" from="Clickables/OG/Door" to="." method="_on_OG_released"]
+[connection signal="released" from="Clickables/OG/Letters" to="." method="_on_OG_released"]
 [connection signal="released" from="Clickables/EG/Door" to="." method="_on_EG_released"]
 [connection signal="released" from="Clickables/EG/Letters" to="." method="_on_EG_released"]
 [connection signal="released" from="Clickables/KG/DoorPart1" to="." method="_on_Laboratories_released"]

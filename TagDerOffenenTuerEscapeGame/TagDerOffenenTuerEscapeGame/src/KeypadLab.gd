@@ -3,12 +3,15 @@ extends Sprite
 var enteredCode := ""
 var codeToBeEntered := "000"
 
+func _ready() -> void:
+	codeToBeEntered = str(Globals.codeLAB[0], Globals.codeLAB[1], Globals.codeLAB[2])
+
 func ShowCode(add:String) -> void:
 	if enteredCode.length() >= 10: return
 	enteredCode = str(enteredCode, add)
 	$Code.text = enteredCode
 	if enteredCode == codeToBeEntered:
-		pass # passed Laboratory level
+		get_tree().change_scene("res://scenes/rooms/Workshop/Building_Workshop.tscn")
 
 func _on_1_released() -> void: ShowCode("1")
 func _on_2_released() -> void: ShowCode("2")
@@ -24,6 +27,8 @@ func _on_0_released() -> void: ShowCode("0")
 func _on_Star_released() -> void: 
 	enteredCode = "" 
 	ShowCode("")
-func _on_HashKey_released() -> void:
+
+func _on_BackButton_released() -> void:
 	hide()
 	get_parent().get_node("PadBackground").hide()
+	get_parent().get_parent().get_node("Clickables").show()

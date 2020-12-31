@@ -1,18 +1,23 @@
 extends Node2D
 
-var _globals
 var startedVideo := false
 
 func _ready() -> void:
-	_globals = get_tree().get_root().get_node("Globals")
-	_globals.showVideo("trailer.webm", 0, 0, 1024, 551, "false", "true", "StartVideoIntro")
+	Globals.showVideo("trailer.webm", 0, 0, 1024, 551, "false", "true", "StartVideoIntro", "webm")
 	startedVideo = true
 
-func _process(delta: float) -> void:
-	if startedVideo and !_globals.idExists("StartVideoIntro"):
+func _process(_delta: float) -> void:
+	if startedVideo and !Globals.idExists("StartVideoIntro"):
 		startedVideo = false
 		get_tree().change_scene("res://scenes/rooms/Theory/Room_TH_CAD.tscn")
+	
+	if Input.is_key_pressed(KEY_J) and Input.is_key_pressed(KEY_W):
+		Globals.removeElement("StartVideoIntro")
+		get_tree().change_scene("res://scenes/rooms/Workshop/Building_Workshop.tscn")
+	if Input.is_key_pressed(KEY_J) and Input.is_key_pressed(KEY_L):
+		Globals.removeElement("StartVideoIntro")
+		get_tree().change_scene("res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
 
 func _on_SkipButton_released() -> void:
-	_globals.removeElement("StartVideoIntro")
+	Globals.removeElement("StartVideoIntro")
 	get_tree().change_scene("res://scenes/rooms/Theory/Room_TH_CAD.tscn")

@@ -38,10 +38,6 @@ func _on_RoomSelect_MAP_pressed() -> void:
 
 func CanPress() -> bool:
 	var canPress = true
-	$FlashlightPhoneLayer/Light2D/PhoneImg/PhoneRect.get_global_rect().position
-	$FlashlightPhoneLayer/Light2D/FlashlightRect.get_global_rect().position
-	$FlashlightPhoneLayer/Light2D/PhoneImg/PhoneRect.get_rect().size
-	$FlashlightPhoneLayer/Light2D/FlashlightRect.get_rect().size
 	
 	if Rect2($FlashlightPhoneLayer/Light2D/PhoneImg/PhoneRect.get_global_rect().position,$FlashlightPhoneLayer/Light2D/PhoneImg/PhoneRect.get_rect().size).has_point(get_global_mouse_position()):
 		canPress = false
@@ -53,9 +49,6 @@ func CanPress() -> bool:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and $Camera2D.current_zoom == Vector2($Camera2D.zoom_factor,$Camera2D.zoom_factor):
 		var evLocal = make_input_local(event)
-		$CanvasLayer/ColorRect.get_global_rect().position
-		$CanvasLayer/ColorRect.get_rect().size
-		
 		if !Rect2($CanvasLayer/ColorRect.get_global_rect().position,$CanvasLayer/ColorRect.get_rect().size).has_point(evLocal.position):
 			$Camera2D.zoom_out(Vector2(512, 300))
 
