@@ -1,6 +1,8 @@
 extends Node2D
 
+var currentRoom := 0
 var rnd = RandomNumberGenerator.new()
+var mapCodeEntered := ""
 var settingsVolume = 100
 var settingsMusic = 100
 var settingsSFX = 100
@@ -48,6 +50,9 @@ func _ready() -> void:
 	CODE_CL3 = codeWS[2]
 	CODE_CL4 = codeWS[3]
 	CODE_CL5 = codeWS[4]
+	
+	for r in Rooms.values():
+		roomHintCount.append(0)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_T) and Input.is_key_pressed(KEY_C): print(str("theory ", code))
@@ -95,7 +100,7 @@ func openNewRoomWithVideo(videoURL:String, finishRoomEnterPath:String) -> void:
 	var root = get_tree().get_root()
 	var tree = get_tree()
 	var level
-	var globalScenes = ["Globals"]
+	var globalScenes = ["Globals", "ZZInGameUi"]
 	
 	for c in get_tree().get_root().get_children():
 		if !globalScenes.has(c.name):
@@ -117,3 +122,51 @@ enum MediaQuality {
 	medium,
 	high
 }
+
+enum Rooms {
+	CAD,
+	GYM,
+	NAWI,
+	ADMIN,
+	CLASS,
+	AULA,
+	MZW,
+	LAB,
+	COM_LAB,
+	WS_NUTCRACKER,
+	WS_FIREBASKET,
+	WS_SERIAL_PROD,
+	WS_CAD_CAM,
+	WS_AUTOMATION,
+	B_THEORY,
+	B_LABORATORY,
+	B_WS
+}
+
+var hints = [
+	["Bei der Code-Eingabe findest du wichtige Informationen.", "Drehe das 3D-Modell in die Position „Top“. Zoome in das Bild hinein."],
+	["Achte auf den Sperrbildschirm.", "Faultier heisst auf Englisch Lazy Bone. Welche Nummer hat die Station mit diesem Namen?"],
+	["Zähle die fehlenden Worte.", "Addiere die Zahlen und bilde am Schluss die Quersumme."],
+	["Frage im Sekretariat nach dem Reihungswert von Muster Niki.", "Bilde die Ziffernsummer vom Reihungswert."],
+	["Schau dir die Stundenpläne genauer an.", "Achte auf die Schreibweise der Erklärungen."],
+	["Welche Zahl versteckt sich mehrfach im Bild?", "Wie viele Abteilungen gibt es an der HTL Vöcklabruck?"],
+	["Sieh dir die Weltkarte nochmal an.", "Füge die Platznummer in die Sterne ein. Achte auf die Länder."],
+	["Klicke auf das Handy.", "Teile die Zahl vom Rätsel durch die Zahl von der Notiz."],
+	["Binäres Zahlensystem", "Wie sieht die Zahl im Dezimalsystem aus?"],
+	["Sieh dir das Video genau an, um die richtigen Zuordnungen zu finden."],
+	["Die Geräusche passen zu einem Bild.", "Füge die Zahlen vom Bild in die richtigen Felder unter den Kopfhörern ein."],
+	["Achte auf die Box rechts unten."],
+	["Welche Zahl kannst du in dem Video oft erkennen?"],
+	["Putze die Zähne von Spongebob.", "Achte im Video auf die richtige Bewegung der Zahnbürste."],
+	["Schau dir die Videos zu den einzelnen Räumen an.", "Die Reihenfolge der Zahlen orientiert sich an den Raumnummern. Die findest du in den Videos."],
+	["Achte auf versteckte Bilder.", "Die Reihenfolge der Zahlen orientiert sich an den Bildern, die an der Tür und in den Rätseln versteckt sind."],
+	["Achte auf die Zahlen im Bild.", "Die Reihenfolge der Zahlen orientiert sich an den Klassenstufen."]
+]
+
+var roomHintCount = []
+
+func getRoomHintCount(roomID:int) -> int:
+	return roomHintCount[roomID]
+
+func addRoomHintCount(roomID:int, count:int) -> void:
+	roomHintCount[roomID] = roomHintCount[roomID] + count

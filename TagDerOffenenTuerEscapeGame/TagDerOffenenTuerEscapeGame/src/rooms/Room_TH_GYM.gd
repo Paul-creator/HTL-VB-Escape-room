@@ -9,6 +9,7 @@ var globals
 func _ready() -> void:
 	globals = get_tree().get_root().get_node("Globals")
 	startPos = $CanvasLayer2/ScreenContent.position.x
+	Globals.currentRoom = Globals.Rooms.GYM
 
 func _on_TouchScreenButton1_released() -> void:
 	$CanvasLayer2/Sprite.hide()

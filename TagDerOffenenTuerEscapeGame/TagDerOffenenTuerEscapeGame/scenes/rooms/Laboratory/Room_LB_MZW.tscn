@@ -22,7 +22,7 @@ size = 64
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 33
 use_filter = true
 extra_spacing_top = -25
@@ -31,22 +31,21 @@ extra_spacing_char = -10
 extra_spacing_space = -5
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 use_filter = true
 font_data = ExtResource( 12 )
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.195, 0.53, 1 )
 colors = PoolColorArray( 0.827148, 0.355063, 0.193863, 0.266667, 1, 0.40567, 0.199219, 0.768627, 0.847059, 0.466667, 0.258824, 0.92549 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 size = 266
 use_filter = true
 font_data = ExtResource( 14 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "CloseSlideshow"
+[sub_resource type="Animation" id=6]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Overlay:modulate")
@@ -109,7 +108,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=7]
 length = 2.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -224,7 +223,7 @@ tracks/8/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "ShowNumber"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/NumberUnfocus:visible")
@@ -299,7 +298,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=9]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("SlideInfoRect:modulate")
@@ -470,7 +469,7 @@ margin_top = -291.016
 margin_right = -186.194
 margin_bottom = -256.016
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -485,7 +484,7 @@ margin_top = -136.144
 margin_right = -270.626
 margin_bottom = -101.144
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -500,7 +499,7 @@ margin_top = 128.828
 margin_right = 98.4829
 margin_bottom = 163.828
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -515,7 +514,7 @@ margin_top = 186.357
 margin_right = -427.334
 margin_bottom = 221.357
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -549,7 +548,7 @@ margin_right = 160.0
 margin_bottom = 115.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -563,7 +562,7 @@ margin_right = 157.0
 margin_bottom = 172.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -577,7 +576,7 @@ margin_right = 153.0
 margin_bottom = 229.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -591,7 +590,7 @@ margin_right = 295.0
 margin_bottom = 106.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -605,7 +604,7 @@ margin_right = 301.0
 margin_bottom = 166.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -619,7 +618,7 @@ margin_right = 304.0
 margin_bottom = 230.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -633,7 +632,7 @@ margin_right = 462.0
 margin_bottom = 107.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -647,7 +646,7 @@ margin_right = 464.0
 margin_bottom = 166.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -661,7 +660,7 @@ margin_right = 466.0
 margin_bottom = 227.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -675,7 +674,7 @@ margin_right = 609.0
 margin_bottom = 110.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -689,7 +688,7 @@ margin_right = 611.0
 margin_bottom = 173.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -703,7 +702,7 @@ margin_right = 612.0
 margin_bottom = 226.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -747,7 +746,7 @@ scale = Vector2( 0.187512, 0.130411 )
 normal = ExtResource( 4 )
 
 [node name="CloseSlides" type="TouchScreenButton" parent="Slideshow"]
-position = Vector2( 971.218, 2 )
+position = Vector2( 802.218, 13 )
 scale = Vector2( 0.0792303, 0.0792303 )
 normal = ExtResource( 13 )
 
@@ -876,14 +875,14 @@ angle = 221.5
 angle_random = 0.76
 scale_amount = 0.05
 scale_amount_random = 0.72
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 4 )
 
 [node name="Number" type="Label" parent="CanvasLayer"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 0.854902, 0.294118, 1 )
 custom_colors/font_color_shadow = Color( 1, 0.466667, 0, 0.34902 )
 custom_constants/shadow_offset_x = 2
@@ -905,10 +904,10 @@ scale = Vector2( 0.16, 0.126 )
 normal = ExtResource( 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/CloseSlideshow = SubResource( 3 )
-anims/OpenSlideshow = SubResource( 4 )
-anims/ShowNumber = SubResource( 9 )
-anims/SlideTutorialOut = SubResource( 5 )
+anims/CloseSlideshow = SubResource( 6 )
+anims/OpenSlideshow = SubResource( 7 )
+anims/ShowNumber = SubResource( 8 )
+anims/SlideTutorialOut = SubResource( 9 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="released" from="MZW_Background/Logo_MZW/LogoPress" to="." method="_on_LogoPress_released"]

@@ -8,9 +8,10 @@ var canPress = true
 func _ready() -> void:
 	AlignElements()
 	rnd.randomize()
-	decNum = get_tree().get_root().get_node("Globals").CODE_COMLAB
+	decNum = Globals.CODE_COMLAB
 	binary = decimToBin(decNum)
 	$BinaryCode.text = binary
+	Globals.currentRoom = Globals.Rooms.COM_LAB
 
 func decimToBin(var dec):
 	var stringBin = "" 

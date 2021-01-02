@@ -22,6 +22,7 @@ func _ready() -> void:
 		var posToAppend = rnd.randi_range(0,available.size() - 1)
 		codeSequence.append(available[posToAppend])
 		available.remove(posToAppend)
+	Globals.currentRoom = Globals.Rooms.B_WS
 
 func _on_ShowAllParts_released() -> void:
 	if !$AnimationPlayer.is_playing():
@@ -41,6 +42,7 @@ func _on_BackButton_released() -> void:
 
 func _on_Class1_released() -> void: 
 	_globals.showWebPage("Nussknacker", "https://learningapps.org/watch?v=p2dxknd0320")
+	Globals.currentRoom = Globals.Rooms.WS_NUTCRACKER
 
 func _on_Class4_released() -> void:
 	isInClassSubMenu = true
@@ -48,6 +50,7 @@ func _on_Class4_released() -> void:
 	_globals.showVideo("cad_cam.webm", 0, 0, 1024, 551, "true", "true", "CAD_CAM_Video", "webm")
 	$BackLayer/SkipButton.show()
 	$WorkshopParts.hide()
+	Globals.currentRoom = Globals.Rooms.WS_CAD_CAM
 
 func _on_SkipButton_released() -> void:
 	_globals.removeElement("CAD_CAM_Video")
@@ -105,9 +108,12 @@ func _on_Class2_released() -> void:
 		$BackButton.hide()
 		$BackLayer/Firebasket.show()
 	$WorkshopParts.hide()
+	Globals.currentRoom = Globals.Rooms.WS_FIREBASKET
+
 
 func _on_Class3_released() -> void:
 	OS.shell_open("https://www.jigsawexplorer.com/online-jigsaw-puzzle-player.html?url=aHR0cHM6Ly9pLmltZ3VyLmNvbS9hSXZOVzZWLnBuZ18obm9fcHJldmlld180KV8~")
+	Globals.currentRoom = Globals.Rooms.WS_SERIAL_PROD
 
 func _on_BackButtonFromSpbob_released() -> void:
 	$BackLayer/Automation.hide()
@@ -118,9 +124,11 @@ func _on_Class5_released() -> void:
 	$BackLayer/Automation.show()
 	$BackButton.hide()
 	$WorkshopParts.hide()
+	Globals.currentRoom = Globals.Rooms.WS_AUTOMATION
 
 func _on_CodeEnter_released() -> void:
 	$WorkshopOverview/CodeEnter.hide()
 	$WorkshopOverview/ShowAllParts.hide()
 	$BackLayer/Pad.show()
 	$BackLayer/PadBackground2.show()
+	Globals.currentRoom = Globals.Rooms.B_WS

@@ -2,6 +2,9 @@ extends Node2D
 
 var _globals
 
+func _ready() -> void:
+	Globals.currentRoom = Globals.Rooms.AULA
+
 func _on_Monitor_released() -> void:
 	_globals = get_tree().get_root().get_node("Globals")
 	$AnimationPlayer.play("GetInScreen")

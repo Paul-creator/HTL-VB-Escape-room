@@ -8,6 +8,7 @@ var thisLevelCode
 
 func _ready() -> void:
 	thisLevelCode = get_tree().get_root().get_node("Globals").CODE_ADMIN
+	Globals.currentRoom = Globals.Rooms.ADMIN
 
 func _on_ZoomAdminNote_released() -> void:
 	justPressed = true

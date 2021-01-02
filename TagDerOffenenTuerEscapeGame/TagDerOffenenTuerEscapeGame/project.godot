@@ -16,12 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="TagDerOffenenTuerEscapeGame"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://scenes/GameStart.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://src/Globals.gd"
+ZZInGameUi="*res://scenes/general/InGameUI.tscn"
 
 [display]
 

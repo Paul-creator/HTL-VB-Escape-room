@@ -2,6 +2,9 @@ extends Node2D
 
 var preRoomClip = load("res://scenes/general/PreRoomEnterVideo.tscn")
 
+func _ready() -> void:
+	Globals.currentRoom = Globals.Rooms.B_LABORATORY
+
 func _on_NumPadUnlock_released() -> void:
 	$BackLayer/PadBackground.show()
 	$BackLayer/Pad.show()

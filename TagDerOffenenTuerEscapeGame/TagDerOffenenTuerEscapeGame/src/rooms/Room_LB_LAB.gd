@@ -3,6 +3,9 @@ extends Node2D
 var hasVisitedLearningApps := false
 var canClick := true
 
+func _ready() -> void:
+	Globals.currentRoom = Globals.Rooms.LAB
+
 func _on_StampZoom_released() -> void:
 	if canClick: 
 		$ColorRect.rect_position = $LabBackground/StampZoom.get_global_transform().get_origin()

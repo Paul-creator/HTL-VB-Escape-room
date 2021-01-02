@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	Globals.currentRoom = Globals.Rooms.NAWI
+
 func _on_instagramButton_released() -> void:
 	OS.shell_open("https://www.instagram.com/nawi.htlvb/")
 #	$CanvasLayer2/VarsAndDesign.showWebPageInNewTap("https://www.instagram.com/nawi.htlvb/", "Instagram wir in einem neuen Tab geöffnet")

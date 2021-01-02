@@ -23,6 +23,7 @@ func _ready() -> void:
 	$Slideshow/DragInfo/SlidePreviousArrow.hide()
 	$Slideshow/DragInfo/SlidePreviousArrow2.hide()
 	$CanvasLayer/Number.text = str(_globals.CODE_MZW)
+	Globals.currentRoom = Globals.Rooms.MZW
 
 func _process(_delta: float) -> void:
 	var mod = getSlideModulate(300)

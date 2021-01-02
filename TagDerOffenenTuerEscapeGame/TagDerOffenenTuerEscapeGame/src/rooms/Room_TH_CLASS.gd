@@ -10,6 +10,9 @@ var offsetToReach = Vector2.ZERO
 var prev := -1
 var currentCLASS = ""
 
+func _ready() -> void:
+	Globals.currentRoom = Globals.Rooms.CLASS
+
 func _process(_delta: float) -> void:
 	if $CanvasLayer/BackgroundUnfocus.color == Color(0,0,0,0):
 		$CanvasLayer/BackgroundUnfocus.hide()
