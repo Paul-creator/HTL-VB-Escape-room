@@ -40,8 +40,8 @@ func _on_BackButton_released() -> void:
 	if !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play("HideParts")
 
-func _on_Class1_released() -> void: 
-	_globals.showWebPage("Nussknacker", "https://learningapps.org/watch?v=p2dxknd0320")
+func _on_Class1_released() -> void:
+	OS.shell_open("https://learningapps.org/watch?v=p2dxknd0320")
 	Globals.currentRoom = Globals.Rooms.WS_NUTCRACKER
 
 func _on_Class4_released() -> void:
@@ -51,6 +51,7 @@ func _on_Class4_released() -> void:
 	$BackLayer/SkipButton.show()
 	$WorkshopParts.hide()
 	Globals.currentRoom = Globals.Rooms.WS_CAD_CAM
+	ZZInGameUi.hideAll()
 
 func _on_SkipButton_released() -> void:
 	_globals.removeElement("CAD_CAM_Video")
@@ -58,6 +59,7 @@ func _on_SkipButton_released() -> void:
 	$BackLayer/VideoRectBackground.hide()
 	isInClassSubMenu = false
 	$WorkshopParts.show()
+	ZZInGameUi.showAll()
 
 func _on_PlayAudio1_released() -> void:
 	HandleMusicPlaying(0)
@@ -81,6 +83,7 @@ func AudioFinished() -> void:
 	playingAnyAudio = false
 
 func _on_BackButtonFromFifthC_released() -> void:
+	if Globals.idExists("FirebasketSoundsVideoInfo"): Globals.removeElement("FirebasketSoundsVideoInfo")
 	if $SmithingSound.playing: $SmithingSound.stop()
 	if $WeldingSound.playing: $WeldingSound.stop()
 	if $AngleGrinderSound.playing: $AngleGrinderSound.stop()
@@ -132,3 +135,8 @@ func _on_CodeEnter_released() -> void:
 	$BackLayer/Pad.show()
 	$BackLayer/PadBackground2.show()
 	Globals.currentRoom = Globals.Rooms.B_WS
+
+
+func _on_Audio1_focus_entered() -> void: Globals.getTextOnTouchScreen($BackLayer/Firebasket/Feuerkorbraetsel_low/Audio1)
+func _on_Audio2_focus_entered() -> void: Globals.getTextOnTouchScreen($BackLayer/Firebasket/Feuerkorbraetsel_low/Audio2)
+func _on_Audio3_focus_entered() -> void: Globals.getTextOnTouchScreen($BackLayer/Firebasket/Feuerkorbraetsel_low/Audio3)

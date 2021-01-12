@@ -55,3 +55,6 @@ func _on_BackButton_released() -> void:
 func _on_DialogOkButton_released() -> void:
 	$CanvasLayer/DialogBox.hide()
 	canPress = true
+
+func _on_LineEdit_focus_entered() -> void:
+	Globals.getTextOnTouchScreen($LineEdit)

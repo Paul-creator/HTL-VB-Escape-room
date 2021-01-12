@@ -209,3 +209,4 @@ normal = ExtResource( 3 )
 [connection signal="released" from="Clickables/KG/DoorPart3" to="." method="_on_Laboratories_released"]
 [connection signal="released" from="Clickables/KG/DoorPart4" to="." method="_on_Laboratories_released"]
 [connection signal="released" from="Clickables/KG/NumPadUnlock" to="." method="_on_NumPadUnlock_released"]
+[connection signal="released" from="Clickables/KG/Letters" to="." method="_on_Laboratories_released"]

@@ -176,21 +176,21 @@ func isDone() -> void:
 		$Slideshow/MZW_slide1/fill3.text == numSeq[2] and
 		$Slideshow/MZW_slide1/fill4.text == numSeq[3] 
 		):
-		if( $Slideshow/MZW_slide4/_1_fname.text.to_lower() == num1[0] and
-			$Slideshow/MZW_slide4/_1_lname.text.to_lower() == num1[1] and
-			$Slideshow/MZW_slide4/_1_country.text.to_lower() == num1[2] and
-			$Slideshow/MZW_slide4/_2_fname.text.to_lower() == num2[0] and
-			$Slideshow/MZW_slide4/_2_lname.text.to_lower() == num2[1] and
-			$Slideshow/MZW_slide4/_2_country.text.to_lower() == num2[2] and
-			$Slideshow/MZW_slide4/_3_fname.text.to_lower() == num3[0] and
-			$Slideshow/MZW_slide4/_3_lname.text.to_lower() == num3[1] and
-			$Slideshow/MZW_slide4/_3_country.text.to_lower() == num3[2] and
-			$Slideshow/MZW_slide4/_4_fname.text.to_lower() == num4[0] and
-			$Slideshow/MZW_slide4/_4_lname.text.to_lower() == num4[1] and
-			$Slideshow/MZW_slide4/_4_country.text.to_lower() == num4[2]
-			):
-				$AnimationPlayer.play("ShowNumber")
-				DisableAllButtons()
+#		if( $Slideshow/MZW_slide2/_1_fname.text.to_lower() == num1[0] and
+#			$Slideshow/MZW_slide2/_1_lname.text.to_lower() == num1[1] and
+#			$Slideshow/MZW_slide2/_1_country.text.to_lower() == num1[2] and
+#			$Slideshow/MZW_slide2/_2_fname.text.to_lower() == num2[0] and
+#			$Slideshow/MZW_slide2/_2_lname.text.to_lower() == num2[1] and
+#			$Slideshow/MZW_slide2/_2_country.text.to_lower() == num2[2] and
+#			$Slideshow/MZW_slide2/_3_fname.text.to_lower() == num3[0] and
+#			$Slideshow/MZW_slide2/_3_lname.text.to_lower() == num3[1] and
+#			$Slideshow/MZW_slide2/_3_country.text.to_lower() == num3[2] and
+#			$Slideshow/MZW_slide2/_4_fname.text.to_lower() == num4[0] and
+#			$Slideshow/MZW_slide2/_4_lname.text.to_lower() == num4[1] and
+#			$Slideshow/MZW_slide2/_4_country.text.to_lower() == num4[2]
+#			):
+			$AnimationPlayer.play("ShowNumber")
+			DisableAllButtons()
 
 func DisableAllButtons() -> void:
 	$MZW_Background/Logo_MZW/LogoPress.hide()
@@ -220,3 +220,24 @@ func _on_fill4_text_changed(_new_text: String) -> void: isDone()
 
 func _on_BackButton_released() -> void:
 	get_tree().change_scene("res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
+
+func _on_fill1_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide1/fill1)
+func _on_fill2_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide1/fill2)
+func _on_fill3_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide1/fill3)
+func _on_fill4_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide1/fill4)
+
+func _on__4_fname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_4_fname)
+func _on__4_lname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_4_lname)
+func _on__4_country_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_4_country)
+
+func _on__3_fname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_3_fname)
+func _on__3_lname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_3_lname)
+func _on__3_country_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_3_country)
+
+func _on__2_fname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_2_fname)
+func _on__2_lname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_2_lname)
+func _on__2_country_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_2_country)
+
+func _on__1_fname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_1_fname)
+func _on__1_lname_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_1_lname)
+func _on__1_country_focus_entered() -> void: Globals.getTextOnTouchScreen($Slideshow/MZW_slide2/_1_country)

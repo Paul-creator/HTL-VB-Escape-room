@@ -89,3 +89,7 @@ func GetPositionInAnswerArray(text:String) -> int:
 
 func _on_BotAnswerTimer_timeout() -> void:
 	HandleUserInputMessage(last_user_answer)
+
+func _on_TextEditor_focus_entered() -> void: 
+	Globals.getTextOnTouchScreen($Messager/TextEditor)
+	_on_TextEditor_text_entered($Messager/TextEditor.text)

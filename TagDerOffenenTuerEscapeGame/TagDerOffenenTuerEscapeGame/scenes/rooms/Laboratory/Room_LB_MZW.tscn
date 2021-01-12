@@ -526,22 +526,10 @@ __meta__ = {
 [node name="MZW_slide2" type="Sprite" parent="Slideshow"]
 visible = false
 position = Vector2( 512, 300 )
-scale = Vector2( 0.834157, 0.834157 )
-texture = ExtResource( 8 )
-
-[node name="MZW_slide3" type="Sprite" parent="Slideshow"]
-visible = false
-position = Vector2( 512, 300 )
-scale = Vector2( 0.838828, 0.838828 )
-texture = ExtResource( 7 )
-
-[node name="MZW_slide4" type="Sprite" parent="Slideshow"]
-visible = false
-position = Vector2( 512, 300 )
 scale = Vector2( 0.83735, 0.83735 )
 texture = ExtResource( 9 )
 
-[node name="_4_fname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_4_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = -1.0
 margin_top = 70.0
 margin_right = 160.0
@@ -555,7 +543,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_4_lname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_4_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = -1.0
 margin_top = 132.0
 margin_right = 157.0
@@ -569,7 +557,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_4_country" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_4_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = -1.0
 margin_top = 190.0
 margin_right = 153.0
@@ -583,7 +571,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_1_fname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_1_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 147.0
 margin_top = 73.0
 margin_right = 295.0
@@ -597,7 +585,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_1_lname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_1_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 147.0
 margin_top = 133.0
 margin_right = 301.0
@@ -611,7 +599,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_1_country" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_1_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 147.0
 margin_top = 191.0
 margin_right = 304.0
@@ -625,7 +613,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_2_fname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_2_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 305.0
 margin_top = 73.0
 margin_right = 462.0
@@ -639,7 +627,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_2_lname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_2_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 304.0
 margin_top = 133.0
 margin_right = 464.0
@@ -653,7 +641,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_2_country" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_2_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 305.0
 margin_top = 191.0
 margin_right = 466.0
@@ -667,7 +655,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_3_fname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_3_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 453.0
 margin_top = 74.0
 margin_right = 609.0
@@ -681,7 +669,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_3_lname" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_3_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 452.0
 margin_top = 134.0
 margin_right = 611.0
@@ -695,7 +683,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_3_country" type="LineEdit" parent="Slideshow/MZW_slide4"]
+[node name="_3_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
 margin_left = 453.0
 margin_top = 192.0
 margin_right = 612.0
@@ -708,6 +696,18 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MZW_slide3" type="Sprite" parent="Slideshow"]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 0.834157, 0.834157 )
+texture = ExtResource( 8 )
+
+[node name="MZW_slide4" type="Sprite" parent="Slideshow"]
+visible = false
+position = Vector2( 512, 300 )
+scale = Vector2( 0.838828, 0.838828 )
+texture = ExtResource( 7 )
 
 [node name="PreviousSlide" type="ColorRect" parent="Slideshow"]
 visible = false
@@ -912,22 +912,38 @@ anims/SlideTutorialOut = SubResource( 9 )
 [node name="Tween" type="Tween" parent="."]
 [connection signal="released" from="MZW_Background/Logo_MZW/LogoPress" to="." method="_on_LogoPress_released"]
 [connection signal="released" from="MZW_Background/SlideshowPress" to="." method="_on_SlideshowPress_released"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill1" to="." method="_on_fill1_focus_entered"]
 [connection signal="text_changed" from="Slideshow/MZW_slide1/fill1" to="." method="_on_fill1_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill2" to="." method="_on_fill2_focus_entered"]
 [connection signal="text_changed" from="Slideshow/MZW_slide1/fill2" to="." method="_on_fill2_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill3" to="." method="_on_fill3_focus_entered"]
 [connection signal="text_changed" from="Slideshow/MZW_slide1/fill3" to="." method="_on_fill3_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill4" to="." method="_on_fill4_focus_entered"]
 [connection signal="text_changed" from="Slideshow/MZW_slide1/fill4" to="." method="_on_fill4_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_4_fname" to="." method="_on__4_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_4_lname" to="." method="_on__4_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_4_country" to="." method="_on__4_country_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_1_fname" to="." method="_on__1_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_1_lname" to="." method="_on__1_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_1_country" to="." method="_on__1_country_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_2_fname" to="." method="_on__2_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_2_lname" to="." method="_on_2_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_2_country" to="." method="_on_2_country_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_3_fname" to="." method="_on_3_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_3_lname" to="." method="_on_3_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide4/_3_country" to="." method="_on_3_country_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_4_fname" to="." method="_on__4_fname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_4_fname" to="." method="_on__4_fname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_4_lname" to="." method="_on__4_lname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_4_lname" to="." method="_on__4_lname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_4_country" to="." method="_on__4_country_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_4_country" to="." method="_on__4_country_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_1_fname" to="." method="_on__1_fname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_1_fname" to="." method="_on__1_fname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_1_lname" to="." method="_on__1_lname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_1_lname" to="." method="_on__1_lname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_1_country" to="." method="_on__1_country_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_1_country" to="." method="_on__1_country_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_2_fname" to="." method="_on__2_fname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_2_fname" to="." method="_on__2_fname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_2_lname" to="." method="_on__2_lname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_2_lname" to="." method="_on_2_lname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_2_country" to="." method="_on__2_country_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_2_country" to="." method="_on_2_country_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_3_fname" to="." method="_on__3_fname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_3_fname" to="." method="_on_3_fname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_3_lname" to="." method="_on__3_lname_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_3_lname" to="." method="_on_3_lname_text_changed"]
+[connection signal="focus_entered" from="Slideshow/MZW_slide2/_3_country" to="." method="_on__3_country_focus_entered"]
+[connection signal="text_changed" from="Slideshow/MZW_slide2/_3_country" to="." method="_on_3_country_text_changed"]
 [connection signal="pressed" from="Slideshow/PreviousSlideButton" to="." method="_on_PreviousSlideButton_pressed"]
 [connection signal="released" from="Slideshow/PreviousSlideButton" to="." method="_on_PreviousSlideButton_released"]
 [connection signal="pressed" from="Slideshow/NextSlideButton" to="." method="_on_NextSlideButton_pressed"]

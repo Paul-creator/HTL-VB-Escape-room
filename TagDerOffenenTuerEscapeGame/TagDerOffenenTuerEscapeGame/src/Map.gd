@@ -17,7 +17,6 @@ func _input(event):
 				if get_tree().get_root().get_children()[2].get_node_or_null("CanvasLayer/BackgroundUnfocus") != null:
 					get_tree().get_root().get_children()[2].get_node("CanvasLayer/BackgroundUnfocus").color = Color(0,0,0,0)
 				queue_free()
-				Globals.mapCodeEntered = $MapOpen/TextEdit.text
 				if get_tree().get_root().get_children()[2].get_node_or_null("CanvasLayer/VarsAndDesign") != null:
 					get_tree().get_root().get_children()[2].get_node("CanvasLayer/VarsAndDesign").canBePressed = true
 				elif get_tree().get_root().get_children()[2].get_node_or_null("CanvasLayer2/VarsAndDesign") != null:
@@ -48,8 +47,5 @@ func _on_CodeOK_released() -> void:
 	if $MapOpen/TextEdit.text == code:
 		Globals.openNewRoomWithVideo("ThToLab.webm", "res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
 
-func _on_TextEdit_focus_entered() -> void:
-	var enteredText = JavaScript.eval("prompt('%s', '%s');" % ["Text hier eingeben:", $MapOpen/TextEdit.text], true)
-	$MapOpen/TextEdit.text = enteredText
-	$MapOpen/TextEdit.release_focus()
-	Globals.mapCodeEntered = $MapOpen/TextEdit.text
+func _on_TextEdit_focus_entered() -> void: Globals.getTextOnTouchScreen($MapOpen/TextEdit)
+func _on_TextEdit_text_changed(new_text: String) -> void: Globals.mapCodeEntered = $MapOpen/TextEdit.text

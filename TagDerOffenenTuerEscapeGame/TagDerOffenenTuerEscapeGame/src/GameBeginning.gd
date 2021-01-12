@@ -10,13 +10,6 @@ func _process(_delta: float) -> void:
 	if startedVideo and !Globals.idExists("StartVideoIntro"):
 		startedVideo = false
 		get_tree().change_scene("res://scenes/rooms/Theory/Room_TH_CAD.tscn")
-	
-	if Input.is_key_pressed(KEY_J) and Input.is_key_pressed(KEY_W):
-		Globals.removeElement("StartVideoIntro")
-		get_tree().change_scene("res://scenes/rooms/Workshop/Building_Workshop.tscn")
-	if Input.is_key_pressed(KEY_J) and Input.is_key_pressed(KEY_L):
-		Globals.removeElement("StartVideoIntro")
-		get_tree().change_scene("res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
 
 func _on_SkipButton_released() -> void:
 	Globals.removeElement("StartVideoIntro")

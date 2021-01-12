@@ -1,6 +1,7 @@
 extends Node2D
 
 var currentRoom := 0
+var openVideos = []
 var rnd = RandomNumberGenerator.new()
 var mapCodeEntered := ""
 var settingsVolume = 100
@@ -58,6 +59,18 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_T) and Input.is_key_pressed(KEY_C): print(str("theory ", code))
 	elif Input.is_key_pressed(KEY_L) and Input.is_key_pressed(KEY_C): print(str("laboratory ", codeLAB))
 	elif Input.is_key_pressed(KEY_W) and Input.is_key_pressed(KEY_C): print(str("workshop ", codeWS))
+	if Input.is_key_pressed(KEY_J) and Input.is_key_pressed(KEY_W):
+		if Globals.openVideos.size() > 0:
+			for vid in Globals.openVideos:
+				Globals.removeElement(vid)
+			Globals.openVideos.clear()
+		get_tree().change_scene("res://scenes/rooms/Workshop/Building_Workshop.tscn")
+	if Input.is_key_pressed(KEY_J) and Input.is_key_pressed(KEY_L):
+		if Globals.openVideos.size() > 0:
+			for vid in Globals.openVideos:
+				Globals.removeElement(vid)
+			Globals.openVideos.clear()
+		get_tree().change_scene("res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
 
 func showVideo(url: String, posX: int, posY: int, width: int, height: int, enableControls: String, enableAutoplay: String, id: String, videoFormatType:String):
 	var paths = [
@@ -74,12 +87,30 @@ func showVideo(url: String, posX: int, posY: int, width: int, height: int, enabl
 	var windowWidth = ProjectSettings.get_setting("display/window/size/width")
 	var windowHeight = ProjectSettings.get_setting("display/window/size/height")
 	JavaScript.eval("showVideo('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % [url, posX, posY, width, height, windowWidth, windowHeight, enableControls, enableAutoplay, id, videoFormatType], true)
+	openVideos.append(id)
+
+func isTouchDevice():
+	var paths = [
+		"res://ExternalWebGame/index.js",
+	]
+	
+	var file = File.new()
+	var js = '' 
+	for path in paths:
+		file.open(path, File.READ)
+		js += file.get_as_text() + '\n'
+		file.close()
+	JavaScript.eval(js, true)
+	return (str(JavaScript.eval("is_touch_device()", true)).to_lower() == "true")
 
 func idExists(id: String) -> bool:
 	var jscode = "String(!!document.getElementById('%s'))" % [id]
 	return (JavaScript.eval(jscode, true) == "true")
 
 func removeElement(id: String) -> void:
+	if openVideos.has(id):
+		var pos = openVideos.find(id)
+		openVideos.remove(pos)
 	JavaScript.eval("document.body.removeChild(document.getElementById('%s'))" % [id], true)
 
 func showWebPage(titel: String, url: String):
@@ -144,7 +175,7 @@ enum Rooms {
 }
 
 var hints = [
-	["Bei der Code-Eingabe findest du wichtige Informationen.", "Drehe das 3D-Modell in die Position „Top“. Zoome in das Bild hinein."],
+	["Bei der Code-Eingabe findest du wichtige Informationen.", "Drehe das 3D-Modell in die Position \"Top\". Zoome in das Bild hinein."],
 	["Achte auf den Sperrbildschirm.", "Faultier heisst auf Englisch Lazy Bone. Welche Nummer hat die Station mit diesem Namen?"],
 	["Zähle die fehlenden Worte.", "Addiere die Zahlen und bilde am Schluss die Quersumme."],
 	["Frage im Sekretariat nach dem Reihungswert von Muster Niki.", "Bilde die Ziffernsummer vom Reihungswert."],
@@ -170,3 +201,10 @@ func getRoomHintCount(roomID:int) -> int:
 
 func addRoomHintCount(roomID:int, count:int) -> void:
 	roomHintCount[roomID] = roomHintCount[roomID] + count
+
+func getTextOnTouchScreen(textEdit) -> void:
+	if isTouchDevice():
+		var enteredText = JavaScript.eval("prompt('%s', '%s');" % ["Text hier eingeben:", textEdit.text], true)
+		textEdit.text = enteredText
+		textEdit.release_focus()
+#		ZZInGameUi.get_node("RandomUnfocus").grab_focus()

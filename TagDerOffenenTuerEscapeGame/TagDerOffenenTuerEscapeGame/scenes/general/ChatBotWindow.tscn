@@ -437,10 +437,9 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
 [sub_resource type="DynamicFontData" id=4]
-font_path = "res://font/GidoleFont/Gidole-Regular.ttf"
+font_path = "res://font/besley/Besley-Bold.otf"
 
 [sub_resource type="DynamicFont" id=5]
-size = 17
 use_filter = true
 font_data = SubResource( 4 )
 
@@ -505,9 +504,10 @@ __meta__ = {
 
 [node name="MessageContainer" type="VBoxContainer" parent="Messager/MessageViewer"]
 margin_right = 12.0
-margin_bottom = 20.0
+margin_bottom = 23.0
 
 [node name="ChatBubble2" parent="Messager/MessageViewer/MessageContainer" instance=ExtResource( 2 )]
+margin_bottom = 23.0
 align = 0
 bubbleColor = Color( 0.3, 0.54, 0.9, 1 )
 bubbleSize = Vector2( 250, 40 )
@@ -515,5 +515,6 @@ bubbleMessage = "Hallo. Hast du Fragen zu den Anmeldevoraussetzungen, den Abteil
 
 [node name="BotAnswerTimer" type="Timer" parent="."]
 one_shot = true
+[connection signal="focus_entered" from="Messager/TextEditor" to="." method="_on_TextEditor_focus_entered"]
 [connection signal="text_entered" from="Messager/TextEditor" to="." method="_on_TextEditor_text_entered"]
 [connection signal="timeout" from="BotAnswerTimer" to="." method="_on_BotAnswerTimer_timeout"]

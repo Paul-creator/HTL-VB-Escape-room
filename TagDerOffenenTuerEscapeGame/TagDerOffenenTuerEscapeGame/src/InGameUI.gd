@@ -62,6 +62,10 @@ func _on_DialogOkButton_released() -> void:
 func _on_HintButton_pressed() -> void:
 	var roomHintCount = Globals.getRoomHintCount(Globals.currentRoom)
 	var timePenalty
+	if Globals.openVideos.size() > 0:
+		for vid in Globals.openVideos:
+			Globals.removeElement(vid)
+		Globals.openVideos.clear()
 	if roomHintCount == 0: 
 		timePenalty = 30
 		showHint(Globals.hints[Globals.currentRoom][0], timePenalty)
@@ -106,8 +110,9 @@ func get_allChildren(parent) -> void:
 
 func showAllPrevVisibleTSButtons() -> void:
 	for c in hiddenTSButtons:
-		c.show()
-	hiddenTSButtons = []
+		if c != null:
+			c.show()
+	hiddenTSButtons.clear()
 
 func _on_PauseOkButton_released() -> void:
 	$CanvasLayer/PauseMenu.hide()

@@ -1,11 +1,11 @@
 extends Node2D
 
-var subj_text_FET = "[center][color=#ff9900]FET\nFertigungstechnik\n\n\n[/color][color=#000000]Welche Werkstoffe werden in F[color=#4fd128]A[/color]hrzeugen verwendet und wie kann man diese Werkstoffe bearbeiten[/color][/center]"
+var subj_text_FET = "[center][color=#ff9900]FET\nFertigungstechnik\n\n\n[/color][color=#000000]Welche Werkstoffe werden in F[color=#4fd128]A[/color]hrzeugen verwendet und wie kann man diese Werkstoffe bearbeiten?[/color][/center]"
 var subj_text_PLP = "[center][color=#ff9900]PLP\nPlanung und Projektierung\n\n\n[/color][color=#000000]En[color=#4fd128]T[/color]wurf einer Heizung-, Kältetechnik-, Lüftung- und Sanitäranlage [/color][/center]"
 var subj_text_TMB = "[center][color=#ff9900]TMB\nTechnische Mechanik und Berechnung\n\n\n[/color][color=#000000]St[color=#4fd128]A[/color]tik einer Eisenbahnbrücke berechnen[/color][/center]"
-var subj_text_AIIT = "[center][color=#ff9900]AIIT\nAngewandte Informatik und fachspezifische Informationstechnik\n\n\n[/color][color=#000000]Programmieren von [color=#4fd128]M[/color]icrocomputern in Haushaltsgeräten oder Garagentoren[/color][/center]"
-var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#4fd128]R[/color]ammiert man Computerspiel[/color][/center]"
-var subj_text_BET = "[center][color=#ff9900]BET\nBetriebstechnik\n\n\n[/color][color=#000000]Wie ist ein [color=#4fd128]U[/color]nternehmen aufgebaut und organisiert[/color][/center]"
+var subj_text_AIIT = "[center][color=#ff9900]AIIT\nAngewandte Informatik und fachspezifische Informationstechnik\n\n\n[/color][color=#000000]Programmieren von \n[color=#4fd128]M[/color]icrocomputern in Haushaltsgeräten oder Garagentoren[/color][/center]"
+var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#4fd128]R[/color]ammiert man Computerspiel?[/color][/center]"
+var subj_text_BET = "[center][color=#ff9900]BET\nBetriebstechnik\n\n\n[/color][color=#000000]Wie ist ein [color=#4fd128]U[/color]nternehmen aufgebaut und organisiert?[/color][/center]"
 var offsetToReach = Vector2.ZERO
 var prev := -1
 var currentCLASS = ""
@@ -136,3 +136,10 @@ func _input(event: InputEvent) -> void:
 
 func playAnim() -> void:
 	$AnimationPlayer.play("numberAnim")
+
+func _on_AIIT_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/AIIT)
+func _on_TMB_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/TMB)
+func _on_PLP_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/PLP)
+func _on_BET_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/BET)
+func _on_SWP_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/SWP)
+func _on_FET_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/FET)

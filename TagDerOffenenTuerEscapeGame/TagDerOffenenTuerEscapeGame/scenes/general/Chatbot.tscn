@@ -111,9 +111,10 @@ __meta__ = {
 
 [node name="MessageContainer" type="VBoxContainer" parent="CanvasLayer2/Messager/MessageViewer"]
 margin_right = 12.0
-margin_bottom = 20.0
+margin_bottom = 23.0
 
 [node name="ChatBubble2" parent="CanvasLayer2/Messager/MessageViewer/MessageContainer" instance=ExtResource( 6 )]
+margin_bottom = 23.0
 align = 0
 bubbleColor = Color( 0.211765, 0.501961, 1, 1 )
 bubbleSize = Vector2( 250, 40 )

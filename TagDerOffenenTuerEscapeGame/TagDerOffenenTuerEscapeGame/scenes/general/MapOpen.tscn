@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://graphics/Map.png" type="Texture" id=1]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=2]
 [ext_resource path="res://src/Map.gd" type="Script" id=3]
 [ext_resource path="res://control_theme.tres" type="Theme" id=4]
 [ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=5]
+[ext_resource path="res://graphics/CodeHighlight.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/besley/Besley-Bold.otf"
@@ -106,6 +107,12 @@ normal = ExtResource( 2 )
 
 [node name="RoomSelect_WS_WM" type="TouchScreenButton" parent="MapOpen/Sprite"]
 
+[node name="TestHighlight" type="Sprite" parent="MapOpen"]
+modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
+position = Vector2( 329.066, 266.027 )
+scale = Vector2( 0.193233, 0.184098 )
+texture = ExtResource( 6 )
+
 [node name="TextEdit" type="LineEdit" parent="MapOpen"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -201,4 +208,5 @@ __meta__ = {
 [connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_ADMIN" to="." method="_on_RoomSelect_TH_ADMIN_released"]
 [connection signal="released" from="MapOpen/Sprite/RoomSelect_TH_GYM" to="." method="_on_RoomSelect_TH_GYM_released"]
 [connection signal="focus_entered" from="MapOpen/TextEdit" to="." method="_on_TextEdit_focus_entered"]
+[connection signal="text_changed" from="MapOpen/TextEdit" to="." method="_on_TextEdit_text_changed"]
 [connection signal="released" from="MapOpen/TouchScreenButton" to="." method="_on_CodeOK_released"]

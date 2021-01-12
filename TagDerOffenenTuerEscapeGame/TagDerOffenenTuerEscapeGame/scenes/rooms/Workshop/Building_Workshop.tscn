@@ -610,6 +610,7 @@ scale = Vector2( 0.353047, 0.353047 )
 normal = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="BackLayer/Firebasket"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -619,6 +620,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="BackLayer/Firebasket"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 512, 300 )
 amount = 50
@@ -640,6 +642,7 @@ scale_amount_random = 0.72
 color_ramp = SubResource( 2 )
 
 [node name="Label" type="Label" parent="BackLayer/Firebasket"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -979,8 +982,11 @@ stream = ExtResource( 19 )
 [node name="AngleGrinderSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
 [connection signal="released" from="BackLayer/SkipButton" to="." method="_on_SkipButton_released"]
+[connection signal="focus_entered" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio1" to="." method="_on_Audio1_focus_entered"]
 [connection signal="text_changed" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio1" to="." method="FifthClassCodeChanged"]
+[connection signal="focus_entered" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio2" to="." method="_on_Audio2_focus_entered"]
 [connection signal="text_changed" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio2" to="." method="FifthClassCodeChanged"]
+[connection signal="focus_entered" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio3" to="." method="_on_Audio3_focus_entered"]
 [connection signal="text_changed" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio3" to="." method="FifthClassCodeChanged"]
 [connection signal="released" from="BackLayer/Firebasket/Feuerkorbraetsel_low/OpenAngleGrinder" to="BackLayer/Firebasket" method="_on_OpenAngleGrinder_released"]
 [connection signal="released" from="BackLayer/Firebasket/Feuerkorbraetsel_low/OpenAngleGrinder2" to="BackLayer/Firebasket" method="_on_OpenAngleGrinder_released"]
