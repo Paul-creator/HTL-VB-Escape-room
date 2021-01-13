@@ -11,7 +11,7 @@ func ShowCode(add:String) -> void:
 	enteredCode = str(enteredCode, add)
 	$Code.text = enteredCode
 	if enteredCode == codeToBeEntered:
-		Globals.openNewRoomWithVideo("LabToWS.webm", "res://scenes/rooms/Workshop/Building_Workshop.tscn")
+		Globals.openNewRoomWithVideo("Videos/LabToWS.webm", "res://scenes/rooms/Workshop/Building_Workshop.tscn")
 
 func _on_1_released() -> void: ShowCode("1")
 func _on_2_released() -> void: ShowCode("2")

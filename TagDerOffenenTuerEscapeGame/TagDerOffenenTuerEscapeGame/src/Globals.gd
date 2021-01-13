@@ -8,6 +8,7 @@ var settingsVolume = 100
 var settingsMusic = 100
 var settingsSFX = 100
 var mediaQuality = MediaQuality.low
+var shownLabMessage = false
 
 var code
 var CODE_ADMIN

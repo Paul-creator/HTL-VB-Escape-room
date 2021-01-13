@@ -14,7 +14,7 @@ func _on_OpenAngleGrinder_released() -> void:
 		return
 	if !somethingOpen:
 		$AngleGrinderPU.show()
-		_globals.showVideo("Winkelschleifer.webm", 296, 340, 436, 252, "true", "true", "FirebasketSoundsVideoInfo", "webm")
+		_globals.showVideo("Videos/Winkelschleifer.webm", 296, 340, 436, 252, "true", "true", "FirebasketSoundsVideoInfo", "webm")
 		somethingOpen = true
 
 func _on_OpenFireBasket_released() -> void: 
@@ -23,7 +23,7 @@ func _on_OpenFireBasket_released() -> void:
 		return
 	if !somethingOpen:
 		$WeldingPU.show()
-		_globals.showVideo("Schweissen.webm", 296, 340, 436, 252, "true", "true", "FirebasketSoundsVideoInfo", "webm")
+		_globals.showVideo("Videos/Schweissen.webm", 296, 340, 436, 252, "true", "true", "FirebasketSoundsVideoInfo", "webm")
 		somethingOpen = true
 
 func _on_OpenSmithing_released() -> void: 
@@ -32,7 +32,7 @@ func _on_OpenSmithing_released() -> void:
 		return
 	if !somethingOpen:
 		$SmithingPU.show()
-		_globals.showVideo("Schmieden.webm", 506, 159, 489, 283, "true", "true", "FirebasketSoundsVideoInfo", "webm")
+		_globals.showVideo("Videos/Schmieden.webm", 506, 159, 489, 283, "true", "true", "FirebasketSoundsVideoInfo", "webm")
 		somethingOpen = true
 
 func _on_SkipButton2_released() -> void:

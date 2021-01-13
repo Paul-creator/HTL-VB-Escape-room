@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/timetables/1AHWII_finish.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://graphics/YellowBubble.png" type="Texture" id=8]
 [ext_resource path="res://graphics/general/Note2.png" type="Texture" id=9]
 [ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=11]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=13]
 [ext_resource path="res://control_theme.tres" type="Theme" id=14]
 [ext_resource path="res://graphics/timetables/1AHGTI_finish.png" type="Texture" id=15]
@@ -323,7 +324,6 @@ color_ramp = SubResource( 2 )
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 3 )
@@ -433,6 +433,11 @@ normal = ExtResource( 17 )
 position = Vector2( 378.925, 353.913 )
 scale = Vector2( 0.164241, 0.205671 )
 normal = ExtResource( 3 )
+
+[node name="AcceptCode" type="TouchScreenButton" parent="SpecialitiesSelection"]
+position = Vector2( -75.8237, -35.8247 )
+scale = Vector2( 0.0660714, 0.079718 )
+normal = ExtResource( 11 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -552,6 +557,7 @@ anims/showUpNumber = SubResource( 7 )
 [connection signal="pressed" from="SpecialitiesSelection/buttonWI/TouchScreenButton" to="." method="_on_wii_subj_pressed"]
 [connection signal="released" from="SpecialitiesSelection/buttonME" to="." method="_on_ME_category_released"]
 [connection signal="pressed" from="SpecialitiesSelection/buttonME/TouchScreenButton" to="." method="_on_me_subj_pressed"]
+[connection signal="released" from="SpecialitiesSelection/AcceptCode" to="." method="_on_AcceptCode_released"]
 [connection signal="focus_entered" from="Code/AIIT" to="." method="_on_AIIT_focus_entered"]
 [connection signal="focus_entered" from="Code/TMB" to="." method="_on_TMB_focus_entered"]
 [connection signal="focus_entered" from="Code/PLP" to="." method="_on_PLP_focus_entered"]

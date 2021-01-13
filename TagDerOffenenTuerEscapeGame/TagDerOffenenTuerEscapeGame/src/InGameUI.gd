@@ -8,6 +8,7 @@ var doDontHide = ["DialogBox", "FullScreen", "PauseMenu"]
 var hiddenTSButtons = []
 var pausedTicks := 0
 var pauseFrom := 0
+var gameFinished = false
 
 func _ready() -> void:
 	hideAll()
@@ -23,17 +24,29 @@ func _process(delta: float) -> void:
 #	if OS.window_fullscreen and $CanvasLayer/FullScreen.texture_normal != load("res://graphics/menu/no_fullscreen.png"): $CanvasLayer/FullScreen.texture_normal = load("res://graphics/menu/no_fullscreen.png")
 #	elif !OS.window_fullscreen and $CanvasLayer/FullScreen.texture_normal != load("res://graphics/menu/fullscreen.png"): $CanvasLayer/FullScreen.texture_normal = load("res://graphics/menu/fullscreen.png")
 
+func showCurrentTimer() -> void:
+	$CanvasLayer/ColorRect.show()
+	$CanvasLayer/TimeCounter.show()
+
+func finished_game() -> void:
+	gameFinished = true
+	$CanvasLayer/PauseButton.hide()
+	$CanvasLayer/HintButton.hide()
+
 func start() -> void:
+	if gameFinished: return
 	showAll()
 	startTime = OS.get_ticks_msec()
 	hasStarted = true
 
 func pause(hide:bool) -> void:
+	if gameFinished: return
 	if hide: hideAll()
 	hasStarted = false
 	pauseFrom = OS.get_ticks_msec()
 
 func resume() -> void:
+	if gameFinished: return
 	if !visible: showAll()
 	hasStarted = true
 	pausedTicks = pausedTicks + (OS.get_ticks_msec() - pauseFrom)
@@ -49,6 +62,7 @@ func showAll() -> void:
 		if !doDontHide.has(c.name): c.show()
 
 func showHint(hint:String, timePenalty:int) -> void:
+	if gameFinished: return
 	$CanvasLayer/DialogBox/Content.text = hint
 	$CanvasLayer/DialogBox.show()
 	penaltySeconds = penaltySeconds + timePenalty

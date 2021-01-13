@@ -85,9 +85,11 @@ function showVideo(videoUrl, vidPosX, vidPosY, vidSizeX, vidSizeY, gameWidth, ga
         { key: 'type', val: 'video/' + videoFormatType },
     ])
 	
-	vidContainer.addEventListener("ended", () => {
-		document.body.removeChild(vidContainer)
-	})
+	if (!videoPlayerID.includes("KEEPVID")){
+		vidContainer.addEventListener("ended", () => {
+			document.body.removeChild(vidContainer)
+		})
+	}
 
     window.addEventListener("resize", () => {
 		let ratio = window.innerWidth / window.innerHeight

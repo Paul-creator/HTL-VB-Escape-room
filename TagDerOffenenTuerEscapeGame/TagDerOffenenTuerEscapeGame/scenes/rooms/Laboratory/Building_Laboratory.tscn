@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://graphics/lab/6.jpg" type="Texture" id=1]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=2]
@@ -9,12 +9,19 @@
 [ext_resource path="res://font/GidoleFont/Gidole-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://graphics/lab/backArrow.png" type="Texture" id=8]
 [ext_resource path="res://graphics/LaborCode.jpg" type="Texture" id=9]
+[ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://graphics/general/Note2.png" type="Texture" id=11]
+[ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 10 )
 
 [node name="BuildingLab" type="Node2D"]
 script = ExtResource( 5 )
@@ -121,6 +128,39 @@ rotation = 3.14159
 scale = Vector2( 0.452, 0.356 )
 normal = ExtResource( 8 )
 
+[node name="DialogBox" type="ColorRect" parent="BackLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.729412, 0.729412, 0.729412, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note" type="Sprite" parent="BackLayer/DialogBox"]
+position = Vector2( 542.677, 329.439 )
+scale = Vector2( 0.48824, 0.673315 )
+texture = ExtResource( 11 )
+
+[node name="DialogOkButton" type="TouchScreenButton" parent="BackLayer/DialogBox"]
+position = Vector2( 709.396, 444.413 )
+scale = Vector2( 0.0833154, 0.0882811 )
+normal = ExtResource( 12 )
+
+[node name="Content" type="Label" parent="BackLayer/DialogBox"]
+margin_left = 267.0
+margin_top = 110.0
+margin_right = 775.0
+margin_bottom = 437.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
 scale = Vector2( 0.754666, 0.754666 )
@@ -200,6 +240,7 @@ normal = ExtResource( 3 )
 [connection signal="released" from="BackLayer/Pad/0" to="BackLayer/Pad" method="_on_0_released"]
 [connection signal="released" from="BackLayer/Pad/Star" to="BackLayer/Pad" method="_on_Star_released"]
 [connection signal="released" from="BackLayer/Pad/BackButton" to="BackLayer/Pad" method="_on_BackButton_released"]
+[connection signal="released" from="BackLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
 [connection signal="released" from="Clickables/OG/Door" to="." method="_on_OG_released"]
 [connection signal="released" from="Clickables/OG/Letters" to="." method="_on_OG_released"]
 [connection signal="released" from="Clickables/EG/Door" to="." method="_on_EG_released"]

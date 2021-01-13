@@ -6,6 +6,8 @@ var rnd = RandomNumberGenerator.new()
 var canPress = true
 
 func _ready() -> void:
+	$Camera2D.zoom_factor = 0.2
+	$Camera2D.reload()
 	AlignElements()
 	rnd.randomize()
 	decNum = Globals.CODE_COMLAB
@@ -58,3 +60,18 @@ func _on_DialogOkButton_released() -> void:
 
 func _on_LineEdit_focus_entered() -> void:
 	Globals.getTextOnTouchScreen($LineEdit)
+
+func _on_ComLabNote_released() -> void:
+	$ColorRect.rect_position = $ComLabNote.get_global_transform().get_origin() - Vector2(-6,20)
+	$ColorRect.rect_size = ($ComLabNote.scale * Vector2(160, 160))*Vector2(1,1)
+	$Camera2D.zoom_in(($ColorRect.rect_position + ($ColorRect.rect_size / Vector2(2,2))) - $Camera2D.get_camera_position())
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false and $Camera2D.current_zoom == Vector2($Camera2D.zoom_factor,$Camera2D.zoom_factor):
+		var evLocal = make_input_local(event)
+		
+		if !$ColorRect.get_rect().has_point(evLocal.position):
+			zoomReset()
+
+func zoomReset() -> void:
+	$Camera2D.zoom_out(Vector2(512,300))

@@ -3,7 +3,7 @@ extends Node2D
 var startedVideo := false
 
 func _ready() -> void:
-	Globals.showVideo("trailer.webm", 0, 0, 1024, 551, "false", "true", "StartVideoIntro", "webm")
+	Globals.showVideo("Videos/Anfang.webm", 0, 0, 1024, 551, "false", "true", "StartVideoIntro", "webm")
 	startedVideo = true
 
 func _process(_delta: float) -> void:

@@ -38,7 +38,7 @@ func _on_ScreenDrag_released() -> void:
 	if $CanvasLayer2/ScreenContent.position.x - startPos > -360:
 		$CanvasLayer2/ScreenContent.position.x = startPos
 	else:
-		get_tree().get_root().get_node("Globals").showVideo("HTLWarrior.webm", 212, 135, 687, 339, "true", "true", "GymHTLWarriorVideo", "webm")
+		get_tree().get_root().get_node("Globals").showVideo("Videos/HTLWarrior.webm", 212, 135, 687, 339, "true", "true", "GymHTLWarriorVideo", "webm")
 		startedVideo = true
 		$CanvasLayer2/ScreenContent.hide()
 		$CanvasLayer2/ScreenDrag.hide()
