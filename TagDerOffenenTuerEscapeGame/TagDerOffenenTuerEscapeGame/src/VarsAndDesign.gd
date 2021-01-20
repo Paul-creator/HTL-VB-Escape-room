@@ -25,6 +25,10 @@ func initJs():
 			js += file.get_as_text() + '\n'
 			file.close()
 		JavaScript.eval(js, true)
+		
+func isOnMacOs():
+	initJs()
+	JavaScript.eval("navigator.platform.toLowerCase().includes('mac')")
 	
 func showWebPage(titel: String, url: String):
 	initJs()
