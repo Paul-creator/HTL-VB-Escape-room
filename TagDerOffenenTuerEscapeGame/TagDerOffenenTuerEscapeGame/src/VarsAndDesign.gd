@@ -28,7 +28,8 @@ func initJs():
 		
 func isOnMacOs():
 	initJs()
-	JavaScript.eval("navigator.platform.toLowerCase().includes('mac')")
+	var res: bool = JavaScript.eval("navigator.platform.toLowerCase().includes('mac')")
+	return res
 	
 func showWebPage(titel: String, url: String):
 	initJs()
