@@ -104,6 +104,10 @@ func isTouchDevice():
 	JavaScript.eval(js, true)
 	return (str(JavaScript.eval("is_touch_device()", true)).to_lower() == "true")
 
+func isOnMacOs():
+	var res: bool = JavaScript.eval("navigator.platform.toLowerCase().includes('mac')")
+	return res
+	
 func idExists(id: String) -> bool:
 	var jscode = "String(!!document.getElementById('%s'))" % [id]
 	return (JavaScript.eval(jscode, true) == "true")
