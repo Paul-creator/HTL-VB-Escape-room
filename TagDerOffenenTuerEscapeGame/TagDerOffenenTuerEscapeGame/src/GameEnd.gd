@@ -11,3 +11,6 @@ func _on_DialogOkButton_released() -> void:
 
 func _on_rewardButton_released() -> void:
 	$CanvasLayer/DialogBox.show()
+
+func _on_questionsSchool_released() -> void:
+	OS.shell_open("mailto:reia@htlvb.at?subject=Fragen%20zur%20Schule%20-%20HTL-Adventure-Game")

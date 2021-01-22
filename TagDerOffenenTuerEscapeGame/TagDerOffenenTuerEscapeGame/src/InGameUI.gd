@@ -9,6 +9,11 @@ var hiddenTSButtons = []
 var pausedTicks := 0
 var pauseFrom := 0
 var gameFinished = false
+var theorytime := 0.0
+var theoryWarpLimit := 1800.0
+var labWarpTime := 1800.0
+var isInBuildingID := 0
+var hasShownWarpHint := [false, false]
 
 func _ready() -> void:
 	hideAll()
@@ -17,12 +22,37 @@ func _process(delta: float) -> void:
 	if hasStarted:
 		var timeElapsed = OS.get_ticks_msec() - startTime - pausedTicks
 		var totalSeconds = int(timeElapsed / 1000) + penaltySeconds
+		if isInBuildingID == 0: 
+			theorytime = totalSeconds
+			if theorytime > theoryWarpLimit: showTheoryWarpHint()
+			if Globals.currentRoom == Globals.Rooms.B_LABORATORY: isInBuildingID = 1
+		elif totalSeconds - theorytime > labWarpTime: showLabWarpHint()
 		var hours = int(totalSeconds / 3600)
 		var minutes = (totalSeconds - hours * 3600) / 60
 		var seconds = totalSeconds - (hours * 3600 + minutes * 60)
 		$CanvasLayer/TimeCounter.text = str("%02d" % hours, ":", "%02d" % minutes, ":", "%02d" % seconds)
-#	if OS.window_fullscreen and $CanvasLayer/FullScreen.texture_normal != load("res://graphics/menu/no_fullscreen.png"): $CanvasLayer/FullScreen.texture_normal = load("res://graphics/menu/no_fullscreen.png")
-#	elif !OS.window_fullscreen and $CanvasLayer/FullScreen.texture_normal != load("res://graphics/menu/fullscreen.png"): $CanvasLayer/FullScreen.texture_normal = load("res://graphics/menu/fullscreen.png")
+
+func showLabWarpHint(ignoreAlreadyShown:=false) -> void:
+	if hasShownWarpHint[1] == true and ignoreAlreadyShown == false: return
+	$CanvasLayer/DialogBox/Content.text = "Was ist das? Ein Zettel mit dem Code zur Werkstatt?\nMöchtest du den Zettel verwenden und weitergehen oder lieber die Rätsel selber lösen?"
+	$CanvasLayer/DialogBox/DialogOkButton.hide()
+	$CanvasLayer/DialogBox/Option1/Label.text = "Ab in die Werkstatt!"
+	$CanvasLayer/DialogBox/Option1.show()
+	$CanvasLayer/DialogBox/Option2/Label2.text = "Im Laborgebäude bleiben"
+	$CanvasLayer/DialogBox/Option2.show()
+	$CanvasLayer/DialogBox.show()
+	hasShownWarpHint[1] = true
+
+func showTheoryWarpHint(ignoreAlreadyShown:=false) -> void:
+	if hasShownWarpHint[0] == true and ignoreAlreadyShown == false: return
+	$CanvasLayer/DialogBox/Content.text = "Was ist das? Ein Zettel mit dem Code zum Laborgebäude?\nMöchtest du den Zettel verwenden und weitergehen oder lieber die Rätsel selber lösen?"
+	$CanvasLayer/DialogBox/DialogOkButton.hide()
+	$CanvasLayer/DialogBox/Option1/Label.text = "Ab ins Laborgebäude!"
+	$CanvasLayer/DialogBox/Option1.show()
+	$CanvasLayer/DialogBox/Option2/Label2.text = "Im Theoriegebäude bleiben"
+	$CanvasLayer/DialogBox/Option2.show()
+	$CanvasLayer/DialogBox.show()
+	hasShownWarpHint[0] = true
 
 func showCurrentTimer() -> void:
 	$CanvasLayer/ColorRect.show()
@@ -64,12 +94,14 @@ func showAll() -> void:
 func showHint(hint:String, timePenalty:int) -> void:
 	if gameFinished: return
 	$CanvasLayer/DialogBox/Content.text = hint
+	$CanvasLayer/DialogBox/DialogOkButton.show()
 	$CanvasLayer/DialogBox.show()
 	penaltySeconds = penaltySeconds + timePenalty
 	hideAllVisibleTSButtons()
 
 func _on_DialogOkButton_released() -> void:
 	$CanvasLayer/DialogBox/Content.text = ""
+	$CanvasLayer/DialogBox/DialogOkButton.show()
 	$CanvasLayer/DialogBox.hide()
 	showAllPrevVisibleTSButtons()
 
@@ -137,3 +169,15 @@ func _on_PauseButton_pressed() -> void:
 	$CanvasLayer/PauseMenu.show()
 	pause(false)
 	hideAllVisibleTSButtons()
+
+func _on_Option1_pressed() -> void:
+	if isInBuildingID == 0: Globals.openNewRoomWithVideo("Videos/ThToLab.webm", "res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
+	else: Globals.openNewRoomWithVideo("Videos/LabToWS.webm", "res://scenes/rooms/Workshop/Building_Workshop.tscn")
+	$CanvasLayer/DialogBox/Option1.hide()
+	$CanvasLayer/DialogBox/Option2.hide()
+	$CanvasLayer/DialogBox.hide()
+
+func _on_Option2_pressed() -> void:
+	$CanvasLayer/DialogBox/Option1.hide()
+	$CanvasLayer/DialogBox/Option2.hide()
+	$CanvasLayer/DialogBox.hide()

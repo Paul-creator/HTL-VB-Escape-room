@@ -9,6 +9,9 @@ func _ready() -> void:
 		$BackLayer/DialogBox.show()
 		Globals.shownLabMessage = true
 
+func _process(delta: float) -> void:
+	if ZZInGameUi.hasShownWarpHint[1] == true: $BackLayer/Pad/SkipToWorkshop.show()
+
 func _on_NumPadUnlock_released() -> void:
 	$BackLayer/PadBackground.show()
 	$BackLayer/Pad.show()
@@ -25,3 +28,6 @@ func _on_OG_released() -> void:
 
 func _on_DialogOkButton_released() -> void:
 	$BackLayer/DialogBox.hide()
+
+func _on_SkipToWorkshop_pressed() -> void:
+	ZZInGameUi.showLabWarpHint(true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://graphics/lab/6.jpg" type="Texture" id=1]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=10]
 [ext_resource path="res://graphics/general/Note2.png" type="Texture" id=11]
 [ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=12]
+[ext_resource path="res://graphics/general/door.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -128,6 +129,18 @@ rotation = 3.14159
 scale = Vector2( 0.452, 0.356 )
 normal = ExtResource( 8 )
 
+[node name="SkipToWorkshop" type="TextureButton" parent="BackLayer/Pad"]
+visible = false
+margin_left = 1207.43
+margin_top = 453.938
+margin_right = 1534.43
+margin_bottom = 1093.94
+rect_scale = Vector2( 0.339, 0.282 )
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DialogBox" type="ColorRect" parent="BackLayer"]
 visible = false
 anchor_right = 1.0
@@ -240,6 +253,7 @@ normal = ExtResource( 3 )
 [connection signal="released" from="BackLayer/Pad/0" to="BackLayer/Pad" method="_on_0_released"]
 [connection signal="released" from="BackLayer/Pad/Star" to="BackLayer/Pad" method="_on_Star_released"]
 [connection signal="released" from="BackLayer/Pad/BackButton" to="BackLayer/Pad" method="_on_BackButton_released"]
+[connection signal="pressed" from="BackLayer/Pad/SkipToWorkshop" to="." method="_on_SkipToWorkshop_pressed"]
 [connection signal="released" from="BackLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
 [connection signal="released" from="Clickables/OG/Door" to="." method="_on_OG_released"]
 [connection signal="released" from="Clickables/OG/Letters" to="." method="_on_OG_released"]

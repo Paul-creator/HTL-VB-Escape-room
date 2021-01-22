@@ -107,7 +107,7 @@ func isTouchDevice():
 func isOnMacOs():
 	var res: bool = JavaScript.eval("navigator.platform.toLowerCase().includes('mac')")
 	return res
-	
+
 func idExists(id: String) -> bool:
 	var jscode = "String(!!document.getElementById('%s'))" % [id]
 	return (JavaScript.eval(jscode, true) == "true")
@@ -206,10 +206,3 @@ func getRoomHintCount(roomID:int) -> int:
 
 func addRoomHintCount(roomID:int, count:int) -> void:
 	roomHintCount[roomID] = roomHintCount[roomID] + count
-
-func getTextOnTouchScreen(textEdit) -> void:
-	if isTouchDevice():
-		var enteredText = JavaScript.eval("prompt('%s', '%s');" % ["Text hier eingeben:", textEdit.text], true)
-		textEdit.text = enteredText
-		textEdit.release_focus()
-#		ZZInGameUi.get_node("RandomUnfocus").grab_focus()

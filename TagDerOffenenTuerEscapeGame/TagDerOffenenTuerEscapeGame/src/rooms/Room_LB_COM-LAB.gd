@@ -58,9 +58,6 @@ func _on_DialogOkButton_released() -> void:
 	$CanvasLayer/DialogBox.hide()
 	canPress = true
 
-func _on_LineEdit_focus_entered() -> void:
-	Globals.getTextOnTouchScreen($LineEdit)
-
 func _on_ComLabNote_released() -> void:
 	$ColorRect.rect_position = $ComLabNote.get_global_transform().get_origin() - Vector2(-6,20)
 	$ColorRect.rect_size = ($ComLabNote.scale * Vector2(160, 160))*Vector2(1,1)

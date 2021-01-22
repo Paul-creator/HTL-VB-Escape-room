@@ -515,6 +515,5 @@ bubbleMessage = "Hallo. Hast du Fragen zu den Anmeldevoraussetzungen, den Abteil
 
 [node name="BotAnswerTimer" type="Timer" parent="."]
 one_shot = true
-[connection signal="focus_entered" from="Messager/TextEditor" to="." method="_on_TextEditor_focus_entered"]
 [connection signal="text_entered" from="Messager/TextEditor" to="." method="_on_TextEditor_text_entered"]
 [connection signal="timeout" from="BotAnswerTimer" to="." method="_on_BotAnswerTimer_timeout"]

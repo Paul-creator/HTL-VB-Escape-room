@@ -127,7 +127,7 @@ func checkForCorrectCodeFirebasket() -> void:
 	var code = str(ccontainer.get_node("Audio1").text, ccontainer.get_node("Audio2").text, ccontainer.get_node("Audio3").text)
 	var expectedCode = str(codeSequence[0], codeSequence[1], codeSequence[2])
 	if code == expectedCode:
-		$BackLayer/Firebasket/Label.text = str(_globals.CODE_CL5)
+		$BackLayer/Firebasket/Label.text = str(_globals.CODE_CL2)
 		$AnimationPlayer.play("FifthClassNumber")
 		$BackLayer/Firebasket/Feuerkorbraetsel_low/OpenAngleGrinder.hide()
 		$BackLayer/Firebasket/Feuerkorbraetsel_low/OpenFireBasket.hide()
@@ -173,10 +173,6 @@ func _on_CodeEnter_released() -> void:
 	$BackLayer/Pad.show()
 	$BackLayer/PadBackground2.show()
 	Globals.currentRoom = Globals.Rooms.B_WS
-
-func _on_Audio1_focus_entered() -> void: Globals.getTextOnTouchScreen($BackLayer/Firebasket/Feuerkorbraetsel_low/Audio1)
-func _on_Audio2_focus_entered() -> void: Globals.getTextOnTouchScreen($BackLayer/Firebasket/Feuerkorbraetsel_low/Audio2)
-func _on_Audio3_focus_entered() -> void: Globals.getTextOnTouchScreen($BackLayer/Firebasket/Feuerkorbraetsel_low/Audio3)
 
 func _on_CheckEnteredData_released() -> void:
 	checkForCorrectCodeFirebasket()

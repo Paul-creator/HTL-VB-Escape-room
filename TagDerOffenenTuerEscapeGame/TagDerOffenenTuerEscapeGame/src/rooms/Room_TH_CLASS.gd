@@ -137,13 +137,6 @@ func _input(event: InputEvent) -> void:
 func playAnim() -> void:
 	$AnimationPlayer.play("numberAnim")
 
-func _on_AIIT_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/AIIT)
-func _on_TMB_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/TMB)
-func _on_PLP_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/PLP)
-func _on_BET_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/BET)
-func _on_SWP_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/SWP)
-func _on_FET_focus_entered() -> void: Globals.getTextOnTouchScreen($Code/FET)
-
 func _on_AcceptCode_released() -> void:
 	if $Code/AIIT.text.to_lower()[0] == 'm' and $Code/TMB.text.to_lower()[0] == 'a' and $Code/PLP.text.to_lower()[0] == 't' and $Code/BET.text.to_lower()[0] == 'u' and $Code/SWP.text.to_lower()[0] == 'r' and $Code/FET.text.to_lower()[0] == 'a':
 		set_process(false)

@@ -194,7 +194,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="released" from="CanvasLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
-[connection signal="focus_entered" from="LineEdit" to="." method="_on_LineEdit_focus_entered"]
 [connection signal="released" from="OkButton" to="." method="_on_OkButton_released"]
 [connection signal="released" from="BackButton" to="." method="_on_BackButton_released"]
 [connection signal="released" from="ComLabNote" to="." method="_on_ComLabNote_released"]

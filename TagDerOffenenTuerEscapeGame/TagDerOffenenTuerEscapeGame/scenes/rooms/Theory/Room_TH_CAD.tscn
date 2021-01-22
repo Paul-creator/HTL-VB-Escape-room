@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/RoomCAD_Layout.png" type="Texture" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=7]
 [ext_resource path="res://graphics/CAD_Door/Keypad.png" type="Texture" id=8]
 [ext_resource path="res://graphics/CAD_Door/CarTopdown.png" type="Texture" id=9]
-[ext_resource path="res://graphics/CAD_Door/CarBoard.png" type="Texture" id=10]
+[ext_resource path="res://scenes/general/ClickAwayMessageScreen.gd" type="Script" id=10]
 [ext_resource path="res://src/Keypad.gd" type="Script" id=11]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=12]
 [ext_resource path="res://graphics/Choice.png" type="Texture" id=13]
@@ -22,6 +22,9 @@
 [ext_resource path="res://graphics/CAD_Door/20201105115438_IMG_9589.JPG" type="Texture" id=20]
 [ext_resource path="res://graphics/general/Note2.png" type="Texture" id=21]
 [ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=22]
+[ext_resource path="res://graphics/CAD_Door/Hinweis bei Codeeingabe.png" type="Texture" id=23]
+[ext_resource path="res://font/besley/Besley-Bold.otf" type="DynamicFontData" id=24]
+[ext_resource path="res://graphics/general/ArrowWhite.png" type="Texture" id=25]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/GidoleFont/Gidole-Regular.ttf"
@@ -45,6 +48,80 @@ font_data = ExtResource( 17 )
 [sub_resource type="DynamicFont" id=6]
 size = 30
 font_data = ExtResource( 18 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 24 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "bumpingArrow"
+length = 1.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowWhite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 904.095, 134.9 ), Vector2( 904.095, 127.9 ), Vector2( 904.095, 143.9 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 2.0
@@ -827,15 +904,15 @@ normal = ExtResource( 9 )
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 599.766, 38.1637 )
-scale = Vector2( 0.120826, 0.120826 )
-normal = ExtResource( 10 )
+scale = Vector2( 0.187452, 0.187452 )
+normal = ExtResource( 23 )
 
 [node name="CarBoardImage" type="Sprite" parent="CanvasLayer/Control"]
 visible = false
 position = Vector2( 512, 300 )
-scale = Vector2( 0.405995, 0.405995 )
+scale = Vector2( 0.632118, 0.632118 )
 z_index = 15
-texture = ExtResource( 10 )
+texture = ExtResource( 23 )
 
 [node name="CarTopDownImage" type="Sprite" parent="CanvasLayer/Control"]
 visible = false
@@ -942,17 +1019,17 @@ bbcode_enabled = true
 bbcode_text = "[color=#ffffff][b][center]Was unser HTL-Car alles kann[/center][/b]
 
 In den [b]Konstruktionsübungen[/b] werden einzelne Teile vermessen, konstruiert und mit dem 3D-Drucker ausgedruckt. Fast alle Teile dieses Autos wurden bei uns an der Schule gedruckt. 
-Zu diesem Auto gibt es natürlich auch eine Fernsteuerung, mit der man das Auto normal steuern kann. Außerdem sind am Auto ein Minicomputer und ein paar Sensoren montiert, mit denen z. B. die aktuelle Geschwindigkeit auf einem externen Bildschirm angezeigt werden kann. 
+Zu diesem Auto gibt es natürlich auch eine Fernsteuerung, mit der man das Auto normal steuern kann. Ausserdem sind am Auto ein Minicomputer und ein paar Sensoren montiert mit denen z. B. die aktuelle Geschwindigkeit auf einem externen Bildschirm angezeigt werden kann. 
 Der Einbau, die Verkabelung und die Programmierung aller mechatronischen Komponenten wie Motore, Sensoren, usw. erfolgt in [b]NWES/INFI[/b]. Das Auto wird im Theorieunterricht fahrtüchtig zusammengebaut.
-Im [b]Laborunterricht[/b] wird ein digitaler Zwilling, das ist ein virtuelles Modell zur Verbindung der realen und der wirklichen Welt, erstellt. Digitale Zwillinge verwenden reale Daten von richtigen Sensoren. Damit können Daten gesammelt, analysiert und zur Überwachung und Problemanalyse verwendet werden, bevor diese überhaupt auftreten. 
+Im [b]Laborunterricht[/b] und in [b]Konstruktionsübungen[/b] wird ein digitaler Zwilling, das ist ein virtuelles Modell zur Verbindung der realen und der virtuellen Welt, erstellt. Digitale Zwillinge verwenden reale Daten von richtigen Sensoren. Damit können Daten gesammelt, analysiert und zur Überwachung und Problemanalyse verwendet werden, bevor diese überhaupt auftreten. 
 Das Auto dient auch als Übungsbeispiel für Augmented Reality Anwendungen, die viele weitere Möglichkeiten bieten. 
 [/color]"
 text = "Was unser HTL-Car alles kann
 
 In den Konstruktionsübungen werden einzelne Teile vermessen, konstruiert und mit dem 3D-Drucker ausgedruckt. Fast alle Teile dieses Autos wurden bei uns an der Schule gedruckt. 
-Zu diesem Auto gibt es natürlich auch eine Fernsteuerung, mit der man das Auto normal steuern kann. Außerdem sind am Auto ein Minicomputer und ein paar Sensoren montiert, mit denen z. B. die aktuelle Geschwindigkeit auf einem externen Bildschirm angezeigt werden kann. 
+Zu diesem Auto gibt es natürlich auch eine Fernsteuerung, mit der man das Auto normal steuern kann. Ausserdem sind am Auto ein Minicomputer und ein paar Sensoren montiert mit denen z. B. die aktuelle Geschwindigkeit auf einem externen Bildschirm angezeigt werden kann. 
 Der Einbau, die Verkabelung und die Programmierung aller mechatronischen Komponenten wie Motore, Sensoren, usw. erfolgt in NWES/INFI. Das Auto wird im Theorieunterricht fahrtüchtig zusammengebaut.
-Im Laborunterricht wird ein digitaler Zwilling, das ist ein virtuelles Modell zur Verbindung der realen und der wirklichen Welt, erstellt. Digitale Zwillinge verwenden reale Daten von richtigen Sensoren. Damit können Daten gesammelt, analysiert und zur Überwachung und Problemanalyse verwendet werden, bevor diese überhaupt auftreten. 
+Im Laborunterricht und in Konstruktionsübungen wird ein digitaler Zwilling, das ist ein virtuelles Modell zur Verbindung der realen und der virtuellen Welt, erstellt. Digitale Zwillinge verwenden reale Daten von richtigen Sensoren. Damit können Daten gesammelt, analysiert und zur Überwachung und Problemanalyse verwendet werden, bevor diese überhaupt auftreten. 
 Das Auto dient auch als Übungsbeispiel für Augmented Reality Anwendungen, die viele weitere Möglichkeiten bieten. 
 "
 __meta__ = {
@@ -1031,6 +1108,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HintForHintButton" type="ColorRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.168627, 0.168627, 0.168627, 0.533333 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HintForHintButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/HintForHintButton"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -194.5
+margin_top = 230.0
+margin_right = 194.5
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 10 )
+text = "\"Kommst du bei einem Rätsel nicht weiter, kannst du dir hier Hinweise holen. Du kannst öfter auf den Button klicken, um weitere Hinweise zu bekommen.
+Lies die Hinweise genau. Manche erscheinen nur einmal."
+align = 1
+autowrap = true
+
+[node name="ArrowWhite" type="Sprite" parent="CanvasLayer/HintForHintButton"]
+position = Vector2( 904.095, 143.734 )
+scale = Vector2( 0.493658, 0.493658 )
+texture = ExtResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HintForHintButton"]
+autoplay = "bumpingArrow"
+anims/bumpingArrow = SubResource( 11 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer/HintForHintButton"]
+anims/appear = SubResource( 12 )
+anims/disappear = SubResource( 13 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 512, 300 )
 script = ExtResource( 12 )
@@ -1077,3 +1198,4 @@ texture = ExtResource( 15 )
 [connection signal="released" from="CanvasLayer/BackButton" to="." method="_on_BackButton_released"]
 [connection signal="released" from="CanvasLayer/MoreInfosContent/BackButtonFromMoreInfos" to="." method="_on_BackButtonFromMoreInfos_released"]
 [connection signal="released" from="CanvasLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
+[connection signal="pressed" from="CanvasLayer/HintForHintButton/TextureButton" to="CanvasLayer/HintForHintButton" method="_on_TextureButton_pressed"]

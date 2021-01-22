@@ -12,7 +12,7 @@ func _ready() -> void:
 	Globals.currentRoom = Globals.Rooms.CAD
 
 func _on_ClickedLinkToExtern_released() -> void:
-	if CanPress(): OS.shell_open("https://cad.onshape.com/documents/115c334e11e4434e7c78d535/w/61bbf9db6d3ca697989d8cda/e/38cdb5f30221e9f4018e5316")
+	if CanPress(): OS.shell_open("https://cad.onshape.com/documents/b7bee55d49d1004a6078f4cd/w/3c5340936c9c486874989431/e/70a9d762c3b9315d1bae7474")
 
 func _on_MapCollection_released() -> void:
 	if CanPress():
@@ -25,7 +25,7 @@ func _on_ExitCADRoom_released() -> void:
 		if collectedMap == true:
 			$AnimationPlayer.play("LeaveCAD")
 		else:
-			$CanvasLayer/DialogBox/Content.text = "Du hast etwas Wichtiges noch nicht mitgenommen, schau dich noch etwas um."
+			$CanvasLayer/DialogBox/Content.text = "Du hast etwas Wichtiges vergessen (Lageplan). Schau dich noch etwas um."
 			$CanvasLayer/DialogBox.show()
 
 func _on_RoomSelect_AULA_released() -> void:

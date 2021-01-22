@@ -4,6 +4,8 @@ export var justForFunctions := false
 var wasInstancedRightNow := true
 var previousRoom := 0
 
+func _ready() -> void: if ZZInGameUi.hasShownWarpHint[0] == true: $MapOpen/SkipToLab.show()
+
 func setValues() -> void:
 	$MapOpen/TextEdit.text = Globals.mapCodeEntered
 	previousRoom = Globals.currentRoom
@@ -48,5 +50,6 @@ func _on_CodeOK_released() -> void:
 	if $MapOpen/TextEdit.text == code:
 		Globals.openNewRoomWithVideo("Videos/ThToLab.webm", "res://scenes/rooms/Laboratory/Building_Laboratory.tscn")
 
-func _on_TextEdit_focus_entered() -> void: Globals.getTextOnTouchScreen($MapOpen/TextEdit)
 func _on_TextEdit_text_changed(new_text: String) -> void: Globals.mapCodeEntered = $MapOpen/TextEdit.text
+
+func _on_SkipToLab_pressed() -> void: ZZInGameUi.showTheoryWarpHint(true)

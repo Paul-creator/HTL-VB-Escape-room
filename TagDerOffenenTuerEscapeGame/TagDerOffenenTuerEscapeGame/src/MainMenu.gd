@@ -24,10 +24,10 @@ func _on_options_released() -> void:
 func _on_Quality_item_selected(index: int) -> void:
 	$AudioStreamPlayer2D.play()
 	if index == 0:
-		$CanvasLayer/DialogBox/Content.text = "Bei geriner Qualität werden Videos, etc im Spiel mit geringer Auflösung und Qualität gezeigt. Die Internetbelastung ist hirbei am geringsten."
+		$CanvasLayer/DialogBox/Content.text = "Bei geriner Qualität werden Videos, etc im Spiel mit geringer Auflösung und Qualität gezeigt. Die Internetbelastung ist hierbei am geringsten."
 		$CanvasLayer/DialogBox.show()
 	elif index == 2:
-		$CanvasLayer/DialogBox/Content.text = "Bei hoher Qualität werden Videos, etc im Spiel mit der besten Auflösung und Qualität gezeigt. Die Internetbelastung ist hirbei am höchsten."
+		$CanvasLayer/DialogBox/Content.text = "Bei hoher Qualität werden Videos, etc im Spiel mit der besten Auflösung und Qualität gezeigt. Die Internetbelastung ist hierbei am höchsten."
 		$CanvasLayer/DialogBox.show()
 
 func _on_DialogOkButton_released() -> void:

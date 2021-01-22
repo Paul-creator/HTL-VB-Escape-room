@@ -4,6 +4,7 @@ var isFlashlightOn := false
 var isMovingPhone := false
 var xDiff := 0.0
 var yDiff := 0.0
+var hasShown := false
 
 func _process(_delta: float) -> void:
 	if isMovingPhone:
@@ -25,3 +26,8 @@ func _on_ToggleFlashlight_pressed() -> void:
 	if !isFlashlightOn:
 		isFlashlightOn = !isFlashlightOn
 		enabled = isFlashlightOn
+		if !hasShown:
+			hasShown = true
+			var hintScreen = get_tree().get_root().get_node("RoomCAD/CanvasLayer/HintForHintButton")
+			hintScreen.show()
+			hintScreen.get_node("AnimationPlayer2").play("appear")

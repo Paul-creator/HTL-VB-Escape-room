@@ -5,8 +5,7 @@
 [ext_resource path="res://graphics/menu/PauseButton.png" type="Texture" id=3]
 [ext_resource path="res://graphics/menu/HintButton.png" type="Texture" id=4]
 [ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://graphics/general/Note2.png" type="Texture" id=7]
-[ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=8]
+[ext_resource path="res://graphics/general/Note3.png" type="Texture" id=6]
 [ext_resource path="res://graphics/menu/fullscreen.png" type="Texture" id=9]
 [ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=10]
 
@@ -17,6 +16,11 @@ font_data = ExtResource( 5 )
 [sub_resource type="DynamicFont" id=2]
 size = 32
 use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -97,20 +101,22 @@ __meta__ = {
 [node name="Note2" type="Sprite" parent="CanvasLayer/DialogBox"]
 position = Vector2( 542.677, 320 )
 scale = Vector2( 0.48824, 0.488241 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="DialogOkButton" type="TouchScreenButton" parent="CanvasLayer/DialogBox"]
-position = Vector2( 699.294, 383.8 )
-scale = Vector2( 0.100854, 0.135635 )
-normal = ExtResource( 8 )
+position = Vector2( 699.322, 393.936 )
+scale = Vector2( 0.08, 0.08 )
+normal = ExtResource( 10 )
 
 [node name="Content" type="Label" parent="CanvasLayer/DialogBox"]
 margin_left = 267.0
-margin_top = 200.0
+margin_top = 157.0
 margin_right = 775.0
-margin_bottom = 379.0
+margin_bottom = 428.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+text = "Was ist das? Ein Zettel mit dem Code zum Laborgebäude?
+Möchtest du den Zettel verwenden und weitergehen oder lieber die Rätsel selber lösen?"
 align = 1
 valign = 1
 autowrap = true
@@ -129,6 +135,51 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "IMPORTANT NOTE"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option1" type="TextureButton" parent="CanvasLayer/DialogBox"]
+visible = false
+margin_left = 289.0
+margin_top = 397.0
+margin_right = 502.0
+margin_bottom = 459.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/DialogBox/Option1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.129412, 0.129412, 0.129412, 1 )
+text = "OPTION 1"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option2" type="TextureButton" parent="CanvasLayer/DialogBox"]
+visible = false
+margin_left = 542.61
+margin_top = 397.0
+margin_right = 755.61
+margin_bottom = 459.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/DialogBox/Option2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.129412, 0.129412, 0.129412, 1 )
+text = "Im Theoriegebäude bleiben"
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -266,6 +317,8 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/showPenalty = SubResource( 5 )
 [connection signal="released" from="CanvasLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/Option1" to="." method="_on_Option1_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/Option2" to="." method="_on_Option2_pressed"]
 [connection signal="released" from="CanvasLayer/PauseMenu/ColorRect/PauseOkButton" to="." method="_on_PauseOkButton_released"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/HintButton" to="." method="_on_HintButton_pressed"]
