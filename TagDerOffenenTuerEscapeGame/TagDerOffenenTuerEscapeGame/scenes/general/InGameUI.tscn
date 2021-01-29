@@ -18,22 +18,21 @@ size = 32
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=8]
 size = 128
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=9]
 size = 128
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "showPenalty"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/PenaltyViewer:visible")
 tracks/0/interp = 1
@@ -152,7 +151,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/DialogBox/Option1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.129412, 0.129412, 0.129412, 1 )
 text = "OPTION 1"
@@ -173,7 +172,7 @@ margin_bottom = 459.0
 [node name="Label2" type="Label" parent="CanvasLayer/DialogBox/Option2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.129412, 0.129412, 0.129412, 1 )
 text = "Im Theoriegebäude bleiben"
@@ -254,7 +253,7 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 14.0
 rect_scale = Vector2( 0.25, 0.25 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 8 )
 text = "00:00:00"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -267,7 +266,7 @@ margin_top = 40.0
 margin_right = 274.0
 margin_bottom = 169.0
 rect_scale = Vector2( 0.25, 0.25 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.917647, 0, 0, 1 )
 text = "+ 60"
 __meta__ = {
@@ -315,7 +314,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/showPenalty = SubResource( 5 )
+anims/showPenalty = SubResource( 6 )
 [connection signal="released" from="CanvasLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
 [connection signal="pressed" from="CanvasLayer/DialogBox/Option1" to="." method="_on_Option1_pressed"]
 [connection signal="pressed" from="CanvasLayer/DialogBox/Option2" to="." method="_on_Option2_pressed"]

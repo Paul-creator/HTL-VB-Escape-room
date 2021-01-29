@@ -27,7 +27,13 @@ func _on_OG_released() -> void:
 	Globals.openNewRoomWithVideo("Videos/MZW.webm", "res://scenes/rooms/Laboratory/Room_LB_MZW.tscn")
 
 func _on_DialogOkButton_released() -> void:
-	$BackLayer/DialogBox.hide()
+	if $BackLayer/DialogBox/Content.text == "Du befindest dich nun im Laborgebäude der HTL. Hier finden praktische Übungen zu den technischen Gegenständen statt. Die Tür zum Werkstattgebäude ist mit einem Code gesichert. Löse die Rätsel der einzelnen Räume, um in die Werkstatt zu gelangen.":
+		$BackLayer/DialogBox/Content.text = "Klicke auf die Wörter \"KG\", \"EG\", oder \"OG\" um zu den Rätseln zu gelangen."
+		$BackLayer/DialogBox/Note.scale.y = 0.488
+		$BackLayer/DialogBox/DialogOkButton.position.y = 400
+		$BackLayer/DialogBox/DialogOkButton.scale.y = 0.083
+	else:
+		$BackLayer/DialogBox.hide()
 
 func _on_SkipToWorkshop_pressed() -> void:
 	ZZInGameUi.showLabWarpHint(true)

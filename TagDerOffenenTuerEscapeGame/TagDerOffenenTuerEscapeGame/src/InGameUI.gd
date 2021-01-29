@@ -143,6 +143,8 @@ func hideAllVisibleTSButtons() -> void:
 		if c.get_child_count() > 0:
 			get_allChildren(c)
 		if c is TouchScreenButton and c.visible: 
+			print(c.get_path().to_lower())
+			if "map" in c.get_path().to_lower(): continue
 			c.hide()
 			hiddenTSButtons.append(c)
 
@@ -151,6 +153,12 @@ func get_allChildren(parent) -> void:
 		if c.get_child_count() > 0:
 			get_allChildren(c)
 		if c is TouchScreenButton and c.visible: 
+			var isMap := false
+			for i in c.get_path().get_name_count():
+				if "map" in c.get_path().get_name(i).to_lower():
+					isMap = true
+					break;
+			if isMap: continue
 			c.hide()
 			hiddenTSButtons.append(c)
 
@@ -169,6 +177,10 @@ func _on_PauseButton_pressed() -> void:
 	$CanvasLayer/PauseMenu.show()
 	pause(false)
 	hideAllVisibleTSButtons()
+	if Globals.openVideos.size() > 0:
+		for vid in Globals.openVideos:
+			Globals.removeElement(vid)
+		Globals.openVideos.clear()
 
 func _on_Option1_pressed() -> void:
 	if isInBuildingID == 0: Globals.openNewRoomWithVideo("Videos/ThToLab.webm", "res://scenes/rooms/Laboratory/Building_Laboratory.tscn")

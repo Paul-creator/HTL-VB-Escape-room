@@ -96,9 +96,16 @@ func isInTheoryBuildingMessage() -> void:
 	$CanvasLayer/Control/DialogBox.show()
 
 func _on_DialogOkButton_BuildingInfo_released() -> void:
+	$CanvasLayer/Control/DialogBox/Timer.start(0.5)
 	$CanvasLayer/Control/DialogBox.hide()
 	$CanvasLayer/Control/RoomSelect_AULA2.show()
 	$CanvasLayer/Control/RoomSelect_AULA3.show()
 	$CanvasLayer/Control/RoomSelect_CLASS2.show()
 	$CanvasLayer/Control/RoomSelect_CLASS3.show()
 	$CanvasLayer/Control/RoomSelect_MAP2.show()
+
+func _on_DialogOkButton2_released() -> void:
+	$CanvasLayer/Control/DialogBox2.hide()
+
+func _on_Timer_timeout() -> void:
+	$CanvasLayer/Control/DialogBox2.show()

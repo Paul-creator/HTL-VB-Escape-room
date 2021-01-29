@@ -9,6 +9,8 @@ var thisLevelCode
 func _ready() -> void:
 	thisLevelCode = get_tree().get_root().get_node("Globals").CODE_ADMIN
 	Globals.currentRoom = Globals.Rooms.ADMIN
+	ZZInGameUi.hideAllVisibleTSButtons()
+	$TotallyTopLayer/DialogBox/DialogOkButton.show()
 
 func _on_ZoomAdminNote_released() -> void:
 	justPressed = true
@@ -70,7 +72,7 @@ func _input(event: InputEvent) -> void:
 					ResetAfterBotClose()
 					anythingOpen = false
 					isChatBot = false
-					$TotallyTopLayer.remove_child($TotallyTopLayer.get_children()[0])
+					$TotallyTopLayer.remove_child($TotallyTopLayer.get_children()[1])
 				else:
 					justPressed = false
 			else:
@@ -117,3 +119,7 @@ func _on_Zeugnis1_released() -> void:
 	$CanvasLayer5/GetToAdminBot.hide()
 	$CanvasLayer2/VarsAndDesign.ChangeMapVisibility(false)
 	hideAllButtons()
+
+func _on_DialogOkButton_released() -> void:
+	$TotallyTopLayer/DialogBox.hide()
+	ZZInGameUi.showAllPrevVisibleTSButtons()

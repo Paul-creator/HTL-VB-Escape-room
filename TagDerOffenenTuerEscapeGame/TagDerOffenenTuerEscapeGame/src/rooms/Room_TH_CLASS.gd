@@ -1,10 +1,10 @@
 extends Node2D
 
-var subj_text_FET = "[center][color=#ff9900]FET\nFertigungstechnik\n\n\n[/color][color=#000000]Welche Werkstoffe werden in F[color=#4fd128]A[/color]hrzeugen verwendet und wie kann man diese Werkstoffe bearbeiten?[/color][/center]"
-var subj_text_PLP = "[center][color=#ff9900]PLP\nPlanung und Projektierung\n\n\n[/color][color=#000000]En[color=#4fd128]T[/color]wurf einer Heizung-, Kältetechnik-, Lüftung- und Sanitäranlage [/color][/center]"
+var subj_text_FET = "[center][color=#ff9900]FET\nFertigungstechnik\n\n\n[/color][color=#000000]Welche Werkstoffe werden in\nF[color=#4fd128]A[/color]hrzeugen\nverwendet und wie kann man diese Werkstoffe bearbeiten?[/color][/center]"
+var subj_text_PLP = "[center][color=#ff9900]PLP\nPlanung und Projektierung\n\n\n[/color][color=#000000]En[color=#4fd128]T[/color]wurf einer Heizungs-, Kältetechnik-, Lüftungs- und Sanitäranlage [/color][/center]"
 var subj_text_TMB = "[center][color=#ff9900]TMB\nTechnische Mechanik und Berechnung\n\n\n[/color][color=#000000]St[color=#4fd128]A[/color]tik einer Eisenbahnbrücke berechnen[/color][/center]"
 var subj_text_AIIT = "[center][color=#ff9900]AIIT\nAngewandte Informatik und fachspezifische Informationstechnik\n\n\n[/color][color=#000000]Programmieren von \n[color=#4fd128]M[/color]icrocomputern in Haushaltsgeräten oder Garagentoren[/color][/center]"
-var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#4fd128]R[/color]ammiert man Computerspiel?[/color][/center]"
+var subj_text_SWP = "[center][color=#ff9900]SWP\nSoftwareentwicklung und Projektmanagement\n\n\n[/color][color=#000000]Wie prog[color=#4fd128]R[/color]ammiert man ein Computerspiel?[/color][/center]"
 var subj_text_BET = "[center][color=#ff9900]BET\nBetriebstechnik\n\n\n[/color][color=#000000]Wie ist ein [color=#4fd128]U[/color]nternehmen aufgebaut und organisiert?[/color][/center]"
 var offsetToReach = Vector2.ZERO
 var prev := -1
@@ -12,6 +12,8 @@ var currentCLASS = ""
 
 func _ready() -> void:
 	Globals.currentRoom = Globals.Rooms.CLASS
+	$CanvasLayer/DialogBox/RichTextLabel.bbcode_text = "\n\n\n[center]Finde die passenden Buchstaben zu den Fächerkürzeln und tippe sie einzeln in die Kästchen ein.[/center]"
+	$CanvasLayer/DialogBox.show()
 
 func _process(_delta: float) -> void:
 	if $CanvasLayer/BackgroundUnfocus.color == Color(0,0,0,0):

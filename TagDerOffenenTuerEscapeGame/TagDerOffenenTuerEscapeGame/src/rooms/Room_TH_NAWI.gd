@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	Globals.currentRoom = Globals.Rooms.NAWI
-	$CanvasLayer/DialogBox/Content.text = "Klicke auf die Begriffe Instagram oder YouTube für mehr Infos"
+	$CanvasLayer/DialogBox/Content.text = "Klicke auf die Begriffe Instagram oder Youtube für mehr Infos. Schau dir dort alle Videos an und lese die Titel der Videos."
 	$CanvasLayer/DialogBox.show()
 
 func _on_instagramButton_released() -> void:

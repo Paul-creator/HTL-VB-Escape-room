@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/general/VarsAndDesign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://graphics/gym/IMG_9475_low.JPG" type="Texture" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://src/rooms/Room_TH_GYM.gd" type="Script" id=4]
 [ext_resource path="res://graphics/gym/Bildschirm_hole_low.png" type="Texture" id=5]
 [ext_resource path="res://graphics/gym/ScreenContent_low.JPG" type="Texture" id=6]
+[ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://graphics/general/Note2.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 7 )
 
 [node name="RoomGYM" type="Node2D"]
 script = ExtResource( 4 )
@@ -17,6 +23,40 @@ layer = 5
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBox" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.729412, 0.729412, 0.729412, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note2" type="Sprite" parent="CanvasLayer/DialogBox"]
+position = Vector2( 542.677, 320 )
+scale = Vector2( 0.48824, 0.488241 )
+texture = ExtResource( 8 )
+
+[node name="DialogOkButton" type="TouchScreenButton" parent="CanvasLayer/DialogBox"]
+position = Vector2( 699.294, 383.8 )
+scale = Vector2( 0.100854, 0.135635 )
+normal = ExtResource( 3 )
+
+[node name="Content" type="Label" parent="CanvasLayer/DialogBox"]
+margin_left = 267.0
+margin_top = 200.0
+margin_right = 775.0
+margin_bottom = 379.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+text = "Sieh dir das Handy
+genauer an."
+align = 1
+valign = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -96,6 +136,7 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="released" from="CanvasLayer/DialogBox/DialogOkButton" to="." method="_on_DialogOkButton_released"]
 [connection signal="pressed" from="CanvasLayer2/ScreenDrag" to="." method="_on_ScreenDrag_pressed"]
 [connection signal="released" from="CanvasLayer2/ScreenDrag" to="." method="_on_ScreenDrag_released"]
 [connection signal="released" from="CanvasLayer2/PhoneTouches/TouchScreenButton1" to="." method="_on_TouchScreenButton1_released"]

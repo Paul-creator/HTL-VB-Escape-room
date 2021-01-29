@@ -10,6 +10,8 @@ func _ready() -> void:
 	globals = get_tree().get_root().get_node("Globals")
 	startPos = $CanvasLayer2/ScreenContent.position.x
 	Globals.currentRoom = Globals.Rooms.GYM
+	ZZInGameUi.hideAllVisibleTSButtons()
+	$CanvasLayer/DialogBox/DialogOkButton.show()
 
 func _on_TouchScreenButton1_released() -> void:
 	$CanvasLayer2/Sprite.hide()
@@ -42,3 +44,7 @@ func _on_ScreenDrag_released() -> void:
 		startedVideo = true
 		$CanvasLayer2/ScreenContent.hide()
 		$CanvasLayer2/ScreenDrag.hide()
+
+func _on_DialogOkButton_released() -> void:
+	$CanvasLayer/DialogBox.hide()
+	ZZInGameUi.showAllPrevVisibleTSButtons()

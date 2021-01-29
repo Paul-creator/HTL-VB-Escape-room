@@ -511,7 +511,7 @@ margin_bottom = 23.0
 align = 0
 bubbleColor = Color( 0.3, 0.54, 0.9, 1 )
 bubbleSize = Vector2( 250, 40 )
-bubbleMessage = "Hallo. Hast du Fragen zu den Anmeldevoraussetzungen, den Abteilungen oder den Schnuppertagen?"
+bubbleMessage = "Hallo. Hast du Fragen zu den Anmeldevoraussetzungen, den Abteilungen oder den Schnuppertagen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."
 
 [node name="BotAnswerTimer" type="Timer" parent="."]
 one_shot = true

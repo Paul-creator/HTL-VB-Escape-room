@@ -6,22 +6,22 @@ onready var bubble = preload("res://scenes/general/ChatBubble.tscn")
 var last_user_answer = ""
 
 # Setting possible answers for users (U) and reaction to the answer for the bot (B)
-var U_basicAnswers := ["Anmeldevoraussetzungen", "Abteilungen", "Schnuppertage"]
-var B_basicAnswers := ["Warst du im Gym oder in der MS?", "Schau bitte auf unsere Homepage um mehr über die Abteilungen zu erfahren.  Hast du noch Fragen zu den Schnuppertagen oder den Anmeldevoraussetzungen?", "Schau bitte auf unsere Homepage um mehr über die Schnuppertage zu erfahren.  Hast du noch Fragen zu den Anmeldevoraussetzungen oder den Abteilungen?"]
+var U_basicAnswers := ["anmelde", "Abteilungen", "Schnuppertage"]
+var B_basicAnswers := ["Warst du im Gym oder in der MS?", "Sieh dir bitte unsere Homepage an, um mehr über die Abteilungen zu erfahren.  Hast du noch Fragen zu den Schnuppertagen oder den Anmeldevoraussetzungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest.", "Sieh dir bitte unsere Homepage an, um mehr über die Schnuppertage zu erfahren.  Hast du noch Fragen zu den Anmeldevoraussetzungen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."]
 var U_AnVoAnswers := ["Gym", "MS"]
 var B_AnVoAnswers := ["Bist du in Mathe, Deutsch und Englisch positiv?", "Bist du in allen Hauptfächern als \"Standard AHS\" mit den Noten 1, 2, 3 oder 4 eingeordnet?"]
 var U_Gym_MDEp := ["Ja", "Nein"]
-var B_Gym_MDEp := ["Super, dann bist du in der Schule aufgenommen. Je nachdem wie gut dein Reihungswert ist bekommst du deinen Abteilungs-Erstwunsch  oder vielleicht deinen Zweitwunsch. Möchtest du wissen, wie man den Reihungswert berechnet?", "Dann musst du in dem Fach mit der negativen Note eine Aufnahmeprüfung machen.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?"]
+var B_Gym_MDEp := ["Super, dann bist du in der Schule aufgenommen. Je nachdem wie gut dein Reihungswert ist bekommst du deinen Abteilungs-Erstwunsch  oder vielleicht deinen Zweitwunsch. Möchtest du wissen, wie man den Reihungswert berechnet?", "Dann musst du in dem Fach mit der negativen Note eine Aufnahmeprüfung machen.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."]
 var U_Gym_MDEp_Yes := ["Ja", "Nein"]
-var B_Gym_MDEp_Yes := ["Ok, schön. Rechne deine Mathematiknote mal 2. Dann addierst du die Deutschnote und anschließend die Englischnote. Das Ergebnis ist dein Reihungswert. Je kleiner das Ergebnis ist, desto sicherer bekommst du einen Platz in deiner Wunschabteilung.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?", "Ok.   Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?"]
+var B_Gym_MDEp_Yes := ["Ok, schön. Rechne deine Mathematiknote mal 2. Dann addierst du die Deutschnote und anschliessend die Englischnote. Das Ergebnis ist dein Reihungswert. Je kleiner das Ergebnis ist, desto sicherer bekommst du einen Platz in deiner Wunschabteilung.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest.", "Ok.   Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."]
 var U_MS_MDEp := ["Ja", "Nein"]
 var B_MS_MDEp := ["Super, dann bist du in der Schule aufgenommen. Je nachdem wie gut dein Reihungswert ist bekommst du deinen Abteilungs-Erstwunsch  oder vielleicht deinen Zweitwunsch. Möchtest du wissen, wie man den Reihungswert berechnet?", "Hast du vielleicht in deinen Fächern, bei denen du in \"Standard\" eingeordnet bist nichts schlechteres als eine 3?"]
 var U_MS_MDEp_Yes := ["Ja", "Nein"]
-var B_MS_MDEp_Yes := ["Wichtig sind die Noten der Fächer Mathematik, Deutsch und Englisch.    Du rechnest deine Mathematiknote mal 2. Dann addierst du deine Deutschnote und anschließend deine Englischnote. Je kleiner das Ergebnis ist, desto sicherer bekommst du einen Platz in deiner Wunschabteilung.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?", "Ok.   Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?"]
+var B_MS_MDEp_Yes := ["Wichtig sind die Noten der Fächer Mathematik, Deutsch und Englisch.   Du rechnest deine Mathematiknote mal 2. Dann addierst du deine Deutschnote und anschliessend deine Englischnote. Je kleiner das Ergebnis ist, desto sicherer bekommst du einen Platz in deiner Wunschabteilung.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest.", "Ok.   Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."]
 var U_MS_MDEp_No := ["Ja", "Nein"]
-var B_MS_MDEp_No := ["Wenn du überall in deinen Fächern, in denen du mit \"Standard\" eingeordnet bist eine 1 oder 2 hast, dann bist du auf jeden Fall aufgenommen.  Hast du in einem oder mehreren \"Standard\"-Hauptfächern eine 3, dann bist du noch in der  Fachschule aufgenommen.  Für die höheren Abteilungen musst du eine Aufnahmeprüfung in dem Fach machen,  in dem du \"Standard\" bist und eine 3, 4 oder 5 hast.  Je nachdem wie gut dein Reihungswert ist bekommst du deinen Abteilungs-Erstwunsch  oder vielleicht deinen Zweitwunsch. Möchtest du wissen, wie man den Reihungswert berechnet?", "Dann musst du auf jeden Fall eine Aufnahmeprüfung machen.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?"]
+var B_MS_MDEp_No := ["Wenn du überall in deinen Fächern, in denen du mit \"Standard\" eingeordnet bist eine 1 oder 2 hast, dann bist du auf jeden Fall aufgenommen.  Hast du in einem oder mehreren \"Standard\"-Hauptfächern eine 3, dann bist du noch in der  Fachschule aufgenommen.  Für die höheren Abteilungen musst du eine Aufnahmeprüfung in dem Fach machen,  in dem du \"Standard\" bist und eine 3, 4 oder 5 hast.  Je nachdem wie gut dein Reihungswert ist bekommst du deinen Abteilungs-Erstwunsch  oder vielleicht deinen Zweitwunsch. Möchtest du wissen, wie man den Reihungswert berechnet?", "Dann musst du auf jeden Fall eine Aufnahmeprüfung machen.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."]
 var U_MS_MDEp_No_Yes := ["Ja", "Nein"]
-var B_MS_MDEp_No_Yes := ["Wichtig sind die Noten der Fächer Mathematik, Deutsch und Englisch.       In den Fächern, bei denen du \"Standard AHS\" bist, rechnest du mit deinen Noten.       In den Fächern, bei denen du \"Standard\" bist musst du zuerst deine Noten plus 2 rechnen und rechnest mit der neuen Note weiter.    Nun rechnest du deine Mathematiknote mal 2. Dann addierst du deine Deutschnote und anschließend deine Englischnote. Je kleiner das Ergebnis ist, desto sicherer bekommst du einen Platz in deiner Wunschabteilung.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?", "Ok.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?"]
+var B_MS_MDEp_No_Yes := ["Wichtig sind die Noten der Fächer Mathematik, Deutsch und Englisch.       In den Fächern, bei denen du \"Standard AHS\" bist, rechnest du mit deinen Noten.       In den Fächern, bei denen du \"Standard\" bist musst du zuerst deine Noten plus 2 rechnen und rechnest mit der neuen Note weiter.    Nun rechnest du deine Mathematiknote mal 2. Dann addierst du deine Deutschnote und anschliessend deine Englischnote. Je kleiner das Ergebnis ist, desto sicherer bekommst du einen Platz in deiner Wunschabteilung.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen?", "Ok.  Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest."]
 
 var isWaitingForAnswers := 0
 var userAnswers := [U_basicAnswers, U_AnVoAnswers, U_Gym_MDEp, U_Gym_MDEp_Yes, U_MS_MDEp, U_MS_MDEp_Yes, U_MS_MDEp_No, U_MS_MDEp_No_Yes]
@@ -56,6 +56,10 @@ func SendUserMessage(text:String) -> void:
 	$Messager/MessageViewer.gotNewMessage = true
 
 func HandleUserInputMessage(text:String) -> void:
+	if text.to_lower() == "reihungswert" or text.to_lower() == "muster niki":
+		SendBotMessage("Rechne die Mathematiknote mal 2. Dann addierst du die Deutschnote und anschliessend die Englischnote. Das Ergebnis ist der Reihungswert. Hast du sonst noch Fragen zu den Anmeldevoraussetzungen, den Schnuppertagen oder den Abteilungen? Tippe die Begriffe ein, über die du mehr erfahren möchtest.")
+		isWaitingForAnswers = 0
+		return
 	var answerPos = GetPositionInAnswerArray(text)
 	if answerPos != -1:
 		SendBotMessage(botAnswers[isWaitingForAnswers][answerPos])
@@ -76,10 +80,11 @@ func HandleUserInputMessage(text:String) -> void:
 		elif isWaitingForAnswers == 6 and answerPos == 1: isWaitingForAnswers = 0
 		elif isWaitingForAnswers == 7: isWaitingForAnswers = 0
 	else: 
-		SendBotMessage("Sorry, dabei kann dir leider nicht weiterhelfen. Hast du Fragen zum  Anmeldevoraussetzungen, zu den Abteilungen oder den Schnuppertagen?")
+		SendBotMessage("Sorry, dabei kann ich dir leider nicht weiterhelfen. Hast du Fragen zu den Anmeldevoraussetzungen, zu den Abteilungen oder den Schnuppertagen? Tippe die Begriffe ein, über die du mehr erfahren möchtest.")
 		isWaitingForAnswers = 0
 
 func GetPositionInAnswerArray(text:String) -> int:
+	if text.to_lower().find("anmelde") == 0: text = "anmelde"
 	var returnVal = -1
 	for i in userAnswers[isWaitingForAnswers]:
 		if i.to_lower() == text.to_lower():

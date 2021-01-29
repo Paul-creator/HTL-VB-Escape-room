@@ -1,29 +1,24 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://graphics/lab/MZW-finish_low.JPG" type="Texture" id=1]
+[ext_resource path="res://graphics/lab/MZW neu.jpg" type="Texture" id=1]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://graphics/lab/Logo_MZW.png" type="Texture" id=3]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=4]
 [ext_resource path="res://src/rooms/Room_LB_MZW.gd" type="Script" id=5]
 [ext_resource path="res://graphics/lab/MZW_slide1.png" type="Texture" id=6]
-[ext_resource path="res://graphics/lab/MZW_slide3.png" type="Texture" id=7]
-[ext_resource path="res://graphics/lab/MZW_slide2.png" type="Texture" id=8]
-[ext_resource path="res://graphics/lab/MZW_slide4.png" type="Texture" id=9]
-[ext_resource path="res://graphics/lab/SlideBackArrow.png" type="Texture" id=10]
 [ext_resource path="res://control_theme.tres" type="Theme" id=11]
 [ext_resource path="res://font/besley/Besley-Bold.otf" type="DynamicFontData" id=12]
-[ext_resource path="res://graphics/lab/x-1727490_640.png" type="Texture" id=13]
 [ext_resource path="res://font/GidoleFont/Gidole-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://graphics/YellowBubble.png" type="Texture" id=15]
 [ext_resource path="res://graphics/lab/backArrow.png" type="Texture" id=16]
 [ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=17]
+[ext_resource path="res://graphics/lab/SelectionEuropa.png" type="Texture" id=18]
+[ext_resource path="res://graphics/lab/SelectVerein.png" type="Texture" id=19]
+[ext_resource path="res://graphics/lab/Europa.png" type="Texture" id=20]
+[ext_resource path="res://graphics/lab/Verein.png" type="Texture" id=21]
+[ext_resource path="res://graphics/lab/Raetsel.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
-use_filter = true
-font_data = ExtResource( 12 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 33
 use_filter = true
 extra_spacing_top = -25
@@ -49,61 +44,25 @@ font_data = ExtResource( 14 )
 [sub_resource type="Animation" id=6]
 length = 2.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Overlay:modulate")
+tracks/0/path = NodePath("CanvasLayer3/Slides:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Slideshow:visible")
+tracks/1/path = NodePath("CanvasLayer3/Slides:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Slideshow:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("SlideInfoRect:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Overlay:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.7 ),
+"times": PoolRealArray( 0.6 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -125,61 +84,13 @@ tracks/0/keys = {
 "method": "zoomToSlideShow"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Overlay:visible")
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Overlay:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Slideshow:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Slideshow:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 1, 1.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/5/type = "method"
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0.8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -187,41 +98,41 @@ tracks/5/keys = {
 "method": "instantZoomOut"
 } ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("SlideInfoRect:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 1.4, 2.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("SlideInfoRect:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 1.4 ),
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer3/Slides:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("SlideInfoRect/SkipTutorial:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 2.3 ),
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer3/Slides:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer3/Slides/EuropeCardFillIn:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -299,47 +210,6 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath("SlideInfoRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("SlideInfoRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.8 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.8 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "setTutorialShown"
-} ]
-}
-
 [node name="RoomMZW" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -363,6 +233,11 @@ position = Vector2( -93.3646, -249.027 )
 scale = Vector2( 0.535042, 0.482872 )
 normal = ExtResource( 4 )
 
+[node name="ShowInfos" type="TouchScreenButton" parent="MZW_Background"]
+position = Vector2( -154.613, 114.634 )
+scale = Vector2( 0.338856, 0.276584 )
+normal = ExtResource( 4 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 512, 300 )
 current = true
@@ -370,105 +245,29 @@ script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Camera2D"]
 
-[node name="Overlay" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
-[node name="Slideshow" type="ColorRect" parent="."]
+[node name="Slides" type="ColorRect" parent="CanvasLayer3"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DragInfo" type="ColorRect" parent="Slideshow"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 0.392157 )
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SlideNextArrow" type="Sprite" parent="Slideshow/DragInfo"]
-self_modulate = Color( 1, 1, 1, 0.509804 )
-position = Vector2( 980, 240 )
-scale = Vector2( 0.079, 0.079 )
-texture = ExtResource( 10 )
-
-[node name="SlideNextArrow2" type="Sprite" parent="Slideshow/DragInfo"]
-self_modulate = Color( 1, 1, 1, 0.509804 )
-position = Vector2( 980, 355 )
-scale = Vector2( 0.079, 0.079 )
-texture = ExtResource( 10 )
-
-[node name="NextText" type="Label" parent="Slideshow/DragInfo"]
-self_modulate = Color( 1, 1, 1, 0.27451 )
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -349.0
-margin_top = -19.0
-margin_right = 134.0
-margin_bottom = 46.0
-rect_scale = Vector2( 0.6, 0.6 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Nächste Folie"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SlidePreviousArrow" type="Sprite" parent="Slideshow/DragInfo"]
-self_modulate = Color( 1, 1, 1, 0.509804 )
-position = Vector2( 44, 240 )
-rotation = 3.14159
-scale = Vector2( 0.079, 0.079 )
-texture = ExtResource( 10 )
-
-[node name="SlidePreviousArrow2" type="Sprite" parent="Slideshow/DragInfo"]
-self_modulate = Color( 1, 1, 1, 0.509804 )
-position = Vector2( 44, 355 )
-rotation = 3.14159
-scale = Vector2( 0.079, 0.079 )
-texture = ExtResource( 10 )
-
-[node name="PreviousText" type="Label" parent="Slideshow/DragInfo"]
-self_modulate = Color( 1, 1, 1, 0.27451 )
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -967.8
-margin_top = -19.0
-margin_right = -604.8
-margin_bottom = 46.0
-rect_scale = Vector2( 0.6, 0.6 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Vorherige Folie"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MZW_slide1" type="Sprite" parent="Slideshow"]
+[node name="EuropeCardFillIn" type="Sprite" parent="CanvasLayer3/Slides"]
+visible = false
 position = Vector2( 512, 300 )
 scale = Vector2( 0.810953, 0.810953 )
 texture = ExtResource( 6 )
 
-[node name="fill1" type="LineEdit" parent="Slideshow/MZW_slide1"]
+[node name="fill1" type="LineEdit" parent="CanvasLayer3/Slides/EuropeCardFillIn"]
 margin_left = -223.194
 margin_top = -291.016
 margin_right = -186.194
 margin_bottom = -256.016
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -477,13 +276,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fill2" type="LineEdit" parent="Slideshow/MZW_slide1"]
+[node name="fill2" type="LineEdit" parent="CanvasLayer3/Slides/EuropeCardFillIn"]
 margin_left = -307.626
 margin_top = -136.144
 margin_right = -270.626
 margin_bottom = -101.144
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -492,13 +291,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fill3" type="LineEdit" parent="Slideshow/MZW_slide1"]
+[node name="fill3" type="LineEdit" parent="CanvasLayer3/Slides/EuropeCardFillIn"]
 margin_left = 61.4829
 margin_top = 128.828
 margin_right = 98.4829
 margin_bottom = 163.828
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -507,13 +306,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fill4" type="LineEdit" parent="Slideshow/MZW_slide1"]
+[node name="fill4" type="LineEdit" parent="CanvasLayer3/Slides/EuropeCardFillIn"]
 margin_left = -464.334
 margin_top = 186.357
 margin_right = -427.334
 margin_bottom = 221.357
 theme = ExtResource( 11 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -522,22 +321,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckEnteredRow" type="TouchScreenButton" parent="Slideshow/MZW_slide1"]
-position = Vector2( 519.138, 269.438 )
+[node name="CheckEnteredRow" type="TouchScreenButton" parent="CanvasLayer3/Slides/EuropeCardFillIn"]
+position = Vector2( 529.342, 111.887 )
 scale = Vector2( 0.129111, 0.129111 )
 normal = ExtResource( 17 )
 
-[node name="MZW_slide2" type="Sprite" parent="Slideshow"]
-visible = false
-position = Vector2( 512, 300 )
-scale = Vector2( 0.83735, 0.83735 )
-texture = ExtResource( 9 )
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer3/Slides/EuropeCardFillIn"]
+margin_left = 408.089
+margin_top = 208.738
+margin_right = 1531.09
+margin_bottom = 861.738
+rect_scale = Vector2( 0.2, 0.25 )
+texture_normal = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="_4_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
+[node name="Quiz" type="Sprite" parent="CanvasLayer3/Slides"]
+visible = false
+position = Vector2( 507.445, 297.351 )
+scale = Vector2( 0.881156, 0.881156 )
+texture = ExtResource( 22 )
+
+[node name="_4_fname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
 margin_left = -1.0
 margin_top = 70.0
-margin_right = 160.0
-margin_bottom = 115.0
+margin_right = 139.0
+margin_bottom = 103.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -547,11 +357,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_4_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
+[node name="_4_lname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
 margin_left = -1.0
-margin_top = 132.0
-margin_right = 157.0
-margin_bottom = 172.0
+margin_top = 122.446
+margin_right = 138.0
+margin_bottom = 155.446
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -561,11 +371,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_4_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
+[node name="_4_country" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
 margin_left = -1.0
-margin_top = 190.0
-margin_right = 153.0
-margin_bottom = 229.0
+margin_top = 172.086
+margin_right = 139.0
+margin_bottom = 207.086
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -575,11 +385,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_1_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 147.0
-margin_top = 73.0
-margin_right = 295.0
-margin_bottom = 106.0
+[node name="_1_fname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 128.0
+margin_top = 69.4173
+margin_right = 269.0
+margin_bottom = 102.417
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -589,11 +399,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_1_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 147.0
-margin_top = 133.0
-margin_right = 301.0
-margin_bottom = 166.0
+[node name="_1_lname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 126.0
+margin_top = 119.863
+margin_right = 270.0
+margin_bottom = 152.863
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -603,11 +413,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_1_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 147.0
-margin_top = 191.0
-margin_right = 304.0
-margin_bottom = 230.0
+[node name="_1_country" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 126.0
+margin_top = 172.0
+margin_right = 275.0
+margin_bottom = 211.0
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -617,11 +427,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_2_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 305.0
-margin_top = 73.0
-margin_right = 462.0
-margin_bottom = 107.0
+[node name="_2_fname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 265.0
+margin_top = 65.8345
+margin_right = 412.0
+margin_bottom = 99.8345
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -631,11 +441,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_2_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 304.0
-margin_top = 133.0
-margin_right = 464.0
-margin_bottom = 166.0
+[node name="_2_lname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 266.0
+margin_top = 119.863
+margin_right = 409.0
+margin_bottom = 152.863
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -645,11 +455,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_2_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 305.0
-margin_top = 191.0
-margin_right = 466.0
-margin_bottom = 227.0
+[node name="_2_country" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 265.0
+margin_top = 169.504
+margin_right = 411.0
+margin_bottom = 205.504
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -659,11 +469,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_3_fname" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 453.0
-margin_top = 74.0
-margin_right = 609.0
-margin_bottom = 110.0
+[node name="_3_fname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 395.806
+margin_top = 66.8345
+margin_right = 537.806
+margin_bottom = 102.835
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -673,11 +483,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_3_lname" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 452.0
-margin_top = 134.0
-margin_right = 611.0
-margin_bottom = 173.0
+[node name="_3_lname" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 396.0
+margin_top = 118.475
+margin_right = 538.0
+margin_bottom = 157.475
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -687,11 +497,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="_3_country" type="LineEdit" parent="Slideshow/MZW_slide2"]
-margin_left = 453.0
-margin_top = 192.0
-margin_right = 612.0
-margin_bottom = 226.0
+[node name="_3_country" type="LineEdit" parent="CanvasLayer3/Slides/Quiz"]
+margin_left = 395.0
+margin_top = 171.698
+margin_right = 539.0
+margin_bottom = 205.698
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 11 )
 custom_fonts/font = SubResource( 3 )
@@ -701,142 +511,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MZW_slide3" type="Sprite" parent="Slideshow"]
+[node name="Selection" type="Node2D" parent="CanvasLayer3/Slides"]
 visible = false
-position = Vector2( 512, 300 )
-scale = Vector2( 0.834157, 0.834157 )
-texture = ExtResource( 8 )
 
-[node name="MZW_slide4" type="Sprite" parent="Slideshow"]
+[node name="SelectionVerein" type="TextureButton" parent="CanvasLayer3/Slides/Selection"]
+margin_left = 96.1665
+margin_top = 258.558
+margin_right = 689.167
+margin_bottom = 511.558
+rect_scale = Vector2( 0.86, 0.86 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectionEuropa" type="TextureButton" parent="CanvasLayer3/Slides/Selection"]
+margin_left = 623.668
+margin_top = 46.669
+margin_right = 957.668
+margin_bottom = 341.669
+rect_scale = Vector2( 0.86, 0.86 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Europa" type="Sprite" parent="CanvasLayer3/Slides"]
 visible = false
-position = Vector2( 512, 300 )
-scale = Vector2( 0.838828, 0.838828 )
-texture = ExtResource( 7 )
+position = Vector2( 526.057, 299.772 )
+scale = Vector2( 0.927969, 0.927969 )
+texture = ExtResource( 20 )
 
-[node name="PreviousSlide" type="ColorRect" parent="Slideshow"]
+[node name="Verein" type="Sprite" parent="CanvasLayer3/Slides"]
 visible = false
-self_modulate = Color( 1, 1, 1, 0.882353 )
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -78.0
-margin_right = 150.0
-color = Color( 0.6, 0.6, 0.6, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NextSlide" type="ColorRect" parent="Slideshow"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.882353 )
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -150.0
-margin_top = -78.0
-color = Color( 0.6, 0.6, 0.6, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PreviousSlideButton" type="TouchScreenButton" parent="Slideshow"]
-position = Vector2( 0, 523.257 )
-scale = Vector2( 0.187614, 0.127905 )
-normal = ExtResource( 4 )
-
-[node name="NextSlideButton" type="TouchScreenButton" parent="Slideshow"]
-position = Vector2( 874, 521.75 )
-scale = Vector2( 0.187512, 0.130411 )
-normal = ExtResource( 4 )
-
-[node name="CloseSlides" type="TouchScreenButton" parent="Slideshow"]
-position = Vector2( 802.218, 13 )
-scale = Vector2( 0.0792303, 0.0792303 )
-normal = ExtResource( 13 )
-
-[node name="SlideInfoRect" type="ColorRect" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 0.827451 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0.235294, 0.235294, 0.235294, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SlideNextArrow3" type="Sprite" parent="SlideInfoRect"]
-self_modulate = Color( 1, 1, 1, 0.784314 )
-position = Vector2( 990, 300 )
-scale = Vector2( 0.079, 0.079 )
-texture = ExtResource( 10 )
-
-[node name="NextText2" type="Label" parent="SlideInfoRect"]
-self_modulate = Color( 1, 1, 1, 0.737255 )
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -374.0
-margin_top = -19.0
-margin_right = 109.0
-margin_bottom = 46.0
-rect_scale = Vector2( 0.6, 0.6 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.882353, 0.882353, 0.882353, 1 )
-text = "Nächste Folie"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SlidePreviousArrow3" type="Sprite" parent="SlideInfoRect"]
-self_modulate = Color( 1, 1, 1, 0.784314 )
-position = Vector2( 34, 300 )
-rotation = 3.14159
-scale = Vector2( 0.079, 0.079 )
-texture = ExtResource( 10 )
-
-[node name="PreviousText2" type="Label" parent="SlideInfoRect"]
-self_modulate = Color( 1, 1, 1, 0.737255 )
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -942.8
-margin_top = -19.0
-margin_right = -384.8
-margin_bottom = 46.0
-rect_scale = Vector2( 0.6, 0.6 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.882353, 0.882353, 0.882353, 1 )
-text = "Vorherige Folie"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PreviousText3" type="Label" parent="SlideInfoRect"]
-self_modulate = Color( 1, 1, 1, 0.737255 )
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -512.0
-margin_top = 120.0
-margin_right = 1195.0
-margin_bottom = 65.0
-rect_scale = Vector2( 0.6, 0.6 )
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.882353, 0.882353, 0.882353, 1 )
-text = "Wische zum navigieren"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SkipTutorial" type="TouchScreenButton" parent="SlideInfoRect"]
-scale = Vector2( 1.28191, 1 )
-normal = ExtResource( 4 )
+position = Vector2( 518.147, 275.691 )
+texture = ExtResource( 21 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -911,36 +622,21 @@ normal = ExtResource( 16 )
 anims/CloseSlideshow = SubResource( 6 )
 anims/OpenSlideshow = SubResource( 7 )
 anims/ShowNumber = SubResource( 8 )
-anims/SlideTutorialOut = SubResource( 9 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="released" from="MZW_Background/Logo_MZW/LogoPress" to="." method="_on_LogoPress_released"]
 [connection signal="released" from="MZW_Background/SlideshowPress" to="." method="_on_SlideshowPress_released"]
-[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill1" to="." method="_on_fill1_focus_entered"]
-[connection signal="text_changed" from="Slideshow/MZW_slide1/fill1" to="." method="_on_fill1_text_changed"]
-[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill2" to="." method="_on_fill2_focus_entered"]
-[connection signal="text_changed" from="Slideshow/MZW_slide1/fill2" to="." method="_on_fill2_text_changed"]
-[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill3" to="." method="_on_fill3_focus_entered"]
-[connection signal="text_changed" from="Slideshow/MZW_slide1/fill3" to="." method="_on_fill3_text_changed"]
-[connection signal="focus_entered" from="Slideshow/MZW_slide1/fill4" to="." method="_on_fill4_focus_entered"]
-[connection signal="text_changed" from="Slideshow/MZW_slide1/fill4" to="." method="_on_fill4_text_changed"]
-[connection signal="released" from="Slideshow/MZW_slide1/CheckEnteredRow" to="." method="_on_CheckEnteredRow_released"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_4_fname" to="." method="_on__4_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_4_lname" to="." method="_on__4_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_4_country" to="." method="_on__4_country_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_1_fname" to="." method="_on__1_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_1_lname" to="." method="_on__1_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_1_country" to="." method="_on__1_country_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_2_fname" to="." method="_on__2_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_2_lname" to="." method="_on_2_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_2_country" to="." method="_on_2_country_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_3_fname" to="." method="_on_3_fname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_3_lname" to="." method="_on_3_lname_text_changed"]
-[connection signal="text_changed" from="Slideshow/MZW_slide2/_3_country" to="." method="_on_3_country_text_changed"]
-[connection signal="pressed" from="Slideshow/PreviousSlideButton" to="." method="_on_PreviousSlideButton_pressed"]
-[connection signal="released" from="Slideshow/PreviousSlideButton" to="." method="_on_PreviousSlideButton_released"]
-[connection signal="pressed" from="Slideshow/NextSlideButton" to="." method="_on_NextSlideButton_pressed"]
-[connection signal="released" from="Slideshow/NextSlideButton" to="." method="_on_NextSlideButton_released"]
-[connection signal="released" from="Slideshow/CloseSlides" to="." method="_on_CloseSlides_released"]
-[connection signal="released" from="SlideInfoRect/SkipTutorial" to="." method="_on_SkipTutorial_released"]
+[connection signal="released" from="MZW_Background/ShowInfos" to="." method="_on_ShowInfos_released"]
+[connection signal="focus_entered" from="CanvasLayer3/Slides/EuropeCardFillIn/fill1" to="." method="_on_fill1_focus_entered"]
+[connection signal="text_changed" from="CanvasLayer3/Slides/EuropeCardFillIn/fill1" to="." method="_on_fill1_text_changed"]
+[connection signal="focus_entered" from="CanvasLayer3/Slides/EuropeCardFillIn/fill2" to="." method="_on_fill2_focus_entered"]
+[connection signal="text_changed" from="CanvasLayer3/Slides/EuropeCardFillIn/fill2" to="." method="_on_fill2_text_changed"]
+[connection signal="focus_entered" from="CanvasLayer3/Slides/EuropeCardFillIn/fill3" to="." method="_on_fill3_focus_entered"]
+[connection signal="text_changed" from="CanvasLayer3/Slides/EuropeCardFillIn/fill3" to="." method="_on_fill3_text_changed"]
+[connection signal="focus_entered" from="CanvasLayer3/Slides/EuropeCardFillIn/fill4" to="." method="_on_fill4_focus_entered"]
+[connection signal="text_changed" from="CanvasLayer3/Slides/EuropeCardFillIn/fill4" to="." method="_on_fill4_text_changed"]
+[connection signal="released" from="CanvasLayer3/Slides/EuropeCardFillIn/CheckEnteredRow" to="." method="_on_CheckEnteredRow_released"]
+[connection signal="pressed" from="CanvasLayer3/Slides/EuropeCardFillIn/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Slides/Selection/SelectionVerein" to="." method="_on_SelectionVerein_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Slides/Selection/SelectionEuropa" to="." method="_on_SelectionEuropa_pressed"]
 [connection signal="released" from="CanvasLayer2/BackButton" to="." method="_on_BackButton_released"]

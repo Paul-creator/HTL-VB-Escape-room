@@ -4,6 +4,9 @@ var _globals
 
 func _ready() -> void:
 	Globals.currentRoom = Globals.Rooms.AULA
+	ZZInGameUi.hideAllVisibleTSButtons()
+	$CanvasLayer3/DialogBox/DialogOkButton.show()
+
 
 func _on_Monitor_released() -> void:
 	_globals = get_tree().get_root().get_node("Globals")
@@ -21,3 +24,7 @@ func zoomToMonitor() -> void:
 
 func zoomTotallyOut() -> void:
 	$Camera2D.zoom_out(Vector2(512,300))
+
+func _on_DialogOkButton_released() -> void:
+	ZZInGameUi.showAllPrevVisibleTSButtons()
+	$CanvasLayer3/DialogBox.hide()
