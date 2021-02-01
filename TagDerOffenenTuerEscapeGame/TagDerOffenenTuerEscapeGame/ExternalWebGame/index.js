@@ -1,4 +1,19 @@
 /**
+ * Reads Content from some file
+ * @param {string} filename and path from file to read
+ */
+function loadFile(filePath) {
+	var result = null;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", filePath, false);	
+	xmlhttp.send();
+	if (xmlhttp.status==200) {
+		result = xmlhttp.responseText;
+	}
+	return result;
+}
+
+/**
  * creates a HTML-element add adds it to the dom
  * @param {string} element The Elementtype to create
  * @param {HTMLElement} parent The parent element

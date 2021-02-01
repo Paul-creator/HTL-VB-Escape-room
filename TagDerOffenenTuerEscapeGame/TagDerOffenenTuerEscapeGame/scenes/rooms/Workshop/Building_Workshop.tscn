@@ -1,9 +1,9 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://graphics/Workshop/Werkstatt1.png" type="Texture" id=1]
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=3]
-[ext_resource path="res://graphics/Workshop/WerkstattParts.png" type="Texture" id=4]
+[ext_resource path="res://graphics/Workshop/Werkstatt neu_low.png" type="Texture" id=4]
 [ext_resource path="res://src/rooms/Building_Workshop.gd" type="Script" id=5]
 [ext_resource path="res://graphics/lab/backArrow.png" type="Texture" id=6]
 [ext_resource path="res://graphics/SkipArrow.png" type="Texture" id=7]
@@ -30,8 +30,13 @@
 [ext_resource path="res://graphics/lab/CheckButton.png" type="Texture" id=28]
 [ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=29]
 [ext_resource path="res://graphics/general/Note2.png" type="Texture" id=30]
+[ext_resource path="res://graphics/Nussknacker_low.png" type="Texture" id=31]
 
 [sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 29 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 33
 use_filter = true
 extra_spacing_top = -25
@@ -40,27 +45,26 @@ extra_spacing_char = -10
 extra_spacing_space = -5
 font_data = ExtResource( 14 )
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.195, 0.53, 1 )
 colors = PoolColorArray( 0.827148, 0.355063, 0.193863, 0.266667, 1, 0.40567, 0.199219, 0.768627, 0.847059, 0.466667, 0.258824, 0.92549 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 266
 use_filter = true
 font_data = ExtResource( 20 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.884106, 1 )
 colors = PoolColorArray( 1, 1, 1, 0.705882, 1, 1, 1, 0.425399, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 4.62482, 22.175 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 27.1851, 50.9801 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "showSpongeNumber"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:visible")
 tracks/0/interp = 1
@@ -134,17 +138,17 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 200
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 20 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 30
 font_data = ExtResource( 29 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("BackLayer/Firebasket/ColorRect:visible")
@@ -219,7 +223,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("WorkshopParts:modulate")
 tracks/0/interp = 1
@@ -307,7 +311,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath("WorkshopParts:modulate")
 tracks/0/interp = 1
@@ -400,6 +404,83 @@ script = ExtResource( 5 )
 
 [node name="BackLayer" type="CanvasLayer" parent="."]
 
+[node name="Nutcracker" type="ColorRect" parent="BackLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nussknacker" type="Sprite" parent="BackLayer/Nutcracker"]
+position = Vector2( 509, 300 )
+scale = Vector2( 0.78735, 0.78735 )
+texture = ExtResource( 31 )
+
+[node name="GLGFraes" type="TouchScreenButton" parent="BackLayer/Nutcracker/Nussknacker"]
+visible = false
+position = Vector2( 137.618, 134.417 )
+scale = Vector2( 0.53394, 0.111886 )
+normal = ExtResource( 3 )
+
+[node name="GLGDreh" type="TouchScreenButton" parent="BackLayer/Nutcracker/Nussknacker"]
+visible = false
+position = Vector2( 251.232, 211.227 )
+scale = Vector2( 0.537941, 0.103885 )
+normal = ExtResource( 3 )
+
+[node name="NutCracker1" type="TouchScreenButton" parent="BackLayer/Nutcracker/Nussknacker"]
+visible = false
+position = Vector2( -435.256, 148.819 )
+scale = Vector2( 0.425927, 0.106552 )
+normal = ExtResource( 3 )
+
+[node name="NutCracker2" type="TouchScreenButton" parent="BackLayer/Nutcracker/Nussknacker"]
+visible = false
+position = Vector2( -96.0123, -160.02 )
+scale = Vector2( 0.259905, 0.719964 )
+normal = ExtResource( 3 )
+
+[node name="DialogBox" type="ColorRect" parent="BackLayer/Nutcracker"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.729412, 0.729412, 0.729412, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note2" type="Sprite" parent="BackLayer/Nutcracker/DialogBox"]
+position = Vector2( 542.677, 320 )
+scale = Vector2( 0.48824, 0.488241 )
+texture = ExtResource( 30 )
+
+[node name="DialogOkButtonNC" type="TouchScreenButton" parent="BackLayer/Nutcracker/DialogBox"]
+position = Vector2( 699.294, 383.8 )
+scale = Vector2( 0.100854, 0.135635 )
+normal = ExtResource( 3 )
+
+[node name="Content" type="Label" parent="BackLayer/Nutcracker/DialogBox"]
+margin_left = 267.0
+margin_top = 200.0
+margin_right = 775.0
+margin_bottom = 379.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+text = "Alle Schüler und SchülerInnen stellen im
+1. Jahrgang einen Nussknacker her."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TouchScreenButton" parent="BackLayer/Nutcracker"]
+position = Vector2( 111.22, 592.973 )
+rotation = 3.14159
+scale = Vector2( 0.160173, 0.12588 )
+normal = ExtResource( 6 )
+
 [node name="PadBackground" type="ColorRect" parent="BackLayer"]
 visible = false
 anchor_right = 1.0
@@ -440,12 +521,13 @@ scale = Vector2( 0.89914, 0.89914 )
 texture = ExtResource( 8 )
 
 [node name="Audio1" type="LineEdit" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 margin_left = -480.0
 margin_top = -141.0
 margin_right = -402.0
 margin_bottom = -87.0
 theme = ExtResource( 15 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -455,12 +537,13 @@ __meta__ = {
 }
 
 [node name="Audio2" type="LineEdit" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 margin_left = -295.0
 margin_top = -137.0
 margin_right = -220.0
 margin_bottom = -84.0
 theme = ExtResource( 15 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -470,12 +553,13 @@ __meta__ = {
 }
 
 [node name="Audio3" type="LineEdit" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 margin_left = -101.0
 margin_top = -138.0
 margin_right = -25.0
 margin_bottom = -86.0
 theme = ExtResource( 15 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 max_length = 1
@@ -485,36 +569,43 @@ __meta__ = {
 }
 
 [node name="OpenAngleGrinder" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( -418.409, 116.391 )
 scale = Vector2( 0.270628, 0.394452 )
 normal = ExtResource( 3 )
 
 [node name="OpenAngleGrinder2" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( -561.625, 116.391 )
 scale = Vector2( 0.176908, 0.205283 )
 normal = ExtResource( 3 )
 
 [node name="OpenFireBasket" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( -185.233, 116.391 )
 scale = Vector2( 0.462265, 0.394452 )
 normal = ExtResource( 3 )
 
 [node name="OpenSmithing" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( 197.716, 116.391 )
 scale = Vector2( 0.463738, 0.394452 )
 normal = ExtResource( 3 )
 
 [node name="PlayAudio1" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( -532.06, -303.777 )
 scale = Vector2( 0.214999, 0.246051 )
 normal = ExtResource( 3 )
 
 [node name="PlayAudio2" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( -341.26, -302.943 )
 scale = Vector2( 0.214999, 0.246051 )
 normal = ExtResource( 3 )
 
 [node name="PlayAudio3" type="TouchScreenButton" parent="BackLayer/Firebasket/Feuerkorbraetsel_low"]
+visible = false
 position = Vector2( -154.625, -304.61 )
 scale = Vector2( 0.214999, 0.246051 )
 normal = ExtResource( 3 )
@@ -651,14 +742,14 @@ angle = 221.5
 angle_random = 0.76
 scale_amount = 0.05
 scale_amount_random = 0.72
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 
 [node name="Label" type="Label" parent="BackLayer/Firebasket"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.854902, 0.294118, 1 )
 custom_colors/font_color_shadow = Color( 1, 0.466667, 0, 0.34902 )
 custom_constants/shadow_offset_x = 2
@@ -675,6 +766,40 @@ position = Vector2( 111.22, 592.973 )
 rotation = 3.14159
 scale = Vector2( 0.160173, 0.12588 )
 normal = ExtResource( 6 )
+
+[node name="DialogBox" type="ColorRect" parent="BackLayer/Firebasket"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.729412, 0.729412, 0.729412, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note2" type="Sprite" parent="BackLayer/Firebasket/DialogBox"]
+position = Vector2( 542.677, 320 )
+scale = Vector2( 0.48824, 0.488241 )
+texture = ExtResource( 30 )
+
+[node name="DialogOkButtonFB" type="TouchScreenButton" parent="BackLayer/Firebasket/DialogBox"]
+position = Vector2( 699.294, 383.8 )
+scale = Vector2( 0.100854, 0.135635 )
+normal = ExtResource( 3 )
+
+[node name="Content" type="Label" parent="BackLayer/Firebasket/DialogBox"]
+margin_left = 267.0
+margin_top = 200.0
+margin_right = 775.0
+margin_bottom = 379.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+text = "Der Feuerkorb wird im
+2. Jahrgang erzeugt."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Automation" type="ColorRect" parent="BackLayer"]
 visible = false
@@ -705,7 +830,7 @@ gravity = Vector2( 0, 0 )
 damping = 100.0
 scale_amount = 0.01
 scale_amount_random = 0.15
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 5 )
 
 [node name="ToothArea1" type="Area2D" parent="BackLayer/Automation/AutomationSponge"]
 position = Vector2( 4.61823, -0.513184 )
@@ -713,31 +838,32 @@ rotation = -0.0750492
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/AutomationSponge/ToothArea1"]
 position = Vector2( -14.3684, -48.2364 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="ToothArea2" type="Area2D" parent="BackLayer/Automation/AutomationSponge"]
 position = Vector2( -36.4339, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/AutomationSponge/ToothArea2"]
 position = Vector2( -14.3684, -48.2364 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="ToothArea3" type="Area2D" parent="BackLayer/Automation/AutomationSponge"]
 position = Vector2( -63.631, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/AutomationSponge/ToothArea3"]
 position = Vector2( -14.3684, -48.2364 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="ToothArea4" type="Area2D" parent="BackLayer/Automation/AutomationSponge"]
 position = Vector2( -105.71, -3.59207 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/AutomationSponge/ToothArea4"]
 position = Vector2( -14.3684, -48.2364 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Toothbrush" type="Sprite" parent="BackLayer/Automation"]
-position = Vector2( 828.509, 572.037 )
+position = Vector2( 811.86, 553.01 )
+rotation = 3.14159
 scale = Vector2( 0.304207, 0.304207 )
 texture = ExtResource( 23 )
 
@@ -751,27 +877,27 @@ position = Vector2( -1.23145, -1.23132 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/Toothbrush/ToothbrushArea1"]
 position = Vector2( -545.306, -6.98132 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="ToothbrushArea2" type="Area2D" parent="BackLayer/Automation/Toothbrush"]
 position = Vector2( 148.156, 5.42981 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/Toothbrush/ToothbrushArea2"]
 position = Vector2( -545.306, -6.98132 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="ToothbrushArea3" type="Area2D" parent="BackLayer/Automation/Toothbrush"]
 position = Vector2( 69.8115, 3.8783 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackLayer/Automation/Toothbrush/ToothbrushArea3"]
 position = Vector2( -545.306, -6.98132 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="BackLayer/Automation"]
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BackLayer/Automation"]
-anims/showSpongeNumber = SubResource( 7 )
+anims/showSpongeNumber = SubResource( 8 )
 
 [node name="ColorRect" type="ColorRect" parent="BackLayer/Automation"]
 modulate = Color( 1, 1, 1, 0 )
@@ -801,13 +927,13 @@ angle = 221.5
 angle_random = 0.76
 scale_amount = 0.05
 scale_amount_random = 0.72
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 3 )
 
 [node name="Label" type="Label" parent="BackLayer/Automation"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.854902, 0.294118, 1 )
 custom_colors/font_color_shadow = Color( 1, 0.466667, 0, 0.34902 )
 custom_constants/shadow_offset_x = 2
@@ -824,6 +950,40 @@ position = Vector2( 111.22, 592.973 )
 rotation = 3.14159
 scale = Vector2( 0.160173, 0.12588 )
 normal = ExtResource( 6 )
+
+[node name="DialogBox" type="ColorRect" parent="BackLayer/Automation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.729412, 0.729412, 0.729412, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note2" type="Sprite" parent="BackLayer/Automation/DialogBox"]
+position = Vector2( 542.677, 320 )
+scale = Vector2( 0.48824, 0.488241 )
+texture = ExtResource( 30 )
+
+[node name="DialogOkButtonAM" type="TouchScreenButton" parent="BackLayer/Automation/DialogBox"]
+position = Vector2( 699.294, 383.8 )
+scale = Vector2( 0.100854, 0.135635 )
+normal = ExtResource( 3 )
+
+[node name="Content" type="Label" parent="BackLayer/Automation/DialogBox"]
+margin_left = 267.0
+margin_top = 126.0
+margin_right = 775.0
+margin_bottom = 461.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+text = "Im 5. Jahrgang lernst du etwas über Steuerung- und Regelungstechnik, Programmierung und Automatisierung. 
+Zum Beispiel kannst du dir deine Zahnpflege programmieren."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PadBackground2" type="ColorRect" parent="BackLayer"]
 visible = false
@@ -906,7 +1066,7 @@ margin_left = -529.0
 margin_top = -877.0
 margin_right = 500.0
 margin_bottom = -650.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -944,9 +1104,9 @@ margin_left = 267.0
 margin_top = 110.0
 margin_right = 775.0
 margin_bottom = 437.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.258824, 0.258824, 0.258824, 1 )
-text = "Du befindest dich nun in der Werkstatt der HTL. Hier lernst du handwerkliche Fähigkeiten und baust jedes Jahr neue Werkstücke. Die Tür ins freie ist mit einem Code gesichert. Löse die Rätsel der einzelnen Werkstücke um das Gebäude zu verlassen."
+text = "Du befindest dich nun in der Werkstatt der HTL. Hier lernst du handwerkliche Fähigkeiten und baust jedes Jahr neue Werkstücke. Die Tür ins Freie ist mit einem Code gesichert. Löse die Rätsel der einzelnen Werkstücke, um das Gebäude zu verlassen."
 align = 1
 valign = 1
 autowrap = true
@@ -987,8 +1147,13 @@ scale = Vector2( 0.695355, 0.897115 )
 normal = ExtResource( 3 )
 
 [node name="Class1" type="TouchScreenButton" parent="WorkshopParts"]
-position = Vector2( -414.132, 132.721 )
-scale = Vector2( 0.2565, 0.531705 )
+position = Vector2( -414.132, 235.553 )
+scale = Vector2( 0.2565, 0.360319 )
+normal = ExtResource( 3 )
+
+[node name="Class1_2" type="TouchScreenButton" parent="WorkshopParts"]
+position = Vector2( -414.132, 59.5209 )
+scale = Vector2( 0.138672, 0.292786 )
 normal = ExtResource( 3 )
 
 [node name="Class4" type="TouchScreenButton" parent="WorkshopParts"]
@@ -999,6 +1164,11 @@ normal = ExtResource( 3 )
 [node name="Class3" type="TouchScreenButton" parent="WorkshopParts"]
 position = Vector2( 134.69, -9.95744 )
 scale = Vector2( 0.396893, 0.602487 )
+normal = ExtResource( 3 )
+
+[node name="CodeEnter2" type="TouchScreenButton" parent="WorkshopParts"]
+position = Vector2( -286.203, 60.4119 )
+scale = Vector2( 0.112365, 0.291039 )
 normal = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1015,9 +1185,9 @@ scale = Vector2( 0.160173, 0.12588 )
 normal = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FifthClassNumber = SubResource( 10 )
-anims/HideParts = SubResource( 11 )
-anims/ShowParts = SubResource( 12 )
+anims/FifthClassNumber = SubResource( 11 )
+anims/HideParts = SubResource( 12 )
+anims/ShowParts = SubResource( 13 )
 
 [node name="SmithingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 18 )
@@ -1027,6 +1197,12 @@ stream = ExtResource( 19 )
 
 [node name="AngleGrinderSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
+[connection signal="released" from="BackLayer/Nutcracker/Nussknacker/GLGFraes" to="." method="_on_GLGFraes_released"]
+[connection signal="released" from="BackLayer/Nutcracker/Nussknacker/GLGDreh" to="." method="_on_GLGDreh_released"]
+[connection signal="released" from="BackLayer/Nutcracker/Nussknacker/NutCracker1" to="." method="_on_NutCracker_released"]
+[connection signal="released" from="BackLayer/Nutcracker/Nussknacker/NutCracker2" to="." method="_on_NutCracker_released"]
+[connection signal="released" from="BackLayer/Nutcracker/DialogBox/DialogOkButtonNC" to="." method="_on_DialogOkButtonNC_released"]
+[connection signal="released" from="BackLayer/Nutcracker/BackButton" to="." method="_on_BackButtonNC_released"]
 [connection signal="released" from="BackLayer/SkipButton" to="." method="_on_SkipButton_released"]
 [connection signal="text_changed" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio1" to="." method="FifthClassCodeChanged"]
 [connection signal="text_changed" from="BackLayer/Firebasket/Feuerkorbraetsel_low/Audio2" to="." method="FifthClassCodeChanged"]
@@ -1043,6 +1219,7 @@ stream = ExtResource( 17 )
 [connection signal="released" from="BackLayer/Firebasket/AngleGrinderPU/SkipButton2" to="BackLayer/Firebasket" method="_on_SkipButton2_released"]
 [connection signal="released" from="BackLayer/Firebasket/SmithingPU/SkipButton2" to="BackLayer/Firebasket" method="_on_SkipButton2_released"]
 [connection signal="released" from="BackLayer/Firebasket/BackButtonFromFifthC" to="." method="_on_BackButtonFromFifthC_released"]
+[connection signal="released" from="BackLayer/Firebasket/DialogBox/DialogOkButtonFB" to="." method="_on_DialogOkButtonFB_released"]
 [connection signal="area_exited" from="BackLayer/Automation/AutomationSponge/ToothArea1" to="BackLayer/Automation" method="_on_ToothArea_area_exited"]
 [connection signal="area_exited" from="BackLayer/Automation/AutomationSponge/ToothArea2" to="BackLayer/Automation" method="_on_ToothArea_area_exited"]
 [connection signal="area_exited" from="BackLayer/Automation/AutomationSponge/ToothArea3" to="BackLayer/Automation" method="_on_ToothArea_area_exited"]
@@ -1051,6 +1228,7 @@ stream = ExtResource( 17 )
 [connection signal="released" from="BackLayer/Automation/Toothbrush/TouchScreenButton" to="BackLayer/Automation" method="_on_Toothbrush_released"]
 [connection signal="timeout" from="BackLayer/Automation/Timer" to="BackLayer/Automation" method="_on_Timer_timeout"]
 [connection signal="released" from="BackLayer/Automation/BackButtonFromSpbob" to="." method="_on_BackButtonFromSpbob_released"]
+[connection signal="released" from="BackLayer/Automation/DialogBox/DialogOkButtonAM" to="." method="_on_DialogOkButtonAM_released"]
 [connection signal="released" from="BackLayer/Pad/1" to="BackLayer/Pad" method="_on_1_released"]
 [connection signal="released" from="BackLayer/Pad/2" to="BackLayer/Pad" method="_on_2_released"]
 [connection signal="released" from="BackLayer/Pad/3" to="BackLayer/Pad" method="_on_3_released"]
@@ -1069,8 +1247,10 @@ stream = ExtResource( 17 )
 [connection signal="released" from="WorkshopParts/Class5" to="." method="_on_Class5_released"]
 [connection signal="released" from="WorkshopParts/Class2" to="." method="_on_Class2_released"]
 [connection signal="released" from="WorkshopParts/Class1" to="." method="_on_Class1_released"]
+[connection signal="released" from="WorkshopParts/Class1_2" to="." method="_on_Class1_released"]
 [connection signal="released" from="WorkshopParts/Class4" to="." method="_on_Class4_released"]
 [connection signal="released" from="WorkshopParts/Class3" to="." method="_on_Class3_released"]
+[connection signal="released" from="WorkshopParts/CodeEnter2" to="." method="_on_CodeEnter_released"]
 [connection signal="released" from="BackButton" to="." method="_on_BackButton_released"]
 [connection signal="finished" from="SmithingSound" to="." method="AudioFinished"]
 [connection signal="finished" from="WeldingSound" to="." method="AudioFinished"]

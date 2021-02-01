@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	ZZInGameUi.showCurrentTimer()
+	$CanvasLayer/DialogBox/Content.text = Globals.getRewardContent("rewardmsg.txt")
 
 func _on_feedbackButton_released() -> void:
 	OS.shell_open("mailto:reia@htlvb.at?subject=Feedback%20zum%20HTL-Adventure-Game")

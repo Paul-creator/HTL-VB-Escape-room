@@ -78,6 +78,11 @@ func _on_BackButton_released() -> void:
 func _on_BackButtonFromMoreInfos_released() -> void:
 	Globals.removeElement("HOLOLENS_CAD")
 	$CanvasLayer/MoreInfosContent.hide()
+	
+	if Globals.openVideos.size() > 0:
+		for vid in Globals.openVideos:
+			Globals.removeElement(vid)
+		Globals.openVideos.clear()
 
 func _on_MoreInfos_released() -> void:
 	if CanPress(): 

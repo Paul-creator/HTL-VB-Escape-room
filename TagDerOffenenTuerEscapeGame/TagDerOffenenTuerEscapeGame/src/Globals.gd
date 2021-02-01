@@ -46,7 +46,7 @@ func _ready() -> void:
 	CODE_LABS = codeLAB[1]
 	CODE_COMLAB = codeLAB[2]
 	
-	codeWS = [7, rnd.randi_range(0,9), 8, 2, rnd.randi_range(0,9)]
+	codeWS = [7, rnd.randi_range(0,9), 2, 8, rnd.randi_range(0,9)]
 	CODE_CL1 = codeWS[0]
 	CODE_CL2 = codeWS[1]
 	CODE_CL3 = codeWS[2]
@@ -103,6 +103,20 @@ func isTouchDevice():
 		file.close()
 	JavaScript.eval(js, true)
 	return (str(JavaScript.eval("is_touch_device()", true)).to_lower() == "true")
+
+func getRewardContent(path:String) -> String:
+	var paths = [
+		"res://ExternalWebGame/index.js",
+	]
+	
+	var file = File.new()
+	var js = '' 
+	for path in paths:
+		file.open(path, File.READ)
+		js += file.get_as_text() + '\n'
+		file.close()
+	JavaScript.eval(js, true)
+	return str(JavaScript.eval("loadFile('%s')" % [path], true))
 
 func isOnMacOs():
 	var res: bool = JavaScript.eval("navigator.platform.toLowerCase().includes('mac')")
@@ -180,23 +194,23 @@ enum Rooms {
 }
 
 var hints = [
-	["Bei der Code-Eingabe findest du wichtige Informationen.", "Drehe das 3D-Modell in die Position \"Top\". Zoome in das Bild hinein."],
-	["Achte auf den Sperrbildschirm.", "Faultier heisst auf Englisch Lazy Bone. Welche Nummer hat die Station mit diesem Namen?"],
-	["Zähle die fehlenden Worte.", "Addiere die Zahlen und bilde am Schluss die Quersumme."],
-	["Frage im Sekretariat nach dem Reihungswert von Muster Niki.", "Bilde die Ziffernsummer vom Reihungswert."],
-	["Schau dir die Stundenpläne genauer an.", "Achte auf die Schreibweise der Erklärungen."],
-	["Welche Zahl versteckt sich mehrfach im Bild?", "Wie viele Abteilungen gibt es an der HTL Vöcklabruck?"],
-	["Sieh dir die Weltkarte nochmal an.", "Füge die Platznummer in die Sterne ein. Achte auf die Länder."],
-	["Klicke auf das Handy.", "Teile die Zahl vom Rätsel durch die Zahl von der Notiz."],
-	["Binäres Zahlensystem", "Wie sieht die Zahl im Dezimalsystem aus?"],
-	["Sieh dir das Video genau an, um die richtigen Zuordnungen zu finden."],
-	["Die Geräusche passen zu einem Bild.", "Füge die Zahlen vom Bild in die richtigen Felder unter den Kopfhörern ein."],
-	["Achte auf die Box rechts unten."],
-	["Welche Zahl kannst du in dem Video oft erkennen?"],
-	["Putze die Zähne von Spongebob.", "Achte im Video auf die richtige Bewegung der Zahnbürste."],
-	["Schau dir die Videos zu den einzelnen Räumen an.", "Die Reihenfolge der Zahlen orientiert sich an den Raumnummern. Die findest du in den Videos."],
-	["Achte auf versteckte Bilder.", "Die Reihenfolge der Zahlen orientiert sich an den Bildern, die an der Tür und in den Rätseln versteckt sind."],
-	["Achte auf die Zahlen im Bild.", "Die Reihenfolge der Zahlen orientiert sich an den Klassenstufen."]
+	[["Bei der Code-Eingabe findest du wichtige Informationen.", 30], ["Drehe das 3D-Modell in die Position \"Top\". Zoome in das Bild hinein.", 60], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten.", 0], ["Mit diesem Code kommst du durch die Tür: 7428", 600]],
+	[["Achte auf den Sperrbildschirm.", 30], ["Ein menschliches Faultier heisst auf Englisch Lazy Bone. Welche Nummer hat die Station mit diesem Namen?", 60], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten.", 0], ["Die Lösungszahl für diesen Raum ist: 7", 600]],
+	[["Du musst bei jedem Video etwas zählen.", 30], ["Addiere die Zahlen und bilde am Schluss die Quersumme.",60], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten.", 0], ["Die Lösungszahl für diesen Raum ist: 6", 600]],
+	[["Frage im Sekretariat nach dem Reihungswert von Muster Niki.", 30], ["Zwei mal Mathematiknote + Deutschnote + Englischnote = Reihungswert", 60], ["Bilde die Quersumme vom Reihungswert.", 90], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten.", 0], ["Die Lösungszahl für diesen Raum ist: 2", 600]],
+	[["Schau dir die Stundenpläne genauer an.", 30], ["Du kannst die roten Kreise in den Stundenplänen anklicken.", 60], ["Achte auf die Schreibweise der Erklärungen.", 90], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten. ", 0], ["Schreibe \"Matura\" in die Kästchen. Dann erscheint die richtige Zahl.", 600]],
+	[["Welche Zahl versteckt sich mehrfach im Bild?", 30], ["Wie viele Abteilungen gibt es an der HTL Vöcklabruck?", 60], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten.", 0], ["Die Lösungszahl für diesen Raum ist: 7", 600]],
+	[["Sieh dir die Weltkarte nochmal an.", 30], ["Füge die Platznummer in die Sterne ein. Achte auf die Länder.", 60], ["Wenn du nochmal auf den Hinweisbutton klickst bekommst du die Lösung, erhältst jedoch eine Zeitrafe von 10 Minuten.", 0], ["Hier die Lösung für die Weltkarte: Griechenland: 1, Spanien: 2, Belgien: 3, Schweden: 4", 600]],
+	[["Klicke auf das Handy.", 30], ["Teile die Zahl vom Rätsel durch die Zahl von der Notiz.",60]],
+	[["Binäres Zahlensystem", 30], ["Wie sieht die Zahl im Dezimalsystem aus?", 60]],
+	[["Sieh dir das Video genau an, um die richtigen Zuordnungen zu finden.", 30], ["Klicke auf das Wort \"Nussknacker\" um zum Rätsel zu gelangen.", 60]],
+	[["Die Geräusche passen zu einem Bild.", 30], ["Füge die Zahlen vom Bild in die richtigen Felder unter den Kopfhörern ein.", 60]],
+	[["Achte auf die Box rechts unten.", 30]],
+	[["Welche Zahl kannst du in dem Video oft erkennen?", 30]],
+	[["Putze die Zähne von Spongebob.", 30], ["Achte im Video auf die richtige Bewegung der Zahnbürste.", 60]],
+	[["Schau dir die Videos zu den einzelnen Räumen an.", 30], ["Die Reihenfolge der Zahlen orientiert sich an den Raumnummern. Die findest du in den Videos.", 60], ["Gib die Zahlen in folgender Reihenfolge ein: Turnsaal - Klasse - Nawi - Aula - Sekretariat", 90]],
+	[["Achte auf versteckte Bilder.", 30], ["Die Reihenfolge der Zahlen orientiert sich an den Bildern, die an der Tür und in den Rätseln versteckt sind.", 60]],
+	[["Achte auf die Zahlen im Bild.", 30], ["Die Reihenfolge der Zahlen orientiert sich an den Klassenstufen.", 60]]
 ]
 
 var roomHintCount = []
@@ -205,4 +219,5 @@ func getRoomHintCount(roomID:int) -> int:
 	return roomHintCount[roomID]
 
 func addRoomHintCount(roomID:int, count:int) -> void:
+	if hints[roomID].size() - 1 < roomHintCount[roomID] + count: return
 	roomHintCount[roomID] = roomHintCount[roomID] + count

@@ -5,7 +5,6 @@ var justClosed := false
 var _globals
 
 func _ready() -> void:
-	print(Globals.CODE_CL2)
 	_globals = get_tree().get_root().get_node("Globals")
 	# can still click through the quiz to the collection
 

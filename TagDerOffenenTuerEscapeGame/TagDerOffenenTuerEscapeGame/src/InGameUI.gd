@@ -14,6 +14,7 @@ var theoryWarpLimit := 1800.0
 var labWarpTime := 1800.0
 var isInBuildingID := 0
 var hasShownWarpHint := [false, false]
+var hasHidden := false
 
 func _ready() -> void:
 	hideAll()
@@ -108,19 +109,27 @@ func _on_DialogOkButton_released() -> void:
 func _on_HintButton_pressed() -> void:
 	var roomHintCount = Globals.getRoomHintCount(Globals.currentRoom)
 	var timePenalty
+	
+	# REMOVE VIDEOS
 	if Globals.openVideos.size() > 0:
 		for vid in Globals.openVideos:
 			Globals.removeElement(vid)
 		Globals.openVideos.clear()
-	if roomHintCount == 0: 
-		timePenalty = 30
-		showHint(Globals.hints[Globals.currentRoom][0], timePenalty)
-		Globals.addRoomHintCount(Globals.currentRoom, 1)
-	else: 
-		timePenalty = 60
-		if roomHintCount > 1: timePenalty = 0
-		showHint(Globals.hints[Globals.currentRoom][Globals.hints[Globals.currentRoom].size() - 1], timePenalty)
-		if roomHintCount == 1: Globals.addRoomHintCount(Globals.currentRoom, 1)
+	
+	timePenalty = Globals.hints[Globals.currentRoom][roomHintCount][1]
+	showHint(Globals.hints[Globals.currentRoom][roomHintCount][0], timePenalty)
+	Globals.hints[Globals.currentRoom][roomHintCount][1] = 0
+	Globals.addRoomHintCount(Globals.currentRoom, 1)
+	
+#	if roomHintCount == 0:
+#		timePenalty = 30
+#		showHint(Globals.hints[Globals.currentRoom][0], timePenalty)
+#		Globals.addRoomHintCount(Globals.currentRoom, 1)
+#	else: 
+#		timePenalty = 60
+#		if roomHintCount > 1: timePenalty = 0
+#		showHint(Globals.hints[Globals.currentRoom][Globals.hints[Globals.currentRoom].size() - 1], timePenalty)
+#		if roomHintCount == 1: Globals.addRoomHintCount(Globals.currentRoom, 1)
 	if timePenalty > 0: 
 		$CanvasLayer/PenaltyViewer.text = str("+ ", timePenalty)
 		$AnimationPlayer.play("showPenalty")
@@ -131,6 +140,7 @@ func _on_FullScreen_pressed() -> void:
 	else: $CanvasLayer/FullScreen.texture_normal = load("res://graphics/menu/fullscreen.png")
 
 func hideAllVisibleTSButtons() -> void:
+	if hasHidden: return
 	var level
 	var globalScenes = ["Globals", "ZZInGameUi"]
 	
@@ -143,16 +153,21 @@ func hideAllVisibleTSButtons() -> void:
 		if c.get_child_count() > 0:
 			get_allChildren(c)
 		if c is TouchScreenButton and c.visible: 
-			print(c.get_path().to_lower())
-			if "map" in c.get_path().to_lower(): continue
+			var isMap := false
+			for i in c.get_path().get_name_count():
+				if "map" in c.get_path().get_name(i).to_lower():
+					isMap = true
+					break;
+			if isMap: continue
 			c.hide()
 			hiddenTSButtons.append(c)
+	hasHidden = true
 
 func get_allChildren(parent) -> void:
 	for c in parent.get_children():
 		if c.get_child_count() > 0:
 			get_allChildren(c)
-		if c is TouchScreenButton and c.visible: 
+		if c is TouchScreenButton and c.visible:
 			var isMap := false
 			for i in c.get_path().get_name_count():
 				if "map" in c.get_path().get_name(i).to_lower():
@@ -167,6 +182,7 @@ func showAllPrevVisibleTSButtons() -> void:
 		if c != null:
 			c.show()
 	hiddenTSButtons.clear()
+	hasHidden = false
 
 func _on_PauseOkButton_released() -> void:
 	$CanvasLayer/PauseMenu.hide()

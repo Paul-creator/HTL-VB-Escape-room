@@ -31,6 +31,7 @@ func _on_Star_released() -> void:
 	ShowCode("")
 
 func _on_BackButton_released() -> void:
+	ZZInGameUi.showAllPrevVisibleTSButtons()
 	hide()
 	get_parent().get_node("PadBackground2").hide()
 	get_parent().get_parent().get_node("WorkshopOverview/ShowAllParts").show()

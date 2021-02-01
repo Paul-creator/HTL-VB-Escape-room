@@ -76,8 +76,19 @@ func _on_SkipButton_released() -> void:
 		Globals.removeElement("NUTCRACKER_KEEPVID")
 		$BackLayer/SkipButton.hide()
 		$BackLayer/VideoRectBackground.hide()
-		$WorkshopParts.show()
-		$BackButton.show()
+		$BackLayer/Nutcracker.show()
+	elif Globals.idExists("DREHEN_KEEPVID"):
+		Globals.removeElement("DREHEN_KEEPVID")
+		$BackLayer/SkipButton.hide()
+		$BackLayer/VideoRectBackground.hide()
+	elif Globals.idExists("FRAESEN_KEEPVID"):
+		Globals.removeElement("FRAESEN_KEEPVID")
+		$BackLayer/SkipButton.hide()
+		$BackLayer/VideoRectBackground.hide()
+	elif Globals.idExists("NUTCRACKER_VID_KEEPVID"):
+		Globals.removeElement("NUTCRACKER_VID_KEEPVID")
+		$BackLayer/SkipButton.hide()
+		$BackLayer/VideoRectBackground.hide()
 		OS.shell_open("https://learningapps.org/watch?v=p2dxknd0320")
 	elif Globals.idExists("SERIENFERTIGUNG_KEEPVID"):
 		Globals.removeElement("SERIENFERTIGUNG_KEEPVID")
@@ -173,6 +184,8 @@ func _on_CodeEnter_released() -> void:
 	$BackLayer/Pad.show()
 	$BackLayer/PadBackground2.show()
 	Globals.currentRoom = Globals.Rooms.B_WS
+	ZZInGameUi.hideAllVisibleTSButtons()
+	for c in $BackLayer/Pad.get_children(): if c is TouchScreenButton: c.show()
 
 func _on_CheckEnteredData_released() -> void:
 	checkForCorrectCodeFirebasket()
@@ -181,3 +194,43 @@ func _on_DialogOkButton_released() -> void:
 	$BackLayer/DialogBox.hide()
 	$WorkshopOverview/ShowAllParts.show()
 	$WorkshopOverview/CodeEnter.show()
+
+func _on_DialogOkButtonFB_released() -> void:
+	$BackLayer/Firebasket/DialogBox.hide()
+	for c in $BackLayer/Firebasket/Feuerkorbraetsel_low.get_children():
+		c.show()
+
+func _on_DialogOkButtonAM_released() -> void:
+	$BackLayer/Automation/DialogBox.hide()
+
+func _on_DialogOkButtonNC_released() -> void:
+	$BackLayer/Nutcracker/DialogBox.hide()
+	for c in $BackLayer/Nutcracker/Nussknacker.get_children():
+		c.show()
+		print("SHWON")
+
+func _on_BackButtonNC_released() -> void:
+	$BackLayer/Nutcracker.hide()
+	$BackButton.show()
+	$WorkshopParts.show()
+
+func _on_GLGFraes_released() -> void:
+	print("RELEASED")
+	$BackLayer/VideoRectBackground.show()
+	Globals.showVideo("Videos/Fraesen.webm", 0, 0, 1024, 551, "true", "true", "FRAESEN_KEEPVID", "webm")
+	$BackLayer/SkipButton.show()
+	ZZInGameUi.hideAll()
+
+func _on_GLGDreh_released() -> void:
+	print("RELEASED")
+	$BackLayer/VideoRectBackground.show()
+	Globals.showVideo("Videos/Drehen.webm", 0, 0, 1024, 551, "true", "true", "DREHEN_KEEPVID", "webm")
+	$BackLayer/SkipButton.show()
+	ZZInGameUi.hideAll()
+
+func _on_NutCracker_released() -> void:
+	print("RELEASED")
+	$BackLayer/VideoRectBackground.show()
+	Globals.showVideo("Videos/nussknacker.webm", 0, 0, 1024, 551, "true", "true", "NUTCRACKER_VID_KEEPVID", "webm")
+	$BackLayer/SkipButton.show()
+	ZZInGameUi.hideAll()
