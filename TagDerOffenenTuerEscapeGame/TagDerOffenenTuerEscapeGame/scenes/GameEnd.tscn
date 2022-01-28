@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://graphics/StartEndGame/Ende neu.png" type="Texture" id=1]
+[ext_resource path="res://graphics/StartEndGame/Ende3.png" type="Texture" id=1]
 [ext_resource path="res://graphics/TransparentButton.png" type="Texture" id=2]
 [ext_resource path="res://src/GameEnd.gd" type="Script" id=3]
 [ext_resource path="res://font/besley/Besley-Fatface.otf" type="DynamicFontData" id=4]

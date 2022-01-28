@@ -35,4 +35,14 @@ func changeCode(add:String) -> void:
 	enteredCode = str(enteredCode, add)
 	$CodeEntered.text = enteredCode
 	if enteredCode == rightCode:
+		ZZInGameUi.hideAll()
+		get_tree().get_root().get_node("RoomCAD/VideoLayer/VideoRectBackground").show()
+		get_tree().get_root().get_node("RoomCAD/VideoLayer/SkipButton").show()
+		Globals.showVideo("Videos/CAD_Theorie.webm", 0, 0, 1024, 551, "true", "true", "CADDONE_KEEPVID", "webm")
 		get_parent().get_parent().get_parent().get_node("AnimationPlayer").play("LeaveKeypadToExit")
+
+func _on_SkipButton_released() -> void:
+	Globals.removeElement("CADDONE_KEEPVID")
+	get_tree().get_root().get_node("RoomCAD/VideoLayer/VideoRectBackground").hide()
+	get_tree().get_root().get_node("RoomCAD/VideoLayer/SkipButton").hide()
+	ZZInGameUi.showAll()

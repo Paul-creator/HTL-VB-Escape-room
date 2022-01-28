@@ -8,7 +8,7 @@ var workplacePos := ["AngleGrinder", "Welding", "Smithing"]
 var rnd = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	$BackLayer/DialogBox/Content.text = "Du befindest dich nun in der Werkstatt der HTL. Hier lernst du handwerkliche Fähigkeiten und baust jedes Jahr neue Werkstücke. Die Tür ins freie ist mit einem Code gesichert. Löse die Rätsel der einzelnen Werkstücke um das Gebäude zu verlassen."
+	$BackLayer/DialogBox/Content.text = "Du befindest dich nun in der Werkstatt der HTL. Hier lernst du handwerkliche Fähigkeiten und baust jedes Jahr neue Werkstücke. Die Tür ins Freie ist mit einem Code gesichert. Löse die Rätsel der einzelnen Werkstücke um das Gebäude zu verlassen."
 	$BackLayer/DialogBox.show()
 	rnd.randomize()
 	_globals = get_tree().get_root().get_node("Globals")
@@ -43,13 +43,15 @@ func _on_BackButton_released() -> void:
 		$AnimationPlayer.play("HideParts")
 
 func _on_Class1_released() -> void:
-	$BackLayer/VideoRectBackground.show()
-	Globals.showVideo("Videos/DrehenUndFertigeWerkstuecke.webm", 0, 0, 1024, 551, "true", "true", "NUTCRACKER_KEEPVID", "webm")
-	$BackLayer/SkipButton.show()
+#	$BackLayer/VideoRectBackground.show()
+#	Globals.showVideo("Videos/DrehenUndFertigeWerkstuecke.webm", 0, 0, 1024, 551, "true", "true", "NUTCRACKER_KEEPVID", "webm")
+#	$BackLayer/SkipButton.show()
 	$BackButton.hide()
 	$WorkshopParts.hide()
-	ZZInGameUi.hideAll()
+	$BackLayer/Nutcracker.show()
+#	ZZInGameUi.hideAll()
 	Globals.currentRoom = Globals.Rooms.WS_NUTCRACKER
+	
 
 func _on_Class4_released() -> void:
 	isInClassSubMenu = true
@@ -72,11 +74,11 @@ func _on_SkipButton_released() -> void:
 		$BackLayer/SkipButton.hide()
 		$BackLayer/VideoRectBackground.hide()
 		$BackLayer/Automation.show()
-	elif Globals.idExists("NUTCRACKER_KEEPVID"):
-		Globals.removeElement("NUTCRACKER_KEEPVID")
-		$BackLayer/SkipButton.hide()
-		$BackLayer/VideoRectBackground.hide()
-		$BackLayer/Nutcracker.show()
+#	elif Globals.idExists("NUTCRACKER_KEEPVID"):
+#		Globals.removeElement("NUTCRACKER_KEEPVID")
+#		$BackLayer/SkipButton.hide()
+#		$BackLayer/VideoRectBackground.hide()
+#		$BackLayer/Nutcracker.show()
 	elif Globals.idExists("DREHEN_KEEPVID"):
 		Globals.removeElement("DREHEN_KEEPVID")
 		$BackLayer/SkipButton.hide()
